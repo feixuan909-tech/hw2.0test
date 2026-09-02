@@ -4569,9 +4569,135 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
   }
 }
 </style>
+<style id="mobile-font-overview-fix-alpha61">
+/* =========================================================
+   alpha.61｜手機字體重整＋總覽固定表頭捲動修正
+   - 手機徹底避開 PMingLiU / Songti / generic serif 的明體 fallback
+   - 手機改用穩定的繁中無襯線字體堆疊，保留桌機 2.0 的層級與粗細
+   - 「完整展開」仍由整頁上下滑
+   - 「固定表頭」恢復表格容器自己的上下＋左右雙向捲動
+   ========================================================= */
+@media(max-width:700px){
+
+  /* 手機統一字體基底：避免落到細明體／新細明體類型 */
+  html.mobile-ux,
+  html.mobile-ux body{
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",
+                -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif!important;
+  }
+
+  /* alpha.59/60 曾指定襯線字的區域，在手機全部改回同一套 sans。
+     視覺層級仍靠字重、字級、顏色與間距，而不是明體 fallback。 */
+  html.mobile-ux .archive-brand-title,
+  html.mobile-ux .section-title,
+  html.mobile-ux .side-head>b,
+  html.mobile-ux .mobile-category-current,
+  html.mobile-ux .cat-name,
+  html.mobile-ux .student-record-section h4,
+  html.mobile-ux .summary h4,
+  html.mobile-ux .history-table th,
+  html.mobile-ux .history-table td,
+  html.mobile-ux .overview-table th,
+  html.mobile-ux .overview-table td,
+  html.mobile-ux .student-record-table th,
+  html.mobile-ux .student-record-table td,
+  html.mobile-ux .summary-line,
+  html.mobile-ux .progress-tab,
+  html.mobile-ux .current-status-heading,
+  html.mobile-ux .current-status-heading b{
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",
+                -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif!important;
+    font-style:normal!important;
+  }
+
+  html.mobile-ux .archive-brand-title{
+    font-weight:800!important;
+    letter-spacing:.025em!important;
+  }
+  html.mobile-ux .section-title{
+    font-size:18px!important;
+    font-weight:800!important;
+    line-height:1.3!important;
+    letter-spacing:.02em!important;
+    color:#173f35!important;
+  }
+  html.mobile-ux .side-head>b{
+    font-size:16px!important;
+    font-weight:800!important;
+    line-height:1.3!important;
+    letter-spacing:.01em!important;
+  }
+  html.mobile-ux .mobile-category-current{
+    font-weight:700!important;
+  }
+  html.mobile-ux .cat-name{
+    font-weight:700!important;
+  }
+  html.mobile-ux .history-table th,
+  html.mobile-ux .overview-table th,
+  html.mobile-ux .student-record-table th{
+    font-weight:700!important;
+  }
+  html.mobile-ux .history-table td,
+  html.mobile-ux .overview-table td,
+  html.mobile-ux .student-record-table td{
+    font-weight:400!important;
+  }
+
+  /* 功能性小字同樣明確指定 sans，避免任何舊規則回退到 serif */
+  html.mobile-ux .small,
+  html.mobile-ux .field label,
+  html.mobile-ux .progress-label,
+  html.mobile-ux .btn,
+  html.mobile-ux .input,
+  html.mobile-ux input,
+  html.mobile-ux select,
+  html.mobile-ux textarea,
+  html.mobile-ux .status-btn,
+  html.mobile-ux .cloud-status-long,
+  html.mobile-ux .cloud-sync-note,
+  html.mobile-ux .cloud-security-note,
+  html.mobile-ux .archive-core-version{
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",
+                -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif!important;
+  }
+
+  /* 完整展開：仍維持 alpha.59 的整頁上下滑 */
+  html.mobile-ux #overviewPanel:not(.overview-sticky-mode) .overview-table-wrap{
+    max-height:none!important;
+    height:auto!important;
+    overflow-x:auto!important;
+    overflow-y:visible!important;
+    touch-action:pan-x pan-y!important;
+    overscroll-behavior:auto!important;
+  }
+
+  /* 固定表頭：這是唯一需要恢復「表格內部垂直捲動」的總覽模式。
+     同時保留水平捲動，資料欄位再多也能上下＋左右查看。 */
+  html.mobile-ux #overviewPanel.overview-sticky-mode .overview-table-wrap{
+    height:auto!important;
+    max-height:180px!important;
+    overflow-x:auto!important;
+    overflow-y:auto!important;
+    -webkit-overflow-scrolling:touch!important;
+    touch-action:auto!important;
+    overscroll-behavior:auto!important;
+  }
+  html.mobile-ux #overviewPanel.overview-sticky-mode .overview-table thead tr:first-child th{
+    position:sticky!important;
+    top:0!important;
+    z-index:12!important;
+  }
+  html.mobile-ux #overviewPanel.overview-sticky-mode .overview-table thead tr:nth-child(2) th{
+    position:sticky!important;
+    top:38px!important;
+    z-index:11!important;
+  }
+}
+</style>
 </head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地</div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.60</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地</div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.61</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
