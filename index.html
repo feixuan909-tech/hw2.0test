@@ -3741,6 +3741,184 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 }
 </style>
 
+<style>
+/* alpha.51：雲端同步視覺整合
+   僅調整呈現層，不更動 Firebase 登入、合併、上傳、下載或自動同步邏輯。 */
+.cloud-panel{
+  position:relative;
+  overflow:hidden;
+  margin:12px 16px 0;
+  padding:17px 18px 14px;
+  border:1px solid #d9c9a9;
+  border-radius:13px;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.82),rgba(252,249,241,.96)),
+    repeating-linear-gradient(0deg,rgba(113,89,50,.018) 0,rgba(113,89,50,.018) 1px,transparent 1px,transparent 5px);
+  box-shadow:0 4px 14px rgba(69,55,34,.07);
+}
+.cloud-panel::before{
+  content:"";
+  position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:#b69659;
+  opacity:.68;
+}
+.cloud-panel-head{
+  position:relative;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:14px;
+  padding-bottom:11px;
+  border-bottom:1px solid rgba(167,143,98,.24);
+}
+.cloud-panel-head .section-title{
+  margin:0 0 4px;
+  font-family:"Noto Serif TC","PMingLiU","Songti TC",serif;
+  font-size:17px;
+  font-weight:800;
+  letter-spacing:.04em;
+  color:#263b35;
+}
+.cloud-status-long{
+  color:#7b817c!important;
+  font-size:11px!important;
+  line-height:1.55;
+}
+.cloud-close-btn{
+  background:transparent!important;
+  border-color:#d9d0bf!important;
+  color:#6f6a60!important;
+  box-shadow:none!important;
+  padding:6px 10px!important;
+  font-size:12px!important;
+}
+.cloud-sync-note{
+  margin-top:12px;
+  padding:9px 12px 9px 14px;
+  border:0;
+  border-left:2px solid #c8b181;
+  border-radius:0;
+  background:rgba(245,240,228,.66);
+  color:#73786f!important;
+  font-size:11px!important;
+  line-height:1.7;
+}
+.cloud-actions{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-top:13px;
+  align-items:center;
+}
+.cloud-device-option{
+  min-height:34px;
+  padding:0 10px;
+  border:1px solid #ddd3c1;
+  border-radius:8px;
+  background:rgba(255,255,255,.55);
+  color:#666d68;
+  font-size:11px;
+  font-weight:700;
+}
+.cloud-device-option input{
+  width:15px;height:15px;
+  accent-color:#526f62;
+}
+.cloud-actions .btn{
+  min-height:34px;
+  padding:7px 12px;
+  border-radius:8px;
+  border-color:#d8d1c3;
+  background:#fffdf8;
+  color:#4f5c57;
+  box-shadow:none;
+  font-size:12px;
+  font-weight:750;
+}
+.cloud-actions .btn:hover:not(:disabled){
+  background:#f7f1e5;
+  border-color:#c8b890;
+}
+.cloud-actions .btn:disabled{
+  opacity:.48;
+  background:#f5f3ee;
+}
+.cloud-actions .cloud-main-action{
+  background:#355e50!important;
+  border-color:#355e50!important;
+  color:#fff!important;
+  box-shadow:0 2px 5px rgba(53,94,80,.12)!important;
+}
+.cloud-actions .cloud-main-action:hover:not(:disabled){
+  background:#2e5246!important;
+  border-color:#2e5246!important;
+}
+.cloud-actions .cloud-secondary-action{
+  background:#f4eee1;
+  border-color:#d5c6a8;
+  color:#65583e;
+}
+.cloud-user-line{
+  margin-top:11px!important;
+  padding-top:9px;
+  border-top:1px dashed rgba(164,145,111,.32);
+  color:#66716c!important;
+  font-size:11px!important;
+}
+.cloud-user-line:empty{display:none}
+.cloud-user{color:#2e4d42!important;font-weight:800}
+.cloud-security-note{
+  margin-top:6px!important;
+  color:#96958f!important;
+  font-size:10px!important;
+  line-height:1.55;
+}
+@media(max-width:700px){
+ .cloud-panel{margin:8px;padding:14px 13px 12px}
+ .cloud-panel-head{gap:8px}
+ .cloud-actions{align-items:stretch}
+ .cloud-device-option{flex:1 1 100%}
+ .cloud-actions .btn{flex:1 1 calc(50% - 7px)}
+}
+</style>
+<style>
+/* alpha.52：雲端同步標題／收起鍵與總覽固定表頭高度精修
+   只調整視覺尺寸，不更動雲端功能、總覽資料或其他操作邏輯。 */
+
+/* 雲端同步標題更清楚，仍維持檔案集散地的襯線層級。 */
+.cloud-panel-head .section-title{
+  font-size:20px!important;
+  font-weight:850!important;
+  letter-spacing:.035em!important;
+}
+
+/* 固定表頭模式改成較短的核對視窗：
+   雙列表頭下大約保留 3–4 位學生的高度，讓座號與欄位更容易對齊。 */
+#overviewPanel.overview-sticky-mode .overview-table-wrap{
+  max-height:190px!important;
+}
+@media(max-width:700px){
+  #overviewPanel.overview-sticky-mode .overview-table-wrap{
+    max-height:180px!important;
+  }
+}
+</style>
+
+<style id="cloud-close-match-overview-alpha54">
+/* alpha.54：只讓雲端同步「收起」與總覽的「收起」完全同款。 */
+#cloudPanel #cloudCloseBtn{
+  border-color:#b79a68!important;
+  background:#fbf6ea!important;
+  color:#4b3825!important;
+  font-family:"Noto Serif TC","Songti TC","PMingLiU",serif!important;
+  font-weight:800!important;
+  box-shadow:0 1px 0 rgba(92,67,36,.06)!important;
+  border-radius:10px!important;
+  padding:9px 12px!important;
+  font-size:inherit!important;
+}
+#cloudPanel #cloudCloseBtn:hover{
+  background:#f1e6d0!important;
+  border-color:#9f7e49!important;
+}
+</style>
 </head>
 <body>
 <header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地</div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.0 CORE</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
@@ -3775,9 +3953,9 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
   <div class="cloud-panel-head">
     <div>
       <div class="section-title">☁ 雲端同步</div>
-      <div id="cloudStatusLong" class="small">雲端尚未啟用；目前只使用本機儲存，需要時才會連線。</div>
+      <div id="cloudStatusLong" class="small cloud-status-long">雲端尚未啟用；目前只使用本機儲存，需要時才會連線。</div>
     </div>
-    <button id="cloudCloseBtn" class="btn" type="button">收起</button>
+    <button id="cloudCloseBtn" class="btn cloud-close-btn" type="button">收起</button>
   </div>
   <div class="cloud-sync-note small">
     正式啟用後，同一個 Google 帳號可在電腦、平板與手機共用同一份紀錄。第一次登入新裝置時，如果本機與雲端都有資料，系統不會自行覆蓋，會要求你選擇同步方向。
@@ -3787,14 +3965,14 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
       <input id="cloudPrivateDevice" type="checkbox">
       <span>私人裝置，保持登入</span>
     </label>
-    <button id="cloudSignInBtn" class="btn primary" type="button">Google 登入</button>
+    <button id="cloudSignInBtn" class="btn primary cloud-main-action" type="button">Google 登入</button>
     <button id="cloudSignOutBtn" class="btn" type="button" disabled>登出</button>
-    <button id="cloudMergeBtn" class="btn primary" type="button" disabled>安全合併</button>
+    <button id="cloudMergeBtn" class="btn cloud-secondary-action" type="button" disabled>安全合併</button>
     <button id="cloudUploadBtn" class="btn" type="button" disabled>以這台裝置為準上傳</button>
     <button id="cloudDownloadBtn" class="btn" type="button" disabled>從雲端載入</button>
   </div>
-  <div id="cloudUserLine" class="small" style="margin-top:8px"></div>
-  <div class="small" style="margin-top:6px">安全提醒：Firebase Web 設定不是登入密碼，但仍請不要把任何密碼、服務帳戶金鑰或私密金鑰放進這個 HTML。</div>
+  <div id="cloudUserLine" class="small cloud-user-line"></div>
+  <div class="small cloud-security-note">安全提醒：Firebase Web 設定不是登入密碼，但仍請不要把任何密碼、服務帳戶金鑰或私密金鑰放進這個 HTML。</div>
 </section>
 
 
@@ -4909,10 +5087,13 @@ function editIndependentWorkLabel(historyId){
 
 function statusText(st,h=null,seat=null){
  const labels={blue:'通過',red:'未交／未寫',green:'未簽',ring:'未訂簽',yellow:'未訂正',orange:'請假'};
- const cls=VALID_STATUS.has(st)?st:'red';
+ let cls=VALID_STATUS.has(st)?st:'red';
  let suffix='';
  if(h&&seat!=null){
-   if(isStatusFullyResolved(h,seat))suffix=' <span class="student-status-ok">OK</span>';
+   // alpha.50：學生個人紀錄屬於「目前統計狀態」。
+   // 完整蓋 OK 代表已處理完成，因此顯示為藍色「通過」；
+   // 原始狀況＋OK 仍完整保留在歷史紀錄資料與歷史紀錄畫面中。
+   if(isStatusFullyResolved(h,seat))cls='blue';
    else if(cls==='ring'){
      const p=resolvedPartState(h,seat);
      if(p.correction&&!p.signature)suffix=' <span class="student-status-ok">訂OK</span>';
@@ -5031,9 +5212,11 @@ function excelCellTextForIndependent(catId,seat){
 function studentExportStatusText(h,seat){
  const st=h.statuses?.[seat]||'red';
  const labels={blue:'通過',red:'未交／未寫',green:'未簽',ring:'未訂簽',yellow:'未訂正',orange:'請假'};
+ // 與學生個人紀錄畫面一致：完整 OK 在統計／匯出結果中視為「通過」。
+ // 原始狀況與 OK 歷程不改寫，仍由正式歷史紀錄保存。
+ if(isStatusFullyResolved(h,seat))return labels.blue;
  let t=labels[st]||labels.red;
- if(isStatusFullyResolved(h,seat))t+=' OK';
- else if(st==='ring'){
+ if(st==='ring'){
    const p=resolvedPartState(h,seat);
    if(p.correction&&!p.signature)t+=' 訂OK';
    if(p.signature&&!p.correction)t+=' 簽OK';
