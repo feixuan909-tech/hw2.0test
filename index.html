@@ -3919,6 +3919,201 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
   border-color:#9f7e49!important;
 }
 </style>
+<style id="mobile-polish-alpha55">
+/* =========================================================
+   alpha.55｜手機視覺統一＋個人紀錄欄寬版
+   僅處理手機版：
+   1) 主要卡片寬度／左右留白一致，避免舊版桌機容器感
+   2) 學生個人紀錄四欄縮排，手機可直接看到狀態
+   3) 手機字體／標題／說明文字更貼近 2.0 檔案集散地視覺
+   不改桌機版、不改資料、不改 Firebase、不改功能邏輯。
+   ========================================================= */
+@media(max-width:700px){
+
+  /* ---- 全頁與主要卡片寬度 ---- */
+  html, body{
+    max-width:100%;
+    overflow-x:hidden;
+  }
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  }
+  .main{
+    width:100%!important;
+    max-width:100%!important;
+    box-sizing:border-box!important;
+    padding:8px!important;
+    margin:0!important;
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  .main > *,
+  .workspace,
+  .workspace > *,
+  .card,
+  .section,
+  .sidebar,
+  #studentPanel,
+  #overviewPanel,
+  #cloudPanel{
+    min-width:0!important;
+    max-width:100%!important;
+    box-sizing:border-box!important;
+  }
+
+  /* 頂層可展開卡片與主內容左右視覺統一 */
+  #cloudPanel,
+  #studentPanel,
+  #overviewPanel{
+    margin-left:8px!important;
+    margin-right:8px!important;
+  }
+  .sidebar,
+  .workspace > .card,
+  .workspace > .section{
+    width:100%!important;
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+
+  /* ---- 手機標題與說明文字：回到 2.0 視覺 ---- */
+  .section-title,
+  #studentPanel .section-title,
+  #overviewPanel .section-title,
+  .homework-entry-head .section-title{
+    font-family:"Noto Serif TC","Songti TC","PMingLiU",serif!important;
+    font-weight:800!important;
+    letter-spacing:.02em!important;
+    color:#183f35!important;
+  }
+  .section-title{
+    font-size:20px!important;
+  }
+  .small,
+  #studentPanel .small,
+  #overviewPanel .small,
+  .helper,
+  .hint{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif!important;
+    color:#8b959c!important;
+    line-height:1.55!important;
+  }
+
+  /* ---- 手機按鈕尺寸感統一，避免 1.0 厚重感 ---- */
+  .btn{
+    border-radius:9px!important;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif!important;
+  }
+
+  /* ---- 學生個人紀錄：四欄壓進手機寬度 ---- */
+  #studentPanel{
+    overflow:hidden!important;
+  }
+  #studentPanel .student-panel-head{
+    align-items:flex-start!important;
+  }
+  #studentPanel .student-panel-actions{
+    gap:6px!important;
+  }
+  #studentPanel .student-seat-picker{
+    gap:5px!important;
+  }
+  #studentPanel .student-seat-btn{
+    min-width:35px!important;
+    width:35px!important;
+    height:35px!important;
+    padding:0!important;
+    font-size:12px!important;
+  }
+
+  #studentPanel .student-record-table-wrap{
+    width:100%!important;
+    max-width:100%!important;
+    overflow-x:hidden!important;
+    border-radius:9px!important;
+  }
+  #studentPanel .student-record-table{
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    table-layout:fixed!important;
+  }
+  #studentPanel .student-record-table th,
+  #studentPanel .student-record-table td{
+    min-width:0!important;
+    padding:6px 4px!important;
+    font-size:11px!important;
+    line-height:1.25!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+    white-space:nowrap!important;
+  }
+
+  /* 類別、日期縮窄；進度與狀態保留主要閱讀空間 */
+  #studentPanel .student-record-table th:nth-child(1),
+  #studentPanel .student-record-table td:nth-child(1){
+    width:20%!important;
+  }
+  #studentPanel .student-record-table th:nth-child(2),
+  #studentPanel .student-record-table td:nth-child(2){
+    width:23%!important;
+  }
+  #studentPanel .student-record-table th:nth-child(3),
+  #studentPanel .student-record-table td:nth-child(3){
+    width:31%!important;
+  }
+  #studentPanel .student-record-table th:nth-child(4),
+  #studentPanel .student-record-table td:nth-child(4){
+    width:26%!important;
+  }
+
+  /* 手機版狀態文字要直接看得到，不再被欄寬擠出畫面 */
+  #studentPanel .student-status-text{
+    max-width:100%!important;
+    gap:3px!important;
+    white-space:nowrap!important;
+    font-size:11px!important;
+  }
+  #studentPanel .student-status-text .dot{
+    flex:0 0 11px!important;
+    width:11px!important;
+    height:11px!important;
+    border-width:1.5px!important;
+  }
+  #studentPanel .student-status-ok{
+    margin-left:2px!important;
+    font-size:9px!important;
+  }
+
+  /* ---- 類別區塊：避免卡片比 header 更寬的桌機感 ---- */
+  .sidebar{
+    overflow:hidden!important;
+  }
+  .cat-list{
+    width:100%!important;
+    max-width:100%!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:6px!important;
+  }
+  .cat-list > *{
+    min-width:0!important;
+    max-width:100%!important;
+    box-sizing:border-box!important;
+  }
+
+  /* ---- 歷史紀錄：只讓表格自己捲，不把整頁撐寬 ---- */
+  .history-table-wrap,
+  .overview-table-wrap{
+    max-width:100%!important;
+    overscroll-behavior:contain!important;
+  }
+
+  /* 防止常見固定寬度子元素把整頁撐出 viewport */
+  input, select, textarea, button{
+    max-width:100%;
+    box-sizing:border-box;
+  }
+}
+</style>
 </head>
 <body>
 <header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地</div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.0 CORE</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
