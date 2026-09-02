@@ -4114,6 +4114,128 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
   }
 }
 </style>
+<style id="mobile-order-typography-alpha56">
+/* =========================================================
+   alpha.56｜手機類別排序＋字體統一
+   僅調整手機排序介面與字體角色，不改桌機版與功能資料。
+   ========================================================= */
+@media(max-width:700px){
+  /* 類別編輯：手機用上／下按鈕取代不可靠的拖曳手勢 */
+  html.mobile-ux .cat-list.editing .cat-edit-item{
+    grid-template-columns:46px minmax(0,1fr) auto!important;
+  }
+  html.mobile-ux .cat-mobile-order-controls{
+    width:42px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:3px;
+    align-self:stretch;
+  }
+  html.mobile-ux .cat-order-btn{
+    min-width:42px!important;
+    width:42px!important;
+    min-height:28px!important;
+    height:28px!important;
+    padding:0!important;
+    border-radius:7px!important;
+    font-size:11px!important;
+    line-height:1!important;
+    color:#6b553c!important;
+    background:#f8f1e4!important;
+    border-color:#d8c7a8!important;
+    box-shadow:none!important;
+  }
+  html.mobile-ux .cat-order-btn:disabled{
+    opacity:.28!important;
+  }
+  html.mobile-ux .mobile-hidden-drag-handle{display:none!important;}
+
+  /* 2.0 字體角色：大標／欄位標題走檔案式襯線；操作與說明走柔和無襯線。 */
+  html.mobile-ux .section-title,
+  html.mobile-ux .side-head>b,
+  html.mobile-ux .student-record-section h4,
+  html.mobile-ux .summary h4,
+  html.mobile-ux .history-table th,
+  html.mobile-ux .overview-table th,
+  html.mobile-ux .student-record-table th,
+  html.mobile-ux .current-status-heading b,
+  html.mobile-ux #studentRecordBody>.small b{
+    font-family:"Noto Serif TC","Songti TC","PMingLiU",serif!important;
+  }
+
+  html.mobile-ux .section-title{
+    font-size:20px!important;
+    font-weight:800!important;
+    letter-spacing:.025em!important;
+    color:#173f35!important;
+  }
+  html.mobile-ux .side-head>b{
+    font-size:18px!important;
+    font-weight:800!important;
+    color:#31463f!important;
+  }
+
+  html.mobile-ux .small,
+  html.mobile-ux .field label,
+  html.mobile-ux .progress-label,
+  html.mobile-ux .mobile-category-current,
+  html.mobile-ux .student-panel-head .small,
+  html.mobile-ux .overview-headline .small,
+  html.mobile-ux .cloud-status-long,
+  html.mobile-ux .cloud-sync-note,
+  html.mobile-ux .cloud-security-note{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif!important;
+  }
+
+  /* 類別名稱在手機改用新版較柔和的正文角色，不再有 1.0 粗黑按鈕感 */
+  html.mobile-ux .cat-name{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif!important;
+    font-weight:720!important;
+    letter-spacing:.01em!important;
+  }
+
+  /* 作業登記、聯絡簿狀態文字與按鈕統一用較現代的正文 sans */
+  html.mobile-ux .status-btn,
+  html.mobile-ux .btn,
+  html.mobile-ux .input,
+  html.mobile-ux select,
+  html.mobile-ux .summary-line,
+  html.mobile-ux .student-status-text{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif!important;
+  }
+
+  /* 歷史／個人紀錄的資料內容延續桌機 2.0 的柔和檔案感 */
+  html.mobile-ux .history-table td,
+  html.mobile-ux .student-record-table tbody td:nth-child(3),
+  html.mobile-ux .student-record-table tbody td:nth-child(4){
+    font-family:"Noto Serif TC","PMingLiU","Songti TC",serif!important;
+  }
+}
+</style>
+<style id="mobile-category-four-order-alpha57">
+/* alpha.57｜手機類別四鍵排序：⇈ ▲ ▼ ⇊ */
+@media(max-width:700px){
+ html.mobile-ux .cat-list.editing .cat-edit-item{
+   grid-template-columns:46px minmax(0,1fr) auto!important;
+ }
+ html.mobile-ux .cat-mobile-order-controls{
+   width:42px!important;
+   display:grid!important;
+   grid-template-columns:repeat(2,20px)!important;
+   grid-template-rows:repeat(2,28px)!important;
+   gap:3px 2px!important;
+   align-self:center!important;
+ }
+ html.mobile-ux .cat-order-btn{
+   min-width:20px!important;
+   width:20px!important;
+   min-height:28px!important;
+   height:28px!important;
+   padding:0!important;
+   font-size:10px!important;
+ }
+}
+</style>
 </head>
 <body>
 <header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地</div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.0 CORE</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
@@ -4656,6 +4778,59 @@ function renderCats(){
    handle.title='拖曳調整順序';handle.setAttribute('aria-label',`${c.name}：拖曳調整順序`);
    handle.addEventListener('pointerdown',()=>row.draggable=true);
 
+   // alpha.56：手機瀏覽器對 HTML5 drag/drop 支援不穩定，
+   // 編輯模式在手機額外提供明確的上移／下移按鈕；桌機仍保留原拖曳排序。
+   let mobileOrderControls=null;
+   if(isMobileUX()){
+     row.draggable=false;
+     handle.classList.add('mobile-hidden-drag-handle');
+
+     mobileOrderControls=document.createElement('div');
+     mobileOrderControls.className='cat-mobile-order-controls';
+
+     const topBtn=document.createElement('button');
+     topBtn.type='button';topBtn.className='btn cat-order-btn';
+     topBtn.textContent='⇈';topBtn.title='移到最上';
+     topBtn.setAttribute('aria-label',`${c.name}：移到最上`);
+     topBtn.disabled=index===0;
+     topBtn.addEventListener('click',()=>{
+       if(index<=0)return;
+       moveCategoryRelative(c.id,state.categories[0].id,false);
+     });
+
+     const upBtn=document.createElement('button');
+     upBtn.type='button';upBtn.className='btn cat-order-btn';
+     upBtn.textContent='▲';upBtn.title='向上移動';
+     upBtn.setAttribute('aria-label',`${c.name}：向上移動`);
+     upBtn.disabled=index===0;
+     upBtn.addEventListener('click',()=>{
+       if(index<=0)return;
+       moveCategoryRelative(c.id,state.categories[index-1].id,false);
+     });
+
+     const downBtn=document.createElement('button');
+     downBtn.type='button';downBtn.className='btn cat-order-btn';
+     downBtn.textContent='▼';downBtn.title='向下移動';
+     downBtn.setAttribute('aria-label',`${c.name}：向下移動`);
+     downBtn.disabled=index===state.categories.length-1;
+     downBtn.addEventListener('click',()=>{
+       if(index>=state.categories.length-1)return;
+       moveCategoryRelative(c.id,state.categories[index+1].id,true);
+     });
+
+     const bottomBtn=document.createElement('button');
+     bottomBtn.type='button';bottomBtn.className='btn cat-order-btn';
+     bottomBtn.textContent='⇊';bottomBtn.title='移到最下';
+     bottomBtn.setAttribute('aria-label',`${c.name}：移到最下`);
+     bottomBtn.disabled=index===state.categories.length-1;
+     bottomBtn.addEventListener('click',()=>{
+       if(index>=state.categories.length-1)return;
+       moveCategoryToEnd(c.id);
+     });
+
+     mobileOrderControls.append(topBtn,upBtn,downBtn,bottomBtn);
+   }
+
    const input=document.createElement('input');
    input.className='input category-name-edit';input.maxLength=30;input.value=c.name;
    input.dataset.catId=c.id;input.setAttribute('aria-label',`${c.name} 類別名稱`);
@@ -4728,12 +4903,15 @@ function renderCats(){
 
    meta.append(typeLabel,kind,overviewLabel);
 
-   row.append(handle,input,delBtn,meta);
+   if(mobileOrderControls)row.append(mobileOrderControls,input,delBtn,meta);
+   else row.append(handle,input,delBtn,meta);
    box.appendChild(row);
  });
 
  const hint=document.createElement('div');hint.className='small';hint.style.gridColumn='1/-1';
- hint.textContent='☰ 拖曳到欄位上、下邊緣會自動捲動；連續作業會追蹤前次未完成，獨立項目則每一筆各自計算。';
+ hint.textContent=isMobileUX()
+   ? '⇈ 移到最上、▲ 上移、▼ 下移、⇊ 移到最下；連續作業會追蹤前次未完成，獨立項目則每一筆各自計算。'
+   : '☰ 拖曳到欄位上、下邊緣會自動捲動；連續作業會追蹤前次未完成，獨立項目則每一筆各自計算。';
  box.appendChild(hint);
 
  const addRow=document.createElement('div');addRow.className='cat-add-item';
