@@ -4695,9 +4695,163 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
   }
 }
 </style>
+<style id="mobile-elegant-type-metal-badge-alpha62">
+/* =========================================================
+   alpha.62｜手機精緻字體角色＋金屬獨章
+   原則：
+   1) 不再全頁強制同一種方正 sans
+   2) Header 恢復原先已成功的檔案集散地字體
+   3) 標題／表頭用「有襯線但不落入細明體」的安全字體堆疊
+   4) 一般內容與操作文字用較柔和 sans，降低方塊感
+   5) 學生個人紀錄、總覽捲動、手機寬度、排序行為不動
+   ========================================================= */
+
+/* 獨立項目：小型金屬刻紋章（全裝置一致） */
+.independent-badge{
+  position:relative!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:20px!important;
+  height:20px!important;
+  min-width:20px!important;
+  padding:0!important;
+  border-radius:50%!important;
+  border:1px solid #9f7c3e!important;
+  background:
+    radial-gradient(circle at 34% 28%,#fff6cf 0 12%,#e6ca82 27%,#b99349 56%,#76572b 100%)!important;
+  color:#4f3a1c!important;
+  font-family:"Noto Serif TC","Noto Serif CJK TC","Source Han Serif TC",
+              "PingFang TC","Microsoft JhengHei",sans-serif!important;
+  font-size:10px!important;
+  font-weight:800!important;
+  line-height:1!important;
+  text-shadow:0 1px 0 rgba(255,245,205,.65),0 -1px 0 rgba(74,51,20,.22)!important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,246,207,.72),
+    inset 0 0 0 3px rgba(92,65,26,.14),
+    0 1px 2px rgba(66,47,23,.18)!important;
+}
+.independent-badge::before{
+  content:""!important;
+  position:absolute!important;
+  inset:2px!important;
+  border:1px dotted rgba(86,60,24,.48)!important;
+  border-radius:50%!important;
+  pointer-events:none!important;
+}
+.independent-badge::after{
+  content:""!important;
+  position:absolute!important;
+  inset:4px!important;
+  border-radius:50%!important;
+  box-shadow:inset 0 0 4px rgba(255,244,196,.45)!important;
+  pointer-events:none!important;
+}
+
+@media(max-width:700px){
+
+  /* Header：直接恢復原本桌機／早期手機已成功的品牌字體，不受 alpha.61 全域 sans 影響 */
+  html.mobile-ux .archive-brand-title{
+    font-family:"Noto Serif TC","Noto Serif CJK TC","Source Han Serif TC",
+                "PingFang TC","Microsoft JhengHei",sans-serif!important;
+    font-size:19px!important;
+    font-weight:800!important;
+    line-height:1!important;
+    letter-spacing:.03em!important;
+    color:var(--archive-cream)!important;
+  }
+
+  /* 精緻標題角色：有襯線優先，但完全避開 PMingLiU／新細明體／Songti fallback */
+  html.mobile-ux .section-title,
+  html.mobile-ux .student-record-section h4,
+  html.mobile-ux .summary h4,
+  html.mobile-ux .overview-table th,
+  html.mobile-ux .history-table th{
+    font-family:"Noto Serif TC","Noto Serif CJK TC","Source Han Serif TC",
+                "PingFang TC","Microsoft JhengHei",sans-serif!important;
+    font-style:normal!important;
+    font-weight:700!important;
+    letter-spacing:.018em!important;
+  }
+
+  html.mobile-ux .section-title{
+    font-size:18px!important;
+    line-height:1.3!important;
+    color:#17483b!important;
+  }
+
+  /* 類別區：標題沉穩；類別名稱不要厚重方塊 */
+  html.mobile-ux .side-head>b,
+  html.mobile-ux .mobile-category-current{
+    font-family:"Noto Serif TC","Noto Serif CJK TC","Source Han Serif TC",
+                "PingFang TC","Microsoft JhengHei",sans-serif!important;
+    font-weight:700!important;
+    letter-spacing:.012em!important;
+  }
+  html.mobile-ux .side-head>b{font-size:16px!important;}
+  html.mobile-ux .cat-name{
+    font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",
+                -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+    font-weight:600!important;
+    letter-spacing:.005em!important;
+  }
+
+  /* 一般文字：柔和而非厚重 */
+  html.mobile-ux body,
+  html.mobile-ux .small,
+  html.mobile-ux .field label,
+  html.mobile-ux .progress-label,
+  html.mobile-ux .summary-line,
+  html.mobile-ux .history-table td,
+  html.mobile-ux .overview-table td{
+    font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",
+                -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+  }
+  html.mobile-ux .small,
+  html.mobile-ux .field label,
+  html.mobile-ux .progress-label{
+    font-weight:400!important;
+  }
+
+  /* 按鈕：一般操作降低粗黑感；狀態按鈕仍保留辨識度 */
+  html.mobile-ux .btn,
+  html.mobile-ux .input,
+  html.mobile-ux input,
+  html.mobile-ux select,
+  html.mobile-ux textarea{
+    font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",
+                -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+    font-weight:600!important;
+  }
+  html.mobile-ux .status-btn{
+    font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",
+                -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+    font-weight:650!important;
+  }
+
+  /* 學生個人紀錄：使用者已確認漂亮，alpha.62 不重做其內容字體與欄寬 */
+  html.mobile-ux #studentPanel .student-record-table th,
+  html.mobile-ux #studentPanel .student-record-table td{
+    /* 保留既有規則，由 alpha.60/61 已確認的學生紀錄樣式接手 */
+  }
+
+  /* 版本小字：維持低調但可辨識 */
+  html.mobile-ux .archive-core-version{
+    display:inline!important;
+    font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",
+                -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+    font-size:8px!important;
+    font-weight:400!important;
+    letter-spacing:.04em!important;
+    color:rgba(246,243,233,.50)!important;
+    white-space:nowrap!important;
+  }
+}
+</style>
 </head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地</div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.61</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地</div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.62</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
