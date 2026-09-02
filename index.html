@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>檔案集散地｜v1.1-alpha.49 雲端按需載入安全收尾</title>
+<title>檔案集散地</title>
 <style>
 :root{--bg:#f4f6f8;--card:#fff;--line:#dfe5ea;--text:#2f3b46;--muted:#8794a1;--blue:#4da3ff;--red:#ef5350;--yellow:#f6c945;--green:#59bf76;--orange:#f79a49}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif}
@@ -4236,9 +4236,246 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
  }
 }
 </style>
+<style id="mobile-page-scroll-alpha58">
+/* =========================================================
+   alpha.58｜手機整頁垂直捲動修正
+   目標：手機上下滑一律交給瀏覽器整頁；區塊只保留必要的左右捲動。
+   桌機版不受影響。
+   ========================================================= */
+@media(max-width:700px){
+  html, body{
+    height:auto!important;
+    min-height:100%!important;
+    overflow-y:auto!important;
+    overscroll-behavior-y:auto!important;
+    -webkit-overflow-scrolling:touch;
+  }
+  html.mobile-ux body{
+    touch-action:pan-y!important;
+  }
+
+  /* 主內容與長卡片不建立自己的垂直捲動區 */
+  html.mobile-ux .main,
+  html.mobile-ux .workspace,
+  html.mobile-ux .sidebar,
+  html.mobile-ux .card,
+  html.mobile-ux .section,
+  html.mobile-ux #studentPanel,
+  html.mobile-ux #overviewPanel,
+  html.mobile-ux #cloudPanel,
+  html.mobile-ux .student-panel,
+  html.mobile-ux .overview-panel,
+  html.mobile-ux .cloud-panel,
+  html.mobile-ux .cat-list,
+  html.mobile-ux .cat-list.editing{
+    max-height:none!important;
+    height:auto!important;
+    overflow-y:visible!important;
+    overscroll-behavior-y:auto!important;
+    touch-action:pan-y!important;
+  }
+
+  /* 類別編輯列本身允許從任意空白處上下滑整頁 */
+  html.mobile-ux .cat-edit-item,
+  html.mobile-ux .cat-meta-row,
+  html.mobile-ux .cat-add-item,
+  html.mobile-ux .cat-edit-actions{
+    touch-action:pan-y!important;
+  }
+
+  /* 表格：垂直交給整頁，只有需要時保留水平查看 */
+  html.mobile-ux .table-wrap,
+  html.mobile-ux .history-table-wrap,
+  html.mobile-ux .overview-table-wrap,
+  html.mobile-ux .student-record-table-wrap{
+    max-height:none!important;
+    height:auto!important;
+    overflow-y:visible!important;
+    overscroll-behavior-y:auto!important;
+    -webkit-overflow-scrolling:touch;
+  }
+  html.mobile-ux .history-table-wrap,
+  html.mobile-ux .overview-table-wrap{
+    overflow-x:auto!important;
+    touch-action:pan-x pan-y!important;
+  }
+  html.mobile-ux .student-record-table-wrap{
+    overflow-x:hidden!important;
+    touch-action:pan-y!important;
+  }
+
+  /* 手機總覽即使選到「固定表頭」也不建立內部垂直滾動；
+     保留表頭樣式但讓整頁自然滑。 */
+  html.mobile-ux #overviewPanel.overview-sticky-mode .overview-table-wrap,
+  html.mobile-ux #overviewPanel .overview-table-wrap.sticky-mode,
+  html.mobile-ux .overview-panel.overview-sticky-mode .overview-table-wrap{
+    max-height:none!important;
+    overflow-y:visible!important;
+  }
+
+  /* 避免常見容器攔截垂直手勢 */
+  html.mobile-ux input,
+  html.mobile-ux select,
+  html.mobile-ux button{
+    touch-action:manipulation;
+  }
+}
+</style>
+<style id="mobile-scroll-font-sync-alpha59">
+/* =========================================================
+   alpha.59｜手機滑動修正＋桌機字體同步
+   1) 手機上下捲動完全交給頁面本身
+   2) 僅歷史／總覽表格保留水平捲動
+   3) 手機字體角色直接對齊桌機版 2.0
+   ========================================================= */
+@media(max-width:700px){
+
+  html{
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+    height:auto!important;
+    max-height:none!important;
+    -webkit-overflow-scrolling:touch;
+  }
+  body{
+    overflow-y:visible!important;
+    overflow-x:hidden!important;
+    height:auto!important;
+    max-height:none!important;
+    min-height:100%!important;
+    position:static!important;
+    touch-action:pan-y!important;
+  }
+
+  /* 主要容器全部取消內部垂直捲動 */
+  .main,
+  .workspace,
+  .sidebar,
+  .card,
+  .section,
+  #studentPanel,
+  #overviewPanel,
+  #cloudPanel,
+  .student-panel,
+  .overview-panel,
+  .cloud-panel,
+  .table-wrap,
+  .student-record-table-wrap,
+  .history-table-wrap,
+  .overview-table-wrap{
+    max-height:none!important;
+    height:auto!important;
+  }
+
+  .main,
+  .workspace,
+  .sidebar,
+  .card,
+  .section,
+  #studentPanel,
+  #overviewPanel,
+  #cloudPanel,
+  .student-panel,
+  .overview-panel,
+  .cloud-panel{
+    overflow-y:visible!important;
+    overscroll-behavior-y:auto!important;
+    touch-action:pan-y!important;
+  }
+
+  /* 個人紀錄：不建立自己的上下捲動 */
+  #studentPanel .student-record-table-wrap{
+    overflow-x:hidden!important;
+    overflow-y:visible!important;
+    touch-action:pan-y!important;
+  }
+
+  /* 歷史與總覽：允許左右滑表格，但上下仍交給頁面 */
+  .history-table-wrap,
+  .overview-table-wrap{
+    overflow-x:auto!important;
+    overflow-y:visible!important;
+    -webkit-overflow-scrolling:touch!important;
+    overscroll-behavior-x:contain!important;
+    overscroll-behavior-y:auto!important;
+    touch-action:pan-x pan-y!important;
+  }
+
+  /* 類別編輯清單本身不可攔截頁面上下滑 */
+  html.mobile-ux .cat-list,
+  html.mobile-ux .cat-list.editing,
+  html.mobile-ux .cat-edit-item,
+  html.mobile-ux .cat-meta-row{
+    overflow-y:visible!important;
+    max-height:none!important;
+    touch-action:pan-y!important;
+    overscroll-behavior-y:auto!important;
+  }
+
+  /* ===== 字體：直接沿用桌機版 2.0 角色 ===== */
+  html.mobile-ux .section-title,
+  html.mobile-ux .side-head>b,
+  html.mobile-ux .archive-brand-title,
+  html.mobile-ux .student-record-section h4,
+  html.mobile-ux .summary h4,
+  html.mobile-ux .history-table th,
+  html.mobile-ux .overview-table th,
+  html.mobile-ux .student-record-table th,
+  html.mobile-ux .progress-tab,
+  html.mobile-ux .mobile-category-current{
+    font-family:"Noto Serif TC","PMingLiU","Songti TC",serif!important;
+  }
+
+  html.mobile-ux .section-title{
+    font-size:20px!important;
+    font-weight:800!important;
+    letter-spacing:.035em!important;
+    color:#173f35!important;
+  }
+  html.mobile-ux .side-head>b{
+    font-size:18px!important;
+    font-weight:800!important;
+    letter-spacing:.02em!important;
+    color:#31463f!important;
+  }
+  html.mobile-ux .mobile-category-current{
+    font-weight:700!important;
+    letter-spacing:.01em!important;
+  }
+
+  /* 類別名稱與資料內容也跟桌機版走襯線，不再是制式粗黑 sans */
+  html.mobile-ux .cat-name,
+  html.mobile-ux .history-table td,
+  html.mobile-ux .student-record-table tbody td:nth-child(3),
+  html.mobile-ux .student-record-table tbody td:nth-child(4),
+  html.mobile-ux .summary-line{
+    font-family:"Noto Serif TC","PMingLiU","Songti TC",serif!important;
+  }
+
+  html.mobile-ux .cat-name{
+    font-weight:700!important;
+    letter-spacing:.015em!important;
+  }
+
+  /* 說明、表單、按鈕維持桌機版的功能性無襯線 */
+  html.mobile-ux .small,
+  html.mobile-ux .field label,
+  html.mobile-ux .progress-label,
+  html.mobile-ux .btn,
+  html.mobile-ux .input,
+  html.mobile-ux select,
+  html.mobile-ux textarea,
+  html.mobile-ux .status-btn,
+  html.mobile-ux .cloud-status-long,
+  html.mobile-ux .cloud-sync-note,
+  html.mobile-ux .cloud-security-note{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif!important;
+  }
+}
+</style>
 </head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地</div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.0 CORE</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地</div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.59</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
