@@ -5231,29 +5231,6 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 <style id="alpha83-targeted-polish">
 /* alpha.83｜依本輪截圖只做五件事：總覽/歷史欄寬平均、單元整組右移、日期標籤下修、類別第二列位置與字體回修、保留 Gothic 號碼。 */
 @media (min-width:761px){
-  /* 1｜總覽：除固定座號欄外，每一筆資料欄固定同寬。 */
-  .overview-table th:not(.seat-col),
-  .overview-table td:not(.seat-col){
-    width:62px!important;
-    min-width:62px!important;
-    max-width:62px!important;
-    box-sizing:border-box!important;
-  }
-  .overview-table .cat-head{
-    width:62px!important;
-    min-width:62px!important;
-    max-width:62px!important;
-  }
-
-  /* 1｜歷史紀錄：座號欄維持固定；其餘每筆紀錄欄同寬。 */
-  .history-table th:not(:first-child),
-  .history-table td:not(:first-child){
-    width:62px!important;
-    min-width:62px!important;
-    max-width:62px!important;
-    box-sizing:border-box!important;
-  }
-
   /* 3｜不要再動跳頁；直接把「單元」標籤＋三個欄位整組視覺右移。 */
   #progressEditor.direct-progress>.page-inline + .progress-label,
   #progressEditor.direct-progress>.unit-inline{
@@ -5372,9 +5349,91 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 }
 </style>
 
+
+<style id="alpha84-restore-and-fine-tune">
+/* alpha.84｜不再改動總覽/歷史表格欄寬，讓既有樣式重新接管；只修類別文字、跳頁提示與日期標籤。 */
+@media (min-width:761px){
+  /* 類別第二列：類型靠近選擇框；總覽選項利用右側空間完整顯示。 */
+  .cat-list.editing .cat-meta-row{
+    grid-template-columns:40px 112px minmax(0,1fr)!important;
+    column-gap:3px!important;
+    padding-left:10px!important;
+    padding-right:5px!important;
+  }
+  .cat-list.editing .cat-meta-label{
+    justify-self:end!important;
+    margin-right:1px!important;
+    color:#8b7658!important;
+  }
+  .cat-list.editing .cat-kind-select{
+    font-family:"Noto Serif TC","PMingLiU","Songti TC",serif!important;
+  }
+  .cat-list.editing .cat-overview-option{
+    justify-self:end!important;
+    margin-left:10px!important;
+    margin-right:2px!important;
+    color:#7b5b2c!important;
+    font-family:"Noto Serif TC","PMingLiU","Songti TC",serif!important;
+  }
+  .cat-list.editing .cat-overview-option .cat-overview-top{
+    display:inline-flex!important;
+    align-items:center!important;
+    gap:4px!important;
+    white-space:nowrap!important;
+  }
+  .cat-list.editing .cat-overview-option .cat-overview-top-text{
+    display:inline!important;
+    width:auto!important;
+    min-width:0!important;
+    max-width:none!important;
+    white-space:nowrap!important;
+    overflow:visible!important;
+    color:inherit!important;
+  }
+  .cat-list.editing .cat-overview-option .cat-overview-bottom{
+    display:block!important;
+    padding-left:16px!important;
+    white-space:nowrap!important;
+    color:inherit!important;
+  }
+  .cat-list.editing .cat-overview-option .cat-overview-bottom-text{
+    display:inline!important;
+    width:auto!important;
+    min-width:0!important;
+    max-width:none!important;
+    white-space:nowrap!important;
+    overflow:visible!important;
+    color:inherit!important;
+  }
+  /* 刪除鍵：外觀交還既有樣式，只改字體。 */
+  .cat-list.editing .category-delete{
+    font-family:"Noto Serif TC","PMingLiU","Songti TC",serif!important;
+  }
+
+  /* 跳頁提示完整顯示，不再被省略號裁切。 */
+  #progressEditor.direct-progress>.page-inline>.skip-pages-wrap.show{
+    width:max-content!important;
+    max-width:none!important;
+    grid-template-columns:215px max-content!important;
+    overflow:visible!important;
+  }
+  #progressEditor.direct-progress>.page-inline>.skip-pages-wrap .hint{
+    width:max-content!important;
+    max-width:none!important;
+    white-space:nowrap!important;
+    overflow:visible!important;
+    text-overflow:clip!important;
+  }
+
+  /* 登記日期四字再往下 3px，更貼近日期框。 */
+  #homeworkEntryBody .homework-entry-progress>.field:not(.grow)>label{
+    top:6px!important;
+  }
+}
+</style>
 </head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.83</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.84</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
