@@ -5064,15 +5064,47 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 
 <style id="alpha69-refinements">
 /* alpha.69｜歷史收合鍵與作業登記同一家族 */
-#historyCollapseBtn{background:#f8f2e4!important;border-color:#d8ccb2!important;color:#4A3420!important;padding:7px 10px!important;white-space:nowrap}
 /* 號碼盤：加強紙本文書感與辨識度，不改尺寸／操作 */
 #studentGrid .num,#contactGrid .num{font-family:"Noto Serif TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;font-weight:700;letter-spacing:.02em}
 .return-slip-history-mark{display:inline-flex;align-items:center;justify-content:center;min-width:18px;min-height:18px}
 .return-slip-history-mark .dot{width:15px;height:15px}
 </style>
-\n<style id="alpha70-refinements">\n/* alpha.70｜歷史收合鈕直接與作業登記共用同一組尺寸／色彩／圓角 */\n#historyCollapseBtn{padding:7px 10px;white-space:nowrap}\n@media(min-width:761px){\n #historyCollapseBtn{min-height:31px;padding:5px 10px;border-radius:7px;border-color:#d5c8ad!important;background:#f8f2e4!important;color:#4A3420!important;font-size:12px;box-shadow:none}\n}\n/* 號碼盤數字：偏楷書／手寫氣質，保留足夠筆畫重量與辨識度 */\n#studentGrid .num,#contactGrid .num{font-family:"Kaiti TC","DFKai-SB","STKaiti","KaiTi","Noto Serif TC","Microsoft JhengHei",serif!important;font-weight:700!important;letter-spacing:.025em!important}\n/* 手機回條結果：狀態名稱固定完整，不被座號擠成逐字換行 */\n@media(max-width:700px){\n #dailySummary .summary-line{display:grid!important;grid-template-columns:auto max-content minmax(0,1fr);align-items:start;column-gap:5px}\n #dailySummary .summary-line>.dot{margin-top:.32em}\n #dailySummary .summary-line>b{white-space:nowrap!important;word-break:keep-all!important;overflow-wrap:normal!important}\n}\n</style>\n</head>
+
+
+<style id="alpha71-render-fixes">
+/* 1｜桌機類別：固定上方標題，只捲動下方類別清單 */
+@media(min-width:761px){
+  .sidebar{display:flex!important;flex-direction:column!important;max-height:calc(100vh - 28px)!important;overflow:hidden!important;}
+  .sidebar::before,.side-head{flex:0 0 auto!important;}
+  .cat-list{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important;overflow-x:visible!important;overscroll-behavior:contain!important;scrollbar-gutter:stable;}
+}
+/* 3｜歷史收合鈕與作業登記使用完全相同的按鈕規格 */
+#homeworkEntryCollapseBtn,#historyCollapseBtn{
+  min-height:31px!important;padding:5px 10px!important;border-radius:7px!important;
+  border-color:#d5c8ad!important;background:#f8f2e4!important;color:#4A3420!important;
+  font-family:inherit!important;font-size:12px!important;font-weight:700!important;line-height:normal!important;
+  box-shadow:none!important;white-space:nowrap!important;
+}
+@media(max-width:760px){
+  #homeworkEntryCollapseBtn,#historyCollapseBtn{
+    background:#f8f2e4!important;border-color:#d8ccb2!important;color:#4A3420!important;
+    min-height:40px!important;padding:7px 10px!important;font-size:16px!important;font-weight:700!important;border-radius:10px!important;
+  }
+}
+/* 4｜號碼盤：直接使用 generic cursive，避免裝置缺字型時回退成原 sans */
+#studentGrid .num,#contactGrid .num{
+  font-family:"Segoe Print","Comic Sans MS","Bradley Hand","Apple Chancery","URW Chancery L","DFKai-SB","KaiTi",cursive!important;
+  font-weight:800!important;font-style:normal!important;letter-spacing:.015em!important;
+}
+/* 5｜目前繳交情形：狀態名稱與座號實際拆欄；只有座號區允許換行 */
+#dailySummary .summary-line{display:grid!important;grid-template-columns:auto max-content minmax(0,1fr)!important;align-items:start!important;column-gap:6px!important;}
+#dailySummary .summary-status-label{white-space:nowrap!important;word-break:keep-all!important;overflow-wrap:normal!important;}
+#dailySummary .summary-seat-list{min-width:0!important;white-space:normal!important;word-break:normal!important;overflow-wrap:anywhere!important;}
+#dailySummary .summary-line>.dot{margin-top:.32em;}
+</style>
+</head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.70</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.71</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
@@ -6238,7 +6270,7 @@ function summaryStatusGroups(rec){
 }
 function renderSummary(rec){
  const groups=summaryStatusGroups(rec),labels=statusLabelsForCategory(rec.catId);
- const lines=Object.entries(groups).filter(([,v])=>v.length).map(([k,v])=>`<div class="summary-line"><span class="dot ${k}"></span><b>${esc(labels[k])}：</b>${v.join('、')}</div>`).join('');
+ const lines=Object.entries(groups).filter(([,v])=>v.length).map(([k,v])=>`<div class="summary-line"><span class="dot ${k}"></span><span class="summary-status-label"><b>${esc(labels[k])}：</b></span><span class="summary-seat-list">${v.join('、')}</span></div>`).join('');
  $('dailySummary').innerHTML=`<div class="current-status-heading"><h4 style="margin:0">${esc(currentCat().name)}｜${rec.content?esc(rec.content)+'｜':''}${rec.date}</h4><span class="small">目前繳交情況</span></div>${lines||'<div class="small" style="margin-top:6px">目前沒有需要追蹤的狀態。</div>'}`;
  $('dailySummary').classList.remove('hidden');
 }
@@ -6766,7 +6798,13 @@ function renderOverview(){
  for(let n=1;n<=state.studentCount;n++){
    let cells='';
    for(const {c,h} of cols){
-     if(c.kind==='independent'){
+     // alpha.71：回條雖屬獨立紀錄，但總覽先判斷「全班是否已完成」。
+     // 全部完成時直接走一般作業既有的 rowspan 大 OK 呈現，不再落入獨立項目空白格。
+     if(isReturnSlipCategory(c.id)&&isWholeClassOK(h)){
+       if(n===1)cells+=`<td class="all-ok-cell" rowspan="${state.studentCount}"><span class="all-ok-stamp">OK</span></td>`;
+     }else if(isReturnSlipCategory(c.id)){
+       cells+=`<td>${statusIcon(h.statuses[n]||'red',false,null)}</td>`;
+     }else if(c.kind==='independent'){
        cells+=`<td>${independentOverviewCell(c.id,n)}</td>`;
      }else if(isWholeClassOK(h)){
        if(n===1)cells+=`<td class="all-ok-cell" rowspan="${state.studentCount}"><span class="all-ok-stamp">OK</span></td>`;
