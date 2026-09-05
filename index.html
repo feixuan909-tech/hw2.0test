@@ -5005,9 +5005,16 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 .archive-test-badge{display:inline-block;margin-left:7px;padding:1px 6px;border:1px solid rgba(235,211,150,.58);border-radius:999px;font-size:8px;line-height:1.45;letter-spacing:.08em;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:700;color:#f0db9d;background:rgba(84,61,26,.34);vertical-align:middle;white-space:nowrap}
 @media(max-width:700px){.archive-test-badge{font-size:7px;padding:1px 5px;margin-left:5px}}
 </style>
+
+<style id="alpha66-ok-layout">
+/* alpha.66｜個人紀錄：狀態與補登 OK 優先同列；窄螢幕不足時才換行 */
+.student-record-status-stack{flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:6px!important;width:100%;flex-wrap:wrap!important}
+.student-record-status-text{white-space:nowrap}
+@media(max-width:700px){.student-record-status-stack{gap:4px!important}.student-record-quick-ok{margin-left:auto}}
+</style>
 </head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.65</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.66</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
@@ -5039,7 +5046,7 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
   <div class="cloud-panel-head">
     <div>
       <div class="section-title">☁ 雲端同步（測試隔離）</div>
-      <div id="cloudStatusLong" class="small cloud-status-long">雲端尚未啟用；目前只使用 alpha.65 獨立測試資料區，需要時才會連線；不會讀寫正式版資料。</div>
+      <div id="cloudStatusLong" class="small cloud-status-long">雲端尚未啟用；目前只使用 alpha.66 獨立測試資料區，需要時才會連線；不會讀寫正式版資料。</div>
     </div>
     <button id="cloudCloseBtn" class="btn cloud-close-btn" type="button">收起</button>
   </div>
@@ -6239,7 +6246,7 @@ function statusText(st,h=null,seat=null){
    // alpha.50：學生個人紀錄屬於「目前統計狀態」。
    // 完整蓋 OK 代表已處理完成，因此顯示為藍色「通過」；
    // 原始狀況＋OK 仍完整保留在歷史紀錄資料與歷史紀錄畫面中。
-   if(isStatusFullyResolved(h,seat))cls='blue';
+   if(isStatusFullyResolved(h,seat))suffix=' <span class="student-status-ok">OK</span>';
    else if(cls==='ring'){
      const p=resolvedPartState(h,seat);
      if(p.correction&&!p.signature)suffix=' <span class="student-status-ok">訂OK</span>';
@@ -6286,6 +6293,11 @@ function setStudentRecordSortMode(mode){
  studentRecordSortMode=mode==='pending'?'pending':'category';
  syncStudentSortButtons();renderStudentRecord();
 }
+function syncResolvedSeatToCurrentGrid(h,seat){
+ if(!h||h.catId!==currentCat().id||h.date!==($('recordDate').value||TODAY))return;
+ const d=getDraft();
+ d[seat]=isStatusFullyResolved(h,seat)?'blue':(h.statuses?.[seat]||'red');
+}
 function studentRecordQuickOKButton(h,seat){
  if(!h||!SAFE_ID.test(String(h.id||''))||!studentRecordIsPending(h,seat))return '';
  return `<button type="button" class="student-record-quick-ok" data-history-id="${esc(h.id)}" data-seat="${seat}" title="直接將這筆未完成紀錄補登為 OK">補登 OK</button>`;
@@ -6307,6 +6319,7 @@ function applyStudentRecordQuickOK(historyId,seat){
 
  const c=state.categories.find(x=>x.id===h.catId);
  if(c?.kind==='continuous')recomputeContinuousResolutions(h.catId);
+ syncResolvedSeatToCurrentGrid(h,seat);
  save();
 
  // 同一個學生可連續處理多本，不跳頁、不關閉個人紀錄。
@@ -6315,6 +6328,7 @@ function applyStudentRecordQuickOK(historyId,seat){
  renderOverview();
  renderCats();
  renderCurrentCategorySummary();
+ renderStudentGrid();
 }
 function renderStudentRecord(){
  const picker=$('studentSeatPicker'),body=$('studentRecordBody');if(!picker||!body)return;
@@ -6665,6 +6679,7 @@ function commitHistoryOkEdits(){
        h.resolvedParts[seat]={missing:true,correction:true,signature:true};
        h.manualResolved[seat]=true;
      }
+     syncResolvedSeatToCurrentGrid(h,seat);
    }
    if(historyOkPending.size){h.updated=Date.now();const c=state.categories.find(x=>x.id===h.catId);if(c?.kind==='continuous')recomputeContinuousResolutions(h.catId);save()}
  }
@@ -6673,6 +6688,7 @@ function commitHistoryOkEdits(){
  // alpha.64：補登 OK 後立即同步所有「目前狀態」視圖。
  renderCurrentCategorySummary();
  renderStudentRecord();
+ renderStudentGrid();
 }
 function toggleHistoryOkEdit(id){
  if(historyOkEditId===id){commitHistoryOkEdits();return}
@@ -7487,6 +7503,7 @@ async function signIn(){
  const {GoogleAuthProvider,signInWithPopup,setPersistence,browserLocalPersistence,browserSessionPersistence}=window.__HW_FIREBASE.authMod;
  await setPersistence(auth,ui.privateDevice?.checked?browserLocalPersistence:browserSessionPersistence);
  const provider=new GoogleAuthProvider();
+ provider.setCustomParameters({prompt:'select_account'});
  try{
    await signInWithPopup(auth,provider);
    localStorage.setItem(CLOUD_AUTO_INIT_KEY,'1');
