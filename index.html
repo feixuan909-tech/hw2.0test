@@ -5012,9 +5012,58 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 .student-record-status-text{white-space:nowrap}
 @media(max-width:700px){.student-record-status-stack{gap:4px!important}.student-record-quick-ok{margin-left:auto}}
 </style>
-\n<style id="alpha67-edit-mobile-overview-fix">\n/* alpha.67｜手機個人紀錄欄寬、歷史編輯 OK 提示、取消編輯 */\n.num.history-edit-ok{position:relative}\n.num.history-edit-ok::after{content:"OK";position:absolute;right:-3px;top:-5px;min-width:15px;height:12px;padding:0 2px;border:1px solid #8aa79a;border-radius:5px;background:#f7f3e8;color:#315647;font:800 7px/11px system-ui,-apple-system,"Segoe UI",sans-serif;box-shadow:0 1px 2px rgba(50,40,25,.12);pointer-events:none}\n@media(max-width:700px){\n  #studentPanel .student-record-table col.student-col-category{width:18%!important}\n  #studentPanel .student-record-table col.student-col-date{width:22%!important}\n  #studentPanel .student-record-table col.student-col-progress{width:27%!important}\n  #studentPanel .student-record-table col.student-col-status{width:33%!important}\n  #studentPanel .student-record-table th,#studentPanel .student-record-table td{padding-left:3px!important;padding-right:3px!important}\n  .student-record-status-stack{gap:2px!important;flex-wrap:nowrap!important}\n  .student-record-quick-ok{padding:2px 3px!important;font-size:8.5px!important;border-radius:5px!important;margin-left:auto!important}\n}\n</style>\n</head>
+
+<style id="alpha67-edit-mobile-polish">
+/* alpha.67｜編輯歷程 OK 標記：保留原始狀態色，右上角顯示小 OK。 */
+#studentGrid .num.history-edit-has-ok{position:relative}
+#studentGrid .num.history-edit-has-ok::after{
+  content:"OK";position:absolute;right:-3px;top:-5px;min-width:17px;height:14px;padding:0 2px;
+  display:flex;align-items:center;justify-content:center;border-radius:7px;
+  background:#f7f0df;border:1px solid #b89d68;color:#70572d;
+  font:700 8px/1 system-ui,-apple-system,"Segoe UI","Noto Sans TC",sans-serif;
+  box-shadow:0 1px 2px rgba(80,58,25,.12);pointer-events:none;
+}
+/* 手機個人紀錄：縮窄類別與進度，把空間讓給狀態＋補登 OK。桌機不動。 */
+@media(max-width:700px){
+  #studentPanel .student-record-table col.student-col-category{width:19%!important}
+  #studentPanel .student-record-table col.student-col-date{width:21%!important}
+  #studentPanel .student-record-table col.student-col-progress{width:27%!important}
+  #studentPanel .student-record-table col.student-col-status{width:33%!important}
+  #studentPanel .student-record-quick-ok{padding:2px 3px!important;font-size:8px!important;line-height:1.1!important;border-radius:5px!important}
+  #studentPanel .student-record-status-stack{gap:2px!important;flex-wrap:nowrap!important}
+}
+@media(max-width:360px){
+  #studentPanel .student-record-status-stack{flex-wrap:wrap!important}
+}
+</style>
+
+<style id="alpha68-polish">
+/* alpha.68｜手機個人紀錄再壓縮；桌機維持 alpha.67 已通過版面 */
+@media(max-width:700px){
+  #studentPanel .student-record-table col.student-col-category{width:16%!important}
+  #studentPanel .student-record-table col.student-col-date{width:21%!important}
+  #studentPanel .student-record-table col.student-col-progress{width:25%!important}
+  #studentPanel .student-record-table col.student-col-status{width:38%!important}
+  #studentPanel .student-record-quick-ok{padding:1px 3px!important;font-size:7.5px!important;line-height:1.05!important;min-height:17px!important}
+}
+/* 號碼盤字體：只調整字型角色，不改尺寸／功能 */
+#studentGrid .num,#contactGrid .num{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,-apple-system,"Segoe UI",sans-serif!important;font-weight:700!important;letter-spacing:.01em}
+/* 編輯歷史提示：桌機改回檔案紙張語彙；手機視覺留待後續整體整理 */
+@media(min-width:701px){
+  .history-main-edit-banner{border:1px solid #d4c19a!important;border-radius:8px!important;background:linear-gradient(180deg,#fffaf0,#f7eedc)!important;box-shadow:inset 0 1px rgba(255,255,255,.75),0 2px 7px rgba(77,55,26,.07)!important;padding:10px 12px!important}
+  .history-main-edit-banner .title{font-family:"Noto Serif TC","Songti TC",serif!important;color:#4b3825!important;font-size:15px!important;font-weight:800!important;letter-spacing:.04em}
+  .history-main-edit-banner .small{color:#75624c!important;font-size:12px!important;line-height:1.55!important}
+}
+/* 編輯模式的 OK 直接作為座號內標記，避免偽元素在不同裝置遺失 */
+#studentGrid .num .history-edit-ok-stamp{position:absolute;left:50%;top:-7px;transform:translateX(-50%);z-index:3;min-width:18px;height:14px;padding:0 2px;display:flex;align-items:center;justify-content:center;border-radius:7px;background:#f7f0df;border:1px solid #b89d68;color:#70572d;font:700 8px/1 system-ui,-apple-system,"Segoe UI",sans-serif;box-shadow:0 1px 2px rgba(80,58,25,.12);pointer-events:none}
+#studentGrid .num.history-edit-has-ok::after{content:none!important}
+/* 歷史紀錄可收合 */
+.history-section-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+#historyBody.collapsed{display:none}
+</style>
+</head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.67</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.68</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
@@ -5046,7 +5095,7 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
   <div class="cloud-panel-head">
     <div>
       <div class="section-title">☁ 雲端同步（測試隔離）</div>
-      <div id="cloudStatusLong" class="small cloud-status-long">雲端尚未啟用；目前只使用 alpha.67 獨立測試資料區，需要時才會連線；不會讀寫正式版資料。</div>
+      <div id="cloudStatusLong" class="small cloud-status-long">雲端尚未啟用；目前只使用 alpha.68 獨立測試資料區，需要時才會連線；不會讀寫正式版資料。</div>
     </div>
     <button id="cloudCloseBtn" class="btn cloud-close-btn" type="button">收起</button>
   </div>
@@ -5196,10 +5245,10 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
     </div>
     <button id="updateHomeworkBtn" class="btn primary" type="button">更新</button>
   </div>
-  <div id="dailySummary" class="summary hidden"></div>
 </div>
+  <div id="dailySummary" class="summary hidden"></div>
 </section>
-<section class="card section"><div class="section-title">歷史紀錄</div><div class="small" style="margin-bottom:8px">按「編輯紀錄」會把該筆資料載入上方一般登記區，可用原本三種進度輸入方式與座號狀態按鈕修改；「補登 OK」則直接在歷史紀錄中批次處理。左右滑動時座號欄固定。</div><div class="history-table-wrap"><table class="history-table"><thead id="tableHead"></thead><tbody id="tableBody"></tbody></table></div></section>
+<section class="card section" id="historySection"><div class="history-section-head"><div class="section-title" style="margin-bottom:0">歷史紀錄</div><button id="historyCollapseBtn" class="btn" type="button" aria-expanded="true">收起 ▲</button></div><div id="historyBody"><div class="small" style="margin:8px 0">按「編輯紀錄」會把該筆資料載入上方一般登記區，可用原本三種進度輸入方式與座號狀態按鈕修改；「補登 OK」則直接在歷史紀錄中批次處理。左右滑動時座號欄固定。</div><div class="history-table-wrap"><table class="history-table"><thead id="tableHead"></thead><tbody id="tableBody"></tbody></table></div></div></section>
 </main></div>
 <script>
 "use strict";
@@ -5495,7 +5544,6 @@ let studentRecordSortMode='category';
 let historyOkEditId='';
 let historyOkPending=new Set();
 let historyEditId='';
-let historyEditTouchedSeats=new Set();
 let historyEditDraft=null;
 let historyEditOriginalManual={};
 let categoryDragId='';
@@ -5894,6 +5942,13 @@ function renderProgress(){
 $('categoryEditBtn').addEventListener('click',toggleCategoryManager);
 document.querySelectorAll('.homework-status-btn').forEach(btn=>btn.addEventListener('click',()=>{selectedStatus=btn.dataset.status;document.querySelectorAll('.homework-status-btn').forEach(b=>b.classList.toggle('active',b===btn));if(selectedStudents.size)applyStatusToSelected()}));
 function todayLeaveSet(){return new Set(state.contact.date===TODAY?state.contact.leave:[])}
+function historyEditSeatHasOK(seat){
+ if(!historyEditId)return false;
+ const h=state.history.find(x=>x.id===historyEditId);
+ if(!h)return false;
+ // 補登 OK 屬於歷程，不把原始紅／綠／黃／圈狀態洗成藍色。
+ return historyEditOriginalManual?.[seat]===true;
+}
 function renderStudentGrid(){
  const d=getDraft(),leave=todayLeaveSet(),isToday=($('recordDate').value||TODAY)===TODAY,grid=$('studentGrid');
  grid.innerHTML='';
@@ -5903,8 +5958,12 @@ function renderStudentGrid(){
    const st=hasExplicit?d[n]:(isAutoLeave?'orange':'red');
    const b=document.createElement('button');
    b.type='button';
-   b.className=`num ${st} ${selectedStudents.has(n)?'selected':''} ${historyEditId&&historyEditOriginalManual?.[n]&&!historyEditTouchedSeats.has(n)&&st!=='blue'?'history-edit-ok':''}`;
+   b.className=`num ${st} ${selectedStudents.has(n)?'selected':''} ${historyEditSeatHasOK(n)?'history-edit-has-ok':''}`;
    b.textContent=n;
+   if(historyEditSeatHasOK(n)){
+     b.title='原紀錄狀態已補登 OK；可選取後重新指定狀態以取消原 OK 結果';
+     const ok=document.createElement('span');ok.className='history-edit-ok-stamp';ok.textContent='OK';b.appendChild(ok);
+   }
    b.addEventListener('click',()=>{
      // 尚未登記的座號：單點即快速通過；自動請假不適用。
      if(!hasExplicit&&!isAutoLeave){
@@ -5916,8 +5975,7 @@ function renderStudentGrid(){
      }
      // 編輯／補登既有歷史紀錄時：紅色（原本未交）保留「點一下直接通過」的快速操作。
      // 其他狀態仍維持原本：先選座號，再用上方狀態按鈕修改。
-     if(historyEditId&&st==='red'){
-       historyEditTouchedSeats.add(n);
+     if(historyEditId&&st==='red'&&!historyEditSeatHasOK(n)){
        d[n]='blue';
        selectedStudents.delete(n);
        renderStudentGrid();
@@ -5930,7 +5988,17 @@ function renderStudentGrid(){
    grid.appendChild(b);
  }
 }
-function applyStatusToSelected(){const d=getDraft();selectedStudents.forEach(n=>{d[n]=selectedStatus;if(historyEditId)historyEditTouchedSeats.add(n)});save();selectedStudents.clear();renderStudentGrid()}
+function applyStatusToSelected(){
+ const d=getDraft();
+ selectedStudents.forEach(n=>{
+   d[n]=selectedStatus;
+   // alpha.67：在『編輯紀錄』中重新指定狀態，代表以這次編輯結果為準；
+   // 若原本是『原狀態＋補登 OK』，同步取消那個手動 OK，避免改成待處理後仍被判定完成。
+   if(historyEditId&&historyEditOriginalManual)delete historyEditOriginalManual[n];
+ });
+ if(!historyEditId)save();
+ selectedStudents.clear();renderStudentGrid();
+}
 function clearCurrentDraft(){
  if(historyEditId){
    const h=state.history.find(x=>x.id===historyEditId);
@@ -6168,8 +6236,15 @@ function toggleOverview(force){
  btn.textContent=show?'收起總覽':'作業最新進度總覽';
  if(show){renderOverview();panel.scrollIntoView({behavior:'smooth',block:'start'})}
 }
-function isWholeClassOK(h){if(!h)return false;for(let n=1;n<=state.studentCount;n++)if((h.statuses[n]||'red')!=='blue')return false;return true}
-function isWholeClassCurrentlyOK(h){if(!h)return false;for(let n=1;n<=state.studentCount;n++){if((h.statuses[n]||'red')==='orange')return false;if((h.statuses[n]||'red')!=='blue'&&!isStatusFullyResolved(h,n))return false}return true}
+function isWholeClassOK(h){
+ if(!h)return false;
+ // alpha.67：總覽／歷史的『全班 OK』看目前結果。原本非藍色但已完整補登 OK，也視為完成。
+ for(let n=1;n<=state.studentCount;n++){
+   const st=h.statuses?.[n]||'red';
+   if(st!=='blue'&&!isStatusFullyResolved(h,n))return false;
+ }
+ return true;
+}
 function hasUnresolvedIndependentRecord(h){
  if(!h)return false;
  for(let n=1;n<=state.studentCount;n++){
@@ -6256,7 +6331,8 @@ function statusText(st,h=null,seat=null){
      if(p.signature&&!p.correction)suffix=' <span class="student-status-ok">簽OK</span>';
    }
  }
- return `<span class="student-status-text"><span class="dot ${cls}"></span>${labels[cls]||labels.red}${suffix}</span>`;
+ const displayLabel=(cls==='red'&&document.documentElement.classList.contains('mobile-ux'))?'未交':(labels[cls]||labels.red);
+ return `<span class="student-status-text"><span class="dot ${cls}"></span>${displayLabel}${suffix}</span>`;
 }
 function studentHasAnyHistory(catId){return state.history.some(h=>h.catId===catId)}
 function studentRecordIsPending(h,seat){
@@ -6322,7 +6398,6 @@ function applyStudentRecordQuickOK(historyId,seat){
 
  const c=state.categories.find(x=>x.id===h.catId);
  if(c?.kind==='continuous')recomputeContinuousResolutions(h.catId);
- syncResolvedSeatToCurrentGrid(h,seat);
  save();
 
  // 同一個學生可連續處理多本，不跳頁、不關閉個人紀錄。
@@ -6634,7 +6709,7 @@ function renderOverview(){
    for(const {c,h} of cols){
      if(c.kind==='independent'){
        cells+=`<td>${independentOverviewCell(c.id,n)}</td>`;
-     }else if(isWholeClassCurrentlyOK(h)){
+     }else if(isWholeClassOK(h)){
        if(n===1)cells+=`<td class="all-ok-cell" rowspan="${state.studentCount}"><span class="all-ok-stamp">OK</span></td>`;
      }else{
        cells+=`<td>${statusIcon(h.statuses[n]||'red',isStatusFullyResolved(h,n),resolvedPartState(h,n))}</td>`;
@@ -6682,7 +6757,6 @@ function commitHistoryOkEdits(){
        h.resolvedParts[seat]={missing:true,correction:true,signature:true};
        h.manualResolved[seat]=true;
      }
-     syncResolvedSeatToCurrentGrid(h,seat);
    }
    if(historyOkPending.size){h.updated=Date.now();const c=state.categories.find(x=>x.id===h.catId);if(c?.kind==='continuous')recomputeContinuousResolutions(h.catId);save()}
  }
@@ -6701,14 +6775,14 @@ function toggleHistoryOkEdit(id){
 
 
 function cancelHistoryRecordEdit(render=true){
- historyEditId='';historyEditDraft=null;historyEditOriginalManual={};historyEditTouchedSeats.clear();
+ historyEditId='';historyEditDraft=null;historyEditOriginalManual={};
  selectedStudents.clear();progress={a:'',b:'',skipPages:'',unit:'L',unitNums:'',unitDetail:'',free:''};
  if(render){renderProgress();renderHistoryMainEditBanner();renderStudentGrid();renderTable();renderCurrentCategorySummary()}
 }
 function startHistoryRecordEdit(id){
  const h=state.history.find(x=>x.id===id);if(!h)return;
  if(historyOkEditId){historyOkEditId='';historyOkPending.clear()}
- historyEditId=id;historyEditDraft={};historyEditTouchedSeats.clear();
+ historyEditId=id;historyEditDraft={};
  for(let n=1;n<=state.studentCount;n++)historyEditDraft[n]=h.statuses?.[n]||'red';
  historyEditOriginalManual={...(h.manualResolved||{})};
  state.currentCategory=h.catId;
@@ -6740,7 +6814,7 @@ function saveHistoryRecordFromMain(){
  h.manualResolved={};
  for(const [seat,flag] of Object.entries(historyEditOriginalManual||{})){
    const st=h.statuses?.[seat];
-   if(flag===true&&!historyEditTouchedSeats.has(Number(seat))&&['red','yellow','green','ring','orange'].includes(st))h.manualResolved[seat]=true;
+   if(flag===true&&['red','yellow','green','ring','orange'].includes(st))h.manualResolved[seat]=true;
  }
  h.updated=nextUpdatedStamp();
  const c=state.categories.find(x=>x.id===h.catId);
@@ -6750,7 +6824,7 @@ function saveHistoryRecordFromMain(){
    for(const seat of Object.keys(h.manualResolved)){h.resolved[seat]=true;h.resolvedParts[seat]={missing:true,correction:true,signature:true}}
  }
  save();
- historyEditId='';historyEditDraft=null;historyEditOriginalManual={};historyEditTouchedSeats.clear();
+ historyEditId='';historyEditDraft=null;historyEditOriginalManual={};
  selectedStudents.clear();progress={a:'',b:'',skipPages:'',unit:'L',unitNums:'',unitDetail:'',free:''};
  renderAll();
 }
@@ -6770,9 +6844,9 @@ function renderTable(){
    recordEdit.type='button';recordEdit.className=`btn history-record-edit-btn ${historyEditId===h.id?'active':''}`;
    recordEdit.style.cssText='padding:4px 7px;font-size:11px';
    recordEdit.textContent=historyEditId===h.id?'取消編輯':'編輯紀錄';
-    recordEdit.title=historyEditId===h.id?'取消這次編輯，不儲存任何修改':'把這筆歷史資料載入上方一般登記區修改';
-    recordEdit.disabled=false;
-    recordEdit.addEventListener('click',()=>historyEditId===h.id?cancelHistoryRecordEdit():startHistoryRecordEdit(h.id));
+   recordEdit.title=historyEditId===h.id?'放棄這次編輯並回到一般登記':'把這筆歷史資料載入上方一般登記區修改';
+   recordEdit.disabled=false;
+   recordEdit.addEventListener('click',()=>historyEditId===h.id?cancelHistoryRecordEdit():startHistoryRecordEdit(h.id));
    controls.appendChild(recordEdit);
    {
      const okEdit=document.createElement('button');
@@ -6955,13 +7029,27 @@ function finishContact(){
  if(!red.length&&!green.length&&!yellow.length&&!leave.length)x+='<div class="small">目前沒有需要追蹤的座號。</div>';
  $('contactSummary').innerHTML=x;$('contactSummary').classList.remove('hidden');save();
 }
-let contactCollapsed=false;
-function setContactCollapsed(collapsed){
+const CONTACT_UI_KEY='archiveAlpha68ContactCollapseV1';
+const HISTORY_UI_KEY='archiveAlpha68HistoryCollapseV1';
+function loadContactCollapsedForToday(){
+ try{
+   const raw=JSON.parse(localStorage.getItem(CONTACT_UI_KEY)||'null');
+   if(!raw||raw.date!==TODAY){localStorage.setItem(CONTACT_UI_KEY,JSON.stringify({date:TODAY,seen:true,state:null}));return false}
+   // 當天第一次開啟預設展開；若使用者沒有手動選擇，重新整理後預設收起。
+   return typeof raw.state==='boolean'?raw.state:true;
+ }catch{return false}
+}
+function rememberContactCollapsed(collapsed){
+ try{localStorage.setItem(CONTACT_UI_KEY,JSON.stringify({date:TODAY,seen:true,state:!!collapsed}))}catch{}
+}
+let contactCollapsed=loadContactCollapsedForToday();
+function setContactCollapsed(collapsed,persist=false){
  contactCollapsed=!!collapsed;
  const body=$('contactBody'),btn=$('contactCollapseBtn');
  body.classList.toggle('collapsed',contactCollapsed);
  btn.textContent=contactCollapsed?'展開 ▼':'收起 ▲';
  btn.setAttribute('aria-expanded',contactCollapsed?'false':'true');
+ if(persist)rememberContactCollapsed(contactCollapsed);
 }
 $('mobileMoreBtn').addEventListener('click',()=>{
  const menu=$('mobileMoreMenu'),btn=$('mobileMoreBtn'),show=!menu.classList.contains('show');
@@ -6972,7 +7060,17 @@ syncMobileUXClass();
 setupMobileTopbar();
 window.addEventListener('resize',()=>{syncMobileUXClass();setupMobileTopbar();updateMobileCategoryUI()});
 window.addEventListener('orientationchange',()=>setTimeout(()=>{syncMobileUXClass();setupMobileTopbar();updateMobileCategoryUI()},80));
-$('contactCollapseBtn').addEventListener('click',()=>setContactCollapsed(!contactCollapsed));
+$('contactCollapseBtn').addEventListener('click',()=>setContactCollapsed(!contactCollapsed,true));
+setContactCollapsed(contactCollapsed,false);
+let historyCollapsed=false;
+function setHistoryCollapsed(collapsed,persist=false){
+ historyCollapsed=!!collapsed;const body=$('historyBody'),btn=$('historyCollapseBtn');if(!body||!btn)return;
+ body.classList.toggle('collapsed',historyCollapsed);btn.textContent=historyCollapsed?'展開 ▼':'收起 ▲';btn.setAttribute('aria-expanded',historyCollapsed?'false':'true');
+ if(persist)try{localStorage.setItem(HISTORY_UI_KEY,historyCollapsed?'1':'0')}catch{}
+}
+try{historyCollapsed=localStorage.getItem(HISTORY_UI_KEY)==='1'}catch{historyCollapsed=false}
+setHistoryCollapsed(historyCollapsed,false);
+$('historyCollapseBtn').addEventListener('click',()=>setHistoryCollapsed(!historyCollapsed,true));
 $('homeworkEntryCollapseBtn').addEventListener('click',()=>{
  const body=$('homeworkEntryBody'),btn=$('homeworkEntryCollapseBtn');
  const collapsed=!body.classList.contains('collapsed');
@@ -6984,6 +7082,8 @@ setInterval(()=>{
  const before=TODAY;
  refreshToday();
  if(TODAY!==before){
+   try{localStorage.setItem(CONTACT_UI_KEY,JSON.stringify({date:TODAY,seen:true,state:null}))}catch{}
+   setContactCollapsed(false,false);
    renderContact();
    if($('recordDate').value===before)$('recordDate').value=TODAY;
    renderStudentGrid();
