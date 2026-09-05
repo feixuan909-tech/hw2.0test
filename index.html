@@ -5431,9 +5431,159 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
   }
 }
 </style>
+
+<style id="alpha85-history-overview-category-lock">
+/* alpha.85
+   1) 作業登記區已確認：本版不再碰其排版。
+   2) 歷史紀錄：回復 alpha.78 的紙張／字體／按鈕視覺，
+      並避免只有少數紀錄時被 table min-width:100% 拉成超寬欄。
+   3) 總覽：座號軸縮窄；其餘資料欄固定均寬，超出容器由既有 wrapper 橫向捲動。
+   4) 類別：總覽勾選小字整組略往左，保留與類型選擇框的間距，改深棕色。
+*/
+@media (min-width:761px){
+
+  /* ===== 類別編輯：只做本輪指定微調 ===== */
+  .cat-list.editing .cat-meta-row{
+    grid-template-columns:40px 112px minmax(0,1fr)!important;
+    column-gap:3px!important;
+    padding-left:10px!important;
+    padding-right:5px!important;
+  }
+  .cat-list.editing .cat-overview-option{
+    justify-self:start!important;
+    margin-left:15px!important;   /* 與選擇框保留清楚空隙 */
+    margin-right:0!important;
+    color:#5b3b22!important;      /* 深棕色 */
+  }
+  .cat-list.editing .cat-overview-option .cat-overview-top-text,
+  .cat-list.editing .cat-overview-option .cat-overview-bottom,
+  .cat-list.editing .cat-overview-option .cat-overview-bottom-text{
+    color:#5b3b22!important;
+  }
+
+  /* ===== 作業進度總覽：窄座號軸 + 其餘資料欄均寬 ===== */
+  #overviewPanel .overview-table-wrap{
+    overflow-x:auto!important;
+    overflow-y:visible!important;
+  }
+  #overviewPanel .overview-table{
+    width:max-content!important;
+    min-width:0!important;
+    table-layout:fixed!important;
+  }
+  #overviewPanel .overview-table .seat-col{
+    width:72px!important;
+    min-width:72px!important;
+    max-width:72px!important;
+    white-space:normal!important;
+  }
+  #overviewPanel .overview-table th:not(.seat-col),
+  #overviewPanel .overview-table td:not(.seat-col){
+    width:92px!important;
+    min-width:92px!important;
+    max-width:92px!important;
+    box-sizing:border-box!important;
+  }
+  #overviewPanel .overview-table .cat-head,
+  #overviewPanel .overview-table .date-head{
+    white-space:normal!important;
+    overflow:visible!important;
+    text-overflow:clip!important;
+    overflow-wrap:anywhere!important;
+  }
+
+  /* ===== 歷史紀錄：視覺回到 alpha.78 ===== */
+  .workspace>section.card.section:last-child .history-table{
+    color:#4A3420!important;
+    font-family:"Noto Serif TC","PMingLiU","Songti TC",serif!important;
+    width:max-content!important;
+    min-width:0!important; /* 不再把少數紀錄平均撐滿整個畫面 */
+    table-layout:fixed!important;
+  }
+  .workspace>section.card.section:last-child .history-table-wrap{
+    overflow-x:auto!important;
+    overflow-y:visible!important;
+    border:1px solid #d8ccb2!important;
+    border-radius:9px!important;
+    background:#fffef9!important;
+    box-shadow:inset 0 1px 0 rgba(200,169,106,.06)!important;
+  }
+  .workspace>section.card.section:last-child .history-table th{
+    width:156px!important;
+    min-width:156px!important;
+    max-width:156px!important;
+    padding:3px 5px!important;
+    height:32px!important;
+    font-family:"Noto Serif TC","PMingLiU","Songti TC",serif!important;
+    font-size:13px!important;
+    line-height:1.2!important;
+    font-weight:900!important;
+    letter-spacing:.025em!important;
+    color:#4A3420!important;
+    background:#f2ead9!important;
+    white-space:normal!important;
+    vertical-align:top!important;
+  }
+  .workspace>section.card.section:last-child .history-table td{
+    width:156px!important;
+    min-width:156px!important;
+    max-width:156px!important;
+    padding:3px 5px!important;
+    height:32px!important;
+    font-family:"Noto Serif TC","PMingLiU","Songti TC",serif!important;
+    font-size:13px!important;
+    line-height:1.35!important;
+    color:#514536!important;
+    background:#fffdf8!important;
+    box-sizing:border-box!important;
+  }
+  .workspace>section.card.section:last-child .history-table th:first-child,
+  .workspace>section.card.section:last-child .history-table td:first-child{
+    width:54px!important;
+    min-width:54px!important;
+    max-width:54px!important;
+    background:#fbf6ea!important;
+    border-right:1px solid #cfbea0!important;
+  }
+  .workspace>section.card.section:last-child .history-table thead th:first-child{
+    height:52px!important;
+    padding:0!important;
+    border-bottom:1px solid #cfbea0!important;
+    box-shadow:1px 0 0 rgba(207,190,160,.18),0 1px 0 rgba(207,190,160,.18)!important;
+  }
+  .workspace>section.card.section:last-child .history-table thead tr:first-child th{
+    border-bottom:1px solid #d4c5a9!important;
+  }
+  .history-table .btn,
+  .history-record-edit-btn,
+  .history-table button{
+    min-height:28px!important;
+    padding:5px 8px!important;
+    border-radius:6px!important;
+    border-color:#d4c7ae!important;
+    background:#fffaf0!important;
+    color:#4A3420!important;
+    font-size:11px!important;
+    font-weight:850!important;
+    box-shadow:none!important;
+  }
+  .history-table .history-record-edit-btn.active{
+    background:#edf3ee!important;
+    border-color:#8fa99b!important;
+    color:#17382E!important;
+  }
+  .history-table .danger,
+  .history-table button.danger{
+    color:#8a4b3e!important;
+    background:#fbf1ea!important;
+    border-color:#ddc2b6!important;
+  }
+}
+</style>
+
 </head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.84</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.85</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
