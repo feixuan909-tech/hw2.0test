@@ -5070,9 +5070,9 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 .return-slip-history-mark{display:inline-flex;align-items:center;justify-content:center;min-width:18px;min-height:18px}
 .return-slip-history-mark .dot{width:15px;height:15px}
 </style>
-</head>
+\n<style id="alpha70-refinements">\n/* alpha.70｜歷史收合鈕直接與作業登記共用同一組尺寸／色彩／圓角 */\n#historyCollapseBtn{padding:7px 10px;white-space:nowrap}\n@media(min-width:761px){\n #historyCollapseBtn{min-height:31px;padding:5px 10px;border-radius:7px;border-color:#d5c8ad!important;background:#f8f2e4!important;color:#4A3420!important;font-size:12px;box-shadow:none}\n}\n/* 號碼盤數字：偏楷書／手寫氣質，保留足夠筆畫重量與辨識度 */\n#studentGrid .num,#contactGrid .num{font-family:"Kaiti TC","DFKai-SB","STKaiti","KaiTi","Noto Serif TC","Microsoft JhengHei",serif!important;font-weight:700!important;letter-spacing:.025em!important}\n/* 手機回條結果：狀態名稱固定完整，不被座號擠成逐字換行 */\n@media(max-width:700px){\n #dailySummary .summary-line{display:grid!important;grid-template-columns:auto max-content minmax(0,1fr);align-items:start;column-gap:5px}\n #dailySummary .summary-line>.dot{margin-top:.32em}\n #dailySummary .summary-line>b{white-space:nowrap!important;word-break:keep-all!important;overflow-wrap:normal!important}\n}\n</style>\n</head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.69</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.70</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
@@ -6271,8 +6271,17 @@ function toggleOverview(force){
  if(show){renderOverview();panel.scrollIntoView({behavior:'smooth',block:'start'})}
 }
 function isWholeClassOK(h){
- if(!h||isReturnSlipCategory(h.catId))return false;
- // alpha.67：總覽／歷史的『全班 OK』看目前結果。原本非藍色但已完整補登 OK，也視為完成。
+ if(!h)return false;
+ // alpha.70：回條只要全員都已成為最終結果（參加／不參加／特殊情況），總覽也視為全班完成。
+ // 未交、補繳或請假仍不算「全數繳交」。
+ if(isReturnSlipCategory(h.catId)){
+   for(let n=1;n<=state.studentCount;n++){
+     const st=h.statuses?.[n]||'red';
+     if(!['blue','green','yellow'].includes(st))return false;
+   }
+   return true;
+ }
+ // 一般作業：原本非藍色但已完整補登 OK，也視為完成。
  for(let n=1;n<=state.studentCount;n++){
    const st=h.statuses?.[n]||'red';
    if(st!=='blue'&&!isStatusFullyResolved(h,n))return false;
@@ -6451,8 +6460,9 @@ function renderStudentRecord(){
  }
  const cats=state.categories.filter(c=>studentHasAnyHistory(c.id));
  if(!cats.length){body.innerHTML='<div class="student-record-empty">目前尚無任何正式作業紀錄。</div>';return}
- const continuous=sortStudentRecordCategories(cats.filter(c=>c.kind==='continuous'),selectedStudentSeat);
- const independent=sortStudentRecordCategories(cats.filter(c=>c.kind==='independent'),selectedStudentSeat);
+ const continuous=sortStudentRecordCategories(cats.filter(c=>c.kind==='continuous'&&!isReturnSlipCategory(c.id)),selectedStudentSeat);
+ const independent=sortStudentRecordCategories(cats.filter(c=>c.kind==='independent'&&!isReturnSlipCategory(c.id)),selectedStudentSeat);
+ const returnSlips=sortStudentRecordCategories(cats.filter(c=>isReturnSlipCategory(c.id)),selectedStudentSeat);
  let out=`<div class="small" style="margin-bottom:6px"><b>${selectedStudentSeat} 號</b>｜只顯示已有正式登記紀錄的類別</div>`;
  if(continuous.length){
    const rows=studentRecordRowsWithBreak(continuous,selectedStudentSeat,(c,addBreak)=>{
@@ -6481,6 +6491,23 @@ function renderStudentRecord(){
      return `<tr${addBreak?' class="student-record-priority-break"':''}><td>${esc(c.name)}</td><td>${h.date}</td><td>${h.content?esc(h.content):'—'}</td><td><div class="student-record-status-stack">${statusText(st,h,selectedStudentSeat)}${studentRecordQuickOKButton(h,selectedStudentSeat)}</div></td></tr>`;
    }).join('');
    out+=`<section class="student-record-section"><h4>獨立項目｜全部紀錄</h4><div class="student-record-table-wrap"><table class="student-record-table"><colgroup><col class="student-col-category"><col class="student-col-date"><col class="student-col-progress"><col class="student-col-status"></colgroup><thead><tr><th>類別</th><th>日期</th><th>進度／標題</th><th>狀態</th></tr></thead><tbody>${rows}</tbody></table></div></section>`;
+ }
+ if(returnSlips.length){
+   let slipRows=[];
+   returnSlips.forEach((c,catIndex)=>{
+     const recs=state.history.filter(h=>h.catId===c.id).sort(compareHistory);
+     recs.forEach((h,recordIndex)=>slipRows.push({c,h,catIndex,recordIndex,pending:studentRecordIsPending(h,selectedStudentSeat)}));
+   });
+   if(studentRecordSortMode==='pending')slipRows.sort((a,b)=>Number(b.pending)-Number(a.pending)||a.catIndex-b.catIndex||a.recordIndex-b.recordIndex);
+   let completedStarted=false,breakAdded=false;
+   const rows=slipRows.map(({c,h,pending})=>{
+     if(!pending)completedStarted=true;
+     const addBreak=studentRecordSortMode==='pending'&&completedStarted&&!pending&&!breakAdded;
+     if(addBreak)breakAdded=true;
+     const st=h.statuses?.[selectedStudentSeat]||'red';
+     return `<tr${addBreak?' class="student-record-priority-break"':''}><td>${esc(c.name)}</td><td>${h.date}</td><td>${h.content?esc(h.content):'—'}</td><td><div class="student-record-status-stack">${statusText(st,h,selectedStudentSeat)}</div></td></tr>`;
+   }).join('');
+   out+=`<section class="student-record-section return-slip-record-section"><h4>回條｜全部紀錄</h4><div class="student-record-table-wrap"><table class="student-record-table"><colgroup><col class="student-col-category"><col class="student-col-date"><col class="student-col-progress"><col class="student-col-status"></colgroup><thead><tr><th>類別</th><th>日期</th><th>進度／標題</th><th>狀態</th></tr></thead><tbody>${rows}</tbody></table></div></section>`;
  }
  body.innerHTML=out;
  body.querySelectorAll('.student-record-quick-ok').forEach(btn=>{
@@ -7087,6 +7114,15 @@ function setContactCollapsed(collapsed,persist=false){
  btn.setAttribute('aria-expanded',contactCollapsed?'false':'true');
  if(persist)rememberContactCollapsed(contactCollapsed);
 }
+// alpha.70：桌機游標停在類別欄時，滑鼠滾輪直接瀏覽類別；手機維持整頁自然捲動。
+const categorySidebar=document.querySelector('.sidebar');
+if(categorySidebar)categorySidebar.addEventListener('wheel',e=>{
+ if(window.matchMedia('(max-width:760px)').matches)return;
+ if(categorySidebar.scrollHeight<=categorySidebar.clientHeight)return;
+ categorySidebar.scrollTop+=e.deltaY;
+ e.preventDefault();
+},{passive:false});
+
 $('mobileMoreBtn').addEventListener('click',()=>{
  const menu=$('mobileMoreMenu'),btn=$('mobileMoreBtn'),show=!menu.classList.contains('show');
  menu.classList.toggle('show',show);btn.textContent=show?'更多 ▴':'更多 ▾';btn.setAttribute('aria-expanded',show?'true':'false');
