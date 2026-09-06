@@ -6309,103 +6309,42 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 </style>
 
 
-<style id="alpha132-mobile-category-stacked-meta">
-/* alpha.132｜手機類別改採「標題在上、日期／目前／獨章在下」，
-   參考舊版三欄資訊配置，但完全保留目前卡片外觀。
-   只改手機類別內容排法，桌機與其他區域不動。 */
+<style id="alpha133-mobile-category-one-half-wide">
+/* alpha.133｜從 alpha.131 回復小卡片外觀。
+   手機版只有「3 個字以上」類別卡片加寬為一般卡片約 1.5 倍；
+   高度、底色、外框、字體、日期／目前與桌機皆不動。 */
 @media(max-width:760px){
-
-  #catList:not(.editing){
-    display:grid!important;
-    grid-template-columns:repeat(3,minmax(0,1fr))!important;
-    gap:8px 10px!important;
-  }
-
-  #catList:not(.editing) .cat-item,
   #catList:not(.editing) .cat-item.cat-item-mobile-wide{
     grid-column:auto!important;
-    display:flex!important;
-    flex-direction:column!important;
-    align-items:center!important;
-    justify-content:center!important;
-    gap:4px!important;
-    min-width:0!important;
-    min-height:68px!important;
-    padding:8px 6px!important;
-    box-sizing:border-box!important;
-    overflow:hidden!important;
+    width:calc(150% + 5px)!important;
+    max-width:none!important;
+    justify-self:start!important;
+    position:relative!important;
+    z-index:2!important;
   }
 
-  /* 主標題獨立一列，維持橫排並完整顯示。 */
-  #catList:not(.editing) .cat-item > .cat-center-group{
-    order:1!important;
-    display:flex!important;
-    align-items:center!important;
-    justify-content:center!important;
-    width:100%!important;
-    min-width:0!important;
-    max-width:100%!important;
-    gap:0!important;
-    margin:0!important;
-    white-space:nowrap!important;
+  /* 寬卡若落在第三欄，向左延伸，避免超出右外框。 */
+  #catList:not(.editing) .cat-item.cat-item-mobile-wide:nth-child(3n){
+    justify-self:end!important;
   }
 
-  #catList:not(.editing) .cat-item > .cat-center-group > .cat-name{
-    display:block!important;
-    position:static!important;
-    width:auto!important;
-    min-width:0!important;
-    max-width:100%!important;
-    margin:0!important;
-    transform:none!important;
+  #catList:not(.editing) .cat-item.cat-item-mobile-wide > .cat-center-group{
+    max-width:calc(100% - 72px)!important;
+  }
+
+  #catList:not(.editing) .cat-item.cat-item-mobile-wide > .cat-center-group > .cat-name{
+    min-width:max-content!important;
+    max-width:none!important;
+    overflow:visible!important;
     white-space:nowrap!important;
     word-break:keep-all!important;
-    overflow:visible!important;
-    text-overflow:clip!important;
-    writing-mode:horizontal-tb!important;
-    text-align:center!important;
-    line-height:1.15!important;
-  }
-
-  /* 下方資訊列：日期／目前 + 獨章。
-     「目前」仍取代日期，只是改到標題下方。 */
-  #catList:not(.editing) .cat-item > .cat-date,
-  #catList:not(.editing) .cat-item > .cat-current-badge{
-    order:2!important;
-    position:static!important;
-    transform:none!important;
-    left:auto!important;
-    right:auto!important;
-    top:auto!important;
-    margin:0!important;
-    max-width:none!important;
-    white-space:nowrap!important;
-  }
-
-  /* 獨章放到標題下方資訊列，不再擠壓標題寬度。 */
-  #catList:not(.editing) .cat-item > .cat-center-group > .independent-badge{
-    position:absolute!important;
-    left:50%!important;
-    bottom:7px!important;
-    transform:translateX(26px)!important;
-    margin:0!important;
-    flex:0 0 auto!important;
-  }
-
-  #catList:not(.editing) .cat-item{
-    position:relative!important;
-  }
-
-  /* 沒有日期／目前時，獨章仍保持在第二列位置。 */
-  #catList:not(.editing) .cat-item:not(:has(> .cat-date)):not(:has(> .cat-current-badge)){
-    padding-bottom:20px!important;
   }
 }
 </style>
 
 </head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.132</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.133</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
@@ -6940,7 +6879,7 @@ function renderCats(){
      btn.type='button';
      btn.className=`cat-item ${c.id===state.currentCategory?'active':''}`;
      btn.dataset.catId=c.id;if(c.id===state.currentCategory)btn.setAttribute('aria-current','true');
-     if([...String(c.name||'')].length>=4)btn.classList.add('cat-item-mobile-wide');
+     if([...String(c.name||'')].length>=3)btn.classList.add('cat-item-mobile-wide');
      const name=document.createElement('span');name.className='cat-name';name.textContent=c.name;
      const date=document.createElement('span');date.className=`cat-date ${recordHasPending(h)?'pending':''}`;date.textContent=h?fmtDate(h.date):'';
 
