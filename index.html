@@ -5772,619 +5772,160 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 </style>
 
 
-<style id="alpha90-overview-sticky-left-axis">
-/* 只固定作業最新進度總覽左側座號軸；其他已確認區域不動。 */
-#overviewPanel .overview-table-wrap{
-  position:relative!important;
-  overflow-x:auto!important;
-  overflow-y:visible!important;
-  -webkit-overflow-scrolling:touch;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style id="alpha99-history-confirmed-lock">
+/* 歷史紀錄：保留使用者已確認 OK 的狀態，不參與總覽 sticky 修正。 */
+.history-table td{vertical-align:middle!important}
+.history-table tbody td:not(:first-child):not(.all-ok-cell){position:relative!important;vertical-align:middle!important}
+.history-table tbody td:not(:first-child):not(.all-ok-cell) > .cell-mark{
+  position:absolute!important;left:50%!important;top:50%!important;
+  margin:0!important;transform:translate(-50%,-50%)!important;
 }
-#overviewPanel .overview-table th.seat-col,
-#overviewPanel .overview-table td.seat-col,
-#overviewPanel .overview-table tbody tr>td:first-child{
-  position:sticky!important;
-  left:0!important;
-  z-index:3!important;
-  background:#fbf6ea!important;
-  box-shadow:1px 0 0 rgba(143,111,68,.18)!important;
+.history-table tbody td:not(:first-child):not(.all-ok-cell) > .return-slip-history-mark{
+  position:absolute!important;inset:0!important;display:flex!important;
+  align-items:center!important;justify-content:center!important;margin:0!important;
 }
-#overviewPanel .overview-table thead th.seat-col{
-  z-index:8!important;
-  background:#eadcc0!important;
+.history-table tbody td:not(:first-child):not(.all-ok-cell) > .return-slip-history-mark > .dot{
+  margin:0!important;flex:0 0 auto!important;
 }
 @media(max-width:760px){
-  #overviewPanel .overview-table th.seat-col,
-  #overviewPanel .overview-table td.seat-col,
-  #overviewPanel .overview-table tbody tr>td:first-child{
-    min-width:38px!important;
+  .history-table .history-record-controls{
+    display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;
+    align-items:center!important;justify-content:flex-start!important;gap:4px!important;margin-top:5px!important;
   }
-  #overviewPanel .overview-table thead th.seat-col.axis-corner{
-    min-width:56px!important;
-    width:56px!important;
+  .history-table .history-record-controls .btn{
+    display:inline-flex!important;align-items:center!important;justify-content:center!important;
+    width:auto!important;min-width:82px!important;max-width:none!important;
+    white-space:nowrap!important;word-break:keep-all!important;overflow-wrap:normal!important;line-height:1.15!important;
+  }
+}
+@media(min-width:761px){
+  #historySection .history-section-head{
+    padding:0 4px 8px 8px!important;box-sizing:border-box!important;
+  }
+  #historySection .history-section-head .section-title{
+    font-family:"Noto Serif TC","PMingLiU","Songti TC",serif!important;
+    font-size:21px!important;line-height:1.2!important;font-weight:900!important;
+    letter-spacing:.055em!important;color:#0F2B23!important;
+  }
+  #historySection .history-section-head .section-title::after{
+    content:" / ARCHIVE LOG"!important;
+    font-family:Georgia,"Times New Roman",serif!important;font-size:9.5px!important;
+    font-weight:700!important;letter-spacing:.14em!important;color:#9a8050!important;
+    vertical-align:3px!important;margin-left:7px!important;
+  }
+  #historyBody > .small{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif!important;
+    font-size:12px!important;font-weight:400!important;line-height:1.5!important;
+    letter-spacing:0!important;color:#776a58!important;
   }
 }
 </style>
 
 
-<style id="alpha91-overview-axis-scroll-sync">
-/* alpha.91｜只修總覽的捲動座標系：
-   1) 固定表頭模式恢復「表格內」垂直捲動，避免整頁與表格 sticky 混用
-   2) 第二列表頭 top 不再寫死 38px，改用第一列實際高度
-   3) 第一欄與兩列表頭重新分層，避免橫向捲動時視覺錯位
-   歷史紀錄與其他已鎖定區域不動。 */
+<style id="alpha99-overview-sticky-clean">
+/* =========================================================
+   alpha.99｜總覽固定表頭「清理後重建」
+   完整展開：沿用原本已通過的橫向 sticky 第一欄。
+   固定表頭：完全相同，再只增加：
+     1) 表格容器可上下捲動
+     2) 第一、第二列表頭 sticky top
+   不使用 transform / scrollLeft 補償 / sticky 整個 thead。
+   ========================================================= */
 
-#overviewPanel .overview-table-wrap{
-  --overview-head-row1-h:38px;
-  position:relative!important;
-  isolation:isolate;
-}
-
-/* 完整展開：整頁上下滑；表格只負責左右滑。 */
+/* 完整展開：明確維持原本模式 */
 #overviewPanel:not(.overview-sticky-mode) .overview-table-wrap{
   max-height:none!important;
   overflow-x:auto!important;
   overflow-y:visible!important;
 }
+#overviewPanel:not(.overview-sticky-mode) .overview-table .seat-col{
+  position:sticky!important;
+  left:0!important;
+}
 
-/* 固定表頭：上下、左右都交給同一個表格容器。 */
+/* 固定表頭：只讓同一容器多出垂直捲動 */
 #overviewPanel.overview-sticky-mode .overview-table-wrap{
-  overflow-x:auto!important;
-  overflow-y:auto!important;
-  overscroll-behavior:contain!important;
-}
-
-/* 第一列表頭 */
-#overviewPanel.overview-sticky-mode .overview-table thead tr:first-child th{
-  position:sticky!important;
-  top:0!important;
-  z-index:20!important;
-}
-
-/* 第二列表頭：使用第一列的實際高度，不再硬編碼 38px。 */
-#overviewPanel.overview-sticky-mode .overview-table thead tr:nth-child(2) th{
-  position:sticky!important;
-  top:var(--overview-head-row1-h)!important;
-  z-index:19!important;
-}
-
-/* 左側座號軸 */
-#overviewPanel .overview-table tbody .seat-col{
-  position:sticky!important;
-  left:0!important;
-  z-index:10!important;
-  background:#fbf6ea!important;
-}
-#overviewPanel .overview-table thead tr:first-child .seat-col{
-  position:sticky!important;
-  left:0!important;
-  z-index:30!important;
-  background:#eadcc0!important;
-}
-#overviewPanel .overview-table thead tr:nth-child(2) .seat-col{
-  position:sticky!important;
-  left:0!important;
-  z-index:29!important;
-  background:#f3ecdc!important;
-}
-
-/* 避免 sticky 疊層時露出底下文字或格線造成「錯開」感。 */
-#overviewPanel .overview-table thead th,
-#overviewPanel .overview-table .seat-col{
-  background-clip:padding-box!important;
-}
-
-/* 手機固定表頭沿用原本短視窗，但不要再被 alpha.90 的 overflow-y:visible 蓋掉。 */
-@media(max-width:760px){
-  html.mobile-ux #overviewPanel.overview-sticky-mode .overview-table-wrap{
-    max-height:180px!important;
-    overflow-x:auto!important;
-    overflow-y:auto!important;
-    -webkit-overflow-scrolling:touch!important;
-    touch-action:auto!important;
-  }
-}
-</style>
-
-
-<style id="alpha92-overview-whole-thead-sticky">
-/* alpha.92｜根因修正：
-   不再讓第一列、第二列各自 sticky。
-   固定表頭模式改成「整個 thead 一起固定」，兩列永遠同步，
-   左側座號軸仍獨立固定於橫向捲動左側。 */
-
-/* 先取消 alpha.47 / .91 對各 th 的垂直 sticky */
-#overviewPanel.overview-sticky-mode .overview-table thead tr:first-child th,
-#overviewPanel.overview-sticky-mode .overview-table thead tr:nth-child(2) th{
-  position:static!important;
-  top:auto!important;
-}
-
-/* 整個兩列表頭視為一個單位固定 */
-#overviewPanel.overview-sticky-mode .overview-table thead{
-  position:sticky!important;
-  top:0!important;
-  z-index:25!important;
-}
-
-/* 表頭內第一欄只負責橫向固定，不再各自負責垂直 top */
-#overviewPanel.overview-sticky-mode .overview-table thead tr:first-child th:first-child,
-#overviewPanel.overview-sticky-mode .overview-table thead tr:nth-child(2) th:first-child{
-  position:sticky!important;
-  left:0!important;
-  top:auto!important;
-  z-index:31!important;
-}
-
-/* 完整展開模式：只有左側第一欄橫向固定，表頭不做垂直 sticky */
-#overviewPanel:not(.overview-sticky-mode) .overview-table thead{
-  position:static!important;
-}
-#overviewPanel:not(.overview-sticky-mode) .overview-table thead tr:first-child th:first-child,
-#overviewPanel:not(.overview-sticky-mode) .overview-table thead tr:nth-child(2) th:first-child{
-  position:sticky!important;
-  left:0!important;
-  top:auto!important;
-  z-index:12!important;
-}
-
-/* 第一欄寬度固定，避免「座號＼進度＆日期」把整條座號軸撐大或捲動時重新計算 */
-#overviewPanel .overview-table tr > :first-child{
-  width:118px!important;
-  min-width:118px!important;
-  max-width:118px!important;
-  box-sizing:border-box!important;
-}
-#overviewPanel .overview-table thead tr:nth-child(2) th:first-child{
-  white-space:nowrap!important;
-  overflow:hidden!important;
-  text-overflow:clip!important;
-  font-size:11.2px!important;
-}
-
-/* 固定表頭模式仍讓同一個容器同時處理上下、左右捲動 */
-#overviewPanel.overview-sticky-mode .overview-table-wrap{
+  position:relative!important;
+  max-height:180px!important;
   overflow:auto!important;
   -webkit-overflow-scrolling:touch!important;
   overscroll-behavior:contain!important;
 }
 
-@media(max-width:760px){
-  #overviewPanel .overview-table tr > :first-child{
-    width:112px!important;
-    min-width:112px!important;
-    max-width:112px!important;
-  }
-  #overviewPanel .overview-table thead tr:nth-child(2) th:first-child{
-    font-size:10.5px!important;
-  }
-}
-</style>
-
-
-<style id="alpha93-fixes">
-/* =========================
-   A. 總覽：固定表頭模式的左側軸也要橫向固定
-   ========================= */
-
-/* 在 fixed-header 模式下，整個 thead 已經 vertical sticky。
-   這裡只強制第一欄在 x 軸固定，且補上更高層級，避免被其他表頭蓋掉。 */
-#overviewPanel.overview-sticky-mode .overview-table thead tr > th:first-child,
-#overviewPanel.overview-sticky-mode .overview-table tbody tr > td:first-child{
-  position:sticky!important;
-  left:0!important;
-  z-index:40!important;
-}
-
-/* 表頭第一欄的背景必須實心，否則左右滑會看到後方資料穿過去 */
-#overviewPanel.overview-sticky-mode .overview-table thead tr:first-child > th:first-child{
-  background:#eadcc0!important;
-  z-index:60!important;
-}
-#overviewPanel.overview-sticky-mode .overview-table thead tr:nth-child(2) > th:first-child{
-  background:#f3ecdc!important;
-  z-index:59!important;
-}
-#overviewPanel.overview-sticky-mode .overview-table tbody tr > td:first-child{
-  background:#fbf6ea!important;
-  z-index:35!important;
-}
-
-/* =========================
-   B. 歷史紀錄：圓形圖示上下置中
-   ========================= */
-
-/* 所有歷史紀錄資料格內容改為真正垂直置中 */
-.history-table td{
-  vertical-align:middle!important;
-}
-.history-table td .status-dot,
-.history-table td .dot,
-.history-table td .history-dot,
-.history-table td .ok-dot,
-.history-table td .status-mark,
-.history-table td .mark{
-  vertical-align:middle!important;
-  margin-top:0!important;
-  margin-bottom:0!important;
-  top:auto!important;
-  transform:none!important;
-}
-
-/* 若圖示包在 flex 容器內，強制上下置中 */
-.history-table td > div,
-.history-table td .cell-inner,
-.history-table td .status-wrap{
-  align-items:center!important;
-}
-
-/* =========================
-   C. 手機版歷史紀錄按鈕：三顆可上下排，
-      但每顆按鈕文字不可折成兩行
-   ========================= */
-@media(max-width:760px){
-  .history-actions,
-  .history-toolbar,
-  .history-controls{
-    flex-direction:column!important;
-    align-items:stretch!important;
-    gap:8px!important;
-  }
-  .history-actions button,
-  .history-toolbar button,
-  .history-controls button{
-    white-space:nowrap!important;
-    word-break:keep-all!important;
-    overflow-wrap:normal!important;
-    width:100%!important;
-  }
-}
-
-/* =========================
-   D. 電腦版歷史紀錄字體：
-      對齊「作業登記」標題與「可一次選多個座號…」輔助字風格
-   ========================= */
-@media(min-width:761px){
-  /* 歷史區主要標題 */
-  #historyPanel h2,
-  #historyPanel h3,
-  #historyPanel .section-title,
-  .history-section-title,
-  .history-title{
-    font-family:inherit!important;
-    font-weight:800!important;
-    color:#0f5b48!important;
-    letter-spacing:.02em!important;
-  }
-
-  /* 歷史區輔助小字：改成作業登記說明文字同系統，不再用淡灰系統字 */
-  #historyPanel .hint,
-  #historyPanel .subtext,
-  #historyPanel .help-text,
-  #historyPanel .muted,
-  .history-hint,
-  .history-subtext{
-    font-family:inherit!important;
-    font-weight:500!important;
-    color:#8f7a5d!important;
-    letter-spacing:.01em!important;
-  }
-}
-</style>
-
-
-<style id="alpha94-targeted-root-fixes">
-/* =========================================================
-   alpha.94
-   這版不再用猜測的 class：
-   - 總覽固定表頭：固定第一欄改由 scrollLeft 位移補償，避開 Android Chrome
-     對 nested sticky（sticky thead 內再 sticky first-column）的相容問題。
-   - 歷史紀錄：使用實際 DOM selector 修正圓點、按鈕、標題與說明文字。
-   ========================================================= */
-
-/* A｜固定表頭模式：thead 維持 alpha.92 已通過的整體垂直固定。
-      第一欄不再依賴 nested position:sticky，而是由 --overview-scroll-x 抵消水平捲動。 */
-#overviewPanel.overview-sticky-mode .overview-table tr > :first-child{
-  position:relative!important;
-  left:auto!important;
-  transform:translateX(var(--overview-scroll-x, 0px))!important;
-  will-change:transform;
-  background-clip:padding-box!important;
-}
-#overviewPanel.overview-sticky-mode .overview-table thead tr:first-child > th:first-child{
-  z-index:80!important;
-  background:#eadcc0!important;
-}
-#overviewPanel.overview-sticky-mode .overview-table thead tr:nth-child(2) > th:first-child{
-  z-index:79!important;
-  background:#f3ecdc!important;
-}
-#overviewPanel.overview-sticky-mode .overview-table tbody tr > td:first-child{
-  z-index:45!important;
-  background:#fbf6ea!important;
-}
-
-/* 完整展開模式沿用已確認 OK 的原 sticky 第一欄，不套 transform 補償。 */
-#overviewPanel:not(.overview-sticky-mode) .overview-table tr > :first-child{
-  transform:none!important;
-}
-
-/* B｜歷史紀錄圓形圖示：直接以儲存格中心定位，不再受文字 baseline 影響。 */
-.history-table tbody td:not(:first-child):not(.all-ok-cell){
-  position:relative!important;
-  vertical-align:middle!important;
-}
-.history-table tbody td:not(:first-child):not(.all-ok-cell) > .cell-mark{
-  position:absolute!important;
-  left:50%!important;
-  top:50%!important;
-  margin:0!important;
-  transform:translate(-50%,-50%)!important;
-}
-.history-table tbody td:not(:first-child):not(.all-ok-cell) > .return-slip-history-mark{
-  position:absolute!important;
-  inset:0!important;
-  display:flex!important;
-  align-items:center!important;
-  justify-content:center!important;
-  margin:0!important;
-}
-.history-table tbody td:not(:first-child):not(.all-ok-cell) > .return-slip-history-mark > .dot{
-  margin:0!important;
-  flex:0 0 auto!important;
-}
-
-/* C｜手機歷史紀錄按鈕：實際 class 是 history-record-controls。
-      三顆上下排列；單顆按鈕永遠單行。 */
-@media(max-width:760px){
-  .history-table .history-record-controls{
-    display:flex!important;
-    flex-direction:column!important;
-    flex-wrap:nowrap!important;
-    align-items:center!important;
-    justify-content:flex-start!important;
-    gap:4px!important;
-    margin-top:5px!important;
-  }
-  .history-table .history-record-controls .btn{
-    display:inline-flex!important;
-    align-items:center!important;
-    justify-content:center!important;
-    width:auto!important;
-    min-width:82px!important;
-    max-width:none!important;
-    white-space:nowrap!important;
-    word-break:keep-all!important;
-    overflow-wrap:normal!important;
-    line-height:1.15!important;
-  }
-}
-
-/* D｜歷史紀錄桌機標題：直接對準實際 DOM
-      #historySection .history-section-head .section-title，
-      完整沿用作業登記主標題的字型、字重、色彩語言。 */
-@media(min-width:761px){
-  #historySection .history-section-head .section-title{
-    font-family:"Noto Serif TC","PMingLiU","Songti TC",serif!important;
-    font-size:21px!important;
-    line-height:1.2!important;
-    font-weight:900!important;
-    letter-spacing:.055em!important;
-    color:#0F2B23!important;
-  }
-  #historySection .history-section-head .section-title::after{
-    content:" / ARCHIVE LOG"!important;
-    font-family:Georgia,"Times New Roman",serif!important;
-    font-size:9.5px!important;
-    font-weight:700!important;
-    letter-spacing:.14em!important;
-    color:#9a8050!important;
-    vertical-align:3px!important;
-    margin-left:7px!important;
-  }
-
-  /* 歷史說明文字：直接對準 #historyBody > .small，
-     使用「可一次選多個座號…」那行實際繼承的正文 sans + 紙張棕色。 */
-  #historyBody > .small{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif!important;
-    font-size:12px!important;
-    font-weight:400!important;
-    line-height:1.5!important;
-    letter-spacing:0!important;
-    color:#776a58!important;
-  }
-}
-</style>
-
-
-<style id="alpha95-overview-use-working-sticky-axis">
-/* alpha.95｜固定表頭的橫向行為直接沿用「完整展開」已驗證 OK 的第一欄 sticky。
-   固定表頭與完整展開的差別只保留：固定表頭容器可上下捲動。 */
-
-/* 關掉 alpha.94 的 scrollLeft transform 補償 */
-#overviewPanel.overview-sticky-mode .overview-table{
-  --overview-scroll-x:0px!important;
-}
-#overviewPanel.overview-sticky-mode .overview-table tr > :first-child{
-  transform:none!important;
-  will-change:auto!important;
-}
-
-/* 和完整展開相同：第一欄直接 sticky left:0 */
-#overviewPanel.overview-sticky-mode .overview-table thead tr:first-child > th:first-child,
-#overviewPanel.overview-sticky-mode .overview-table thead tr:nth-child(2) > th:first-child,
-#overviewPanel.overview-sticky-mode .overview-table tbody tr > td:first-child{
-  position:sticky!important;
-  left:0!important;
-  transform:none!important;
-}
-
-/* thead 整體上下固定仍保留（.92 已驗證 OK） */
-#overviewPanel.overview-sticky-mode .overview-table thead{
-  position:sticky!important;
-  top:0!important;
-  z-index:25!important;
-}
-
-/* 交叉區層級 */
-#overviewPanel.overview-sticky-mode .overview-table thead tr:first-child > th:first-child{
-  z-index:60!important;
-  background:#eadcc0!important;
-}
-#overviewPanel.overview-sticky-mode .overview-table thead tr:nth-child(2) > th:first-child{
-  z-index:59!important;
-  background:#f3ecdc!important;
-}
-#overviewPanel.overview-sticky-mode .overview-table tbody tr > td:first-child{
-  z-index:35!important;
-  background:#fbf6ea!important;
-}
-
-/* 固定表頭唯一額外差異：容器可以上下捲動 */
-#overviewPanel.overview-sticky-mode .overview-table-wrap{
-  overflow-x:auto!important;
-  overflow-y:auto!important;
-  -webkit-overflow-scrolling:touch!important;
-}
-</style>
-
-
-<style id="alpha96-corner-intersection-and-history-align">
-/* alpha.96
-   固定表頭模式：
-   - tbody 第一欄沿用「完整展開」已成功的 sticky left:0
-   - 只對 thead 的左上兩格做 scrollLeft 補償，避免 Android Chrome
-     在 sticky thead 裡的 sticky first-cell 被其他表頭蓋過。
-   - 上下固定方式完全不動。 */
-
-/* 身體座號欄：仍使用已驗證成功的 sticky */
-#overviewPanel.overview-sticky-mode .overview-table tbody tr > td:first-child{
-  position:sticky!important;
-  left:0!important;
-  transform:none!important;
-  z-index:35!important;
-  background:#fbf6ea!important;
-}
-
-/* 左上兩個交叉格不再依賴 nested sticky 的 left，
-   改用 scrollLeft 的等量位移，視覺上固定在最左。 */
-#overviewPanel.overview-sticky-mode .overview-table thead tr:first-child > th:first-child,
-#overviewPanel.overview-sticky-mode .overview-table thead tr:nth-child(2) > th:first-child{
-  position:relative!important;
-  left:auto!important;
-  transform:translateX(var(--overview-head-scroll-x, 0px))!important;
-  will-change:transform!important;
-}
-#overviewPanel.overview-sticky-mode .overview-table thead tr:first-child > th:first-child{
-  z-index:100!important;
-  background:#eadcc0!important;
-}
-#overviewPanel.overview-sticky-mode .overview-table thead tr:nth-child(2) > th:first-child{
-  z-index:99!important;
-  background:#f3ecdc!important;
-}
-
-/* 歷史紀錄標題：只補上與作業登記相同的 head 內縮，不改字型/顏色。 */
-@media(min-width:761px){
-  #historySection .history-section-head{
-    padding:0 4px 8px 8px!important;
-    box-sizing:border-box!important;
-  }
-}
-</style>
-
-
-<style id="alpha98-overview-two-axis-sticky-rebuild">
-/* ============================================================
-   alpha.98｜固定表頭模式重整
-   核心原則：
-   「完整展開」的橫向固定方式不變，
-   固定表頭只多：容器可上下捲動 + 兩列表頭垂直 sticky。
-
-   不再：
-   - sticky 整個 thead
-   - scrollLeft transform 補償
-   - 讓左上兩格用另一套定位
-   ============================================================ */
-
-/* 清掉 alpha.92～96 留下的整體 thead sticky / transform 補丁 */
+/* 不 sticky 整個 thead，避免 Android Chrome table sticky 疊層異常 */
 #overviewPanel.overview-sticky-mode .overview-table thead{
   position:static!important;
-  top:auto!important;
-  transform:none!important;
-}
-#overviewPanel.overview-sticky-mode .overview-table tr > :first-child{
-  transform:none!important;
-  will-change:auto!important;
 }
 
-/* 固定表頭模式：同一個容器處理左右＋上下捲動 */
-#overviewPanel.overview-sticky-mode .overview-table-wrap{
-  position:relative!important;
-  overflow-x:auto!important;
-  overflow-y:auto!important;
-  overscroll-behavior:contain!important;
-  -webkit-overflow-scrolling:touch!important;
-  isolation:isolate!important;
-}
-
-/* 第一列表頭：垂直固定 */
+/* 第一列表頭 */
 #overviewPanel.overview-sticky-mode .overview-table thead tr:first-child > th{
   position:sticky!important;
   top:0!important;
-  z-index:40!important;
-  transform:none!important;
+  z-index:20!important;
 }
 
-/* 第二列表頭：緊接第一列實際高度，垂直固定 */
+/* 第二列表頭；高度由 JS 讀第一列實際高度 */
 #overviewPanel.overview-sticky-mode .overview-table thead tr:nth-child(2) > th{
   position:sticky!important;
-  top:var(--overview-head-row1-h,38px)!important;
-  z-index:39!important;
-  transform:none!important;
+  top:var(--overview-row1-h,38px)!important;
+  z-index:19!important;
 }
 
-/* 第一欄：完全沿用完整展開的 left:0 sticky 概念 */
-#overviewPanel.overview-sticky-mode .overview-table tbody tr > td:first-child{
+/* 第一欄：跟完整展開同一條規則 */
+#overviewPanel.overview-sticky-mode .overview-table .seat-col{
   position:sticky!important;
   left:0!important;
   z-index:30!important;
-  transform:none!important;
-  background:#fbf6ea!important;
 }
 
-/* 左上第一格 = 同時 top:0 + left:0 */
-#overviewPanel.overview-sticky-mode .overview-table thead tr:first-child > th:first-child{
-  position:sticky!important;
+/* 左上兩個交叉格：同時有 top + left，層級高於其他表頭 */
+#overviewPanel.overview-sticky-mode .overview-table thead tr:first-child > .seat-col{
   top:0!important;
   left:0!important;
-  z-index:70!important;
-  transform:none!important;
+  z-index:50!important;
   background:#eadcc0!important;
 }
-
-/* 左上第二格 = 同時第二列 top + left:0 */
-#overviewPanel.overview-sticky-mode .overview-table thead tr:nth-child(2) > th:first-child{
-  position:sticky!important;
-  top:var(--overview-head-row1-h,38px)!important;
+#overviewPanel.overview-sticky-mode .overview-table thead tr:nth-child(2) > .seat-col{
+  top:var(--overview-row1-h,38px)!important;
   left:0!important;
-  z-index:69!important;
-  transform:none!important;
+  z-index:49!important;
   background:#f3ecdc!important;
 }
 
-/* 防止右側內容從固定格下方透出 */
-#overviewPanel.overview-sticky-mode .overview-table thead th,
-#overviewPanel.overview-sticky-mode .overview-table tbody tr > td:first-child{
-  background-clip:padding-box!important;
+/* 學生座號欄 */
+#overviewPanel.overview-sticky-mode .overview-table tbody .seat-col{
+  z-index:25!important;
+  background:#fbf6ea!important;
 }
 
-/* 手機固定表頭高度維持目前已接受的短視窗 */
 @media(max-width:760px){
   html.mobile-ux #overviewPanel.overview-sticky-mode .overview-table-wrap{
     max-height:180px!important;
-    overflow-x:auto!important;
-    overflow-y:auto!important;
+    overflow:auto!important;
     touch-action:auto!important;
   }
 }
@@ -6392,7 +5933,7 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 
 </head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.98</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.99</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
@@ -9098,7 +8639,16 @@ if(localStorage.getItem(CLOUD_AUTO_INIT_KEY)==='1')ensureFirebaseReady();
 </script>
 
 
-<script id="alpha91-overview-sticky-offset-sync">
+
+
+
+
+
+
+
+
+
+<script id="alpha99-overview-row-height-sync">
 (function(){
   const panel=document.getElementById('overviewPanel');
   const wrap=panel?.querySelector('.overview-table-wrap');
@@ -9106,78 +8656,19 @@ if(localStorage.getItem(CLOUD_AUTO_INIT_KEY)==='1')ensureFirebaseReady();
   if(!panel||!wrap||!head)return;
 
   let raf=0;
-  function syncOverviewHeaderOffset(){
-    cancelAnimationFrame(raf);
-    raf=requestAnimationFrame(()=>{
-      const row1=head.querySelector('tr:first-child');
-      if(!row1)return;
-      const h=Math.ceil(row1.getBoundingClientRect().height);
-      if(h>0)wrap.style.setProperty('--overview-head-row1-h', h+'px');
-    });
-  }
-
-  const mo=new MutationObserver(syncOverviewHeaderOffset);
-  mo.observe(head,{childList:true,subtree:true,characterData:true});
-
-  if('ResizeObserver' in window){
-    const ro=new ResizeObserver(syncOverviewHeaderOffset);
-    ro.observe(head);
-  }
-
-  window.addEventListener('resize',syncOverviewHeaderOffset,{passive:true});
-  window.addEventListener('orientationchange',syncOverviewHeaderOffset,{passive:true});
-  syncOverviewHeaderOffset();
-})();
-</script>
-
-
-<script id="alpha94-overview-fixed-axis-scroll-compensation">
-(function(){
-  const panel=document.getElementById('overviewPanel');
-  const wrap=panel?.querySelector('.overview-table-wrap');
-  const table=panel?.querySelector('.overview-table');
-  if(!panel||!wrap||!table)return;
-
-  let raf=0;
-  function syncFixedAxis(){
-    cancelAnimationFrame(raf);
-    raf=requestAnimationFrame(()=>{
-      const x=panel.classList.contains('overview-sticky-mode') ? wrap.scrollLeft : 0;
-      table.style.setProperty('--overview-scroll-x', x+'px');
-    });
-  }
-
-  wrap.addEventListener('scroll',syncFixedAxis,{passive:true});
-  window.addEventListener('resize',syncFixedAxis,{passive:true});
-  document.getElementById('overviewStickyBtn')?.addEventListener('click',()=>requestAnimationFrame(syncFixedAxis));
-  document.getElementById('overviewExpandBtn')?.addEventListener('click',()=>requestAnimationFrame(syncFixedAxis));
-
-  const mo=new MutationObserver(syncFixedAxis);
-  mo.observe(panel,{attributes:true,attributeFilter:['class']});
-  syncFixedAxis();
-})();
-</script>
-
-
-<script id="alpha96-overview-head-corner-scroll-sync">
-(function(){
-  const panel=document.getElementById('overviewPanel');
-  const wrap=panel?.querySelector('.overview-table-wrap');
-  const table=panel?.querySelector('.overview-table');
-  if(!panel||!wrap||!table)return;
-
-  let raf=0;
   function sync(){
     cancelAnimationFrame(raf);
     raf=requestAnimationFrame(()=>{
-      const x=panel.classList.contains('overview-sticky-mode') ? wrap.scrollLeft : 0;
-      table.style.setProperty('--overview-head-scroll-x', x+'px');
+      const row=head.querySelector('tr:first-child');
+      if(!row)return;
+      const h=Math.ceil(row.getBoundingClientRect().height);
+      if(h>0)wrap.style.setProperty('--overview-row1-h',h+'px');
     });
   }
-  wrap.addEventListener('scroll',sync,{passive:true});
+  new MutationObserver(sync).observe(head,{childList:true,subtree:true,characterData:true});
+  if('ResizeObserver' in window)new ResizeObserver(sync).observe(head);
   window.addEventListener('resize',sync,{passive:true});
-  const mo=new MutationObserver(sync);
-  mo.observe(panel,{attributes:true,attributeFilter:['class']});
+  window.addEventListener('orientationchange',sync,{passive:true});
   sync();
 })();
 </script>
