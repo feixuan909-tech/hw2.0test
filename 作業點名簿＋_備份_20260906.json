@@ -1,0 +1,1104 @@
+{
+  "studentCount": 27,
+  "categories": [
+    {
+      "id": "c0",
+      "name": "國習",
+      "kind": "continuous",
+      "showOverview": true
+    },
+    {
+      "id": "c1",
+      "name": "甲本",
+      "kind": "continuous",
+      "showOverview": true
+    },
+    {
+      "id": "c2",
+      "name": "乙本",
+      "kind": "continuous",
+      "showOverview": true
+    },
+    {
+      "id": "c3",
+      "name": "成語",
+      "kind": "continuous",
+      "showOverview": true
+    },
+    {
+      "id": "c4",
+      "name": "圈詞",
+      "kind": "continuous",
+      "showOverview": true
+    },
+    {
+      "id": "c5",
+      "name": "國練",
+      "kind": "continuous",
+      "showOverview": true
+    },
+    {
+      "id": "c6",
+      "name": "數習",
+      "kind": "continuous",
+      "showOverview": true
+    },
+    {
+      "id": "c7",
+      "name": "數練",
+      "kind": "continuous",
+      "showOverview": true
+    },
+    {
+      "id": "c8",
+      "name": "作文",
+      "kind": "independent",
+      "showOverview": true
+    },
+    {
+      "id": "c9",
+      "name": "閱讀單",
+      "kind": "independent",
+      "showOverview": true
+    },
+    {
+      "id": "c11",
+      "name": "分享報告",
+      "kind": "independent",
+      "showOverview": true
+    },
+    {
+      "id": "c10",
+      "name": "回條",
+      "kind": "independent",
+      "showOverview": true
+    }
+  ],
+  "currentCategory": "c0",
+  "drafts": {},
+  "history": [
+    {
+      "id": "h_mtmqqbir_z25uq",
+      "catId": "c7",
+      "date": "2026-09-04",
+      "content": "",
+      "workLabel": "",
+      "progressType": "none",
+      "statuses": {
+        "1": "blue",
+        "2": "blue",
+        "3": "blue",
+        "4": "blue",
+        "5": "blue",
+        "6": "blue",
+        "7": "yellow",
+        "8": "yellow",
+        "9": "yellow",
+        "10": "blue",
+        "11": "blue",
+        "12": "blue",
+        "13": "blue",
+        "14": "yellow",
+        "15": "yellow",
+        "16": "yellow",
+        "17": "blue",
+        "18": "blue",
+        "19": "blue",
+        "20": "blue",
+        "21": "blue",
+        "22": "blue",
+        "23": "blue",
+        "24": "yellow",
+        "25": "blue",
+        "26": "yellow",
+        "27": "yellow"
+      },
+      "resolved": {
+        "15": true
+      },
+      "resolvedParts": {
+        "15": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        }
+      },
+      "manualResolved": {
+        "15": true
+      },
+      "updated": 1788513891306
+    },
+    {
+      "id": "h_mtohuza2_uhpwg",
+      "catId": "c8",
+      "date": "2026-09-05",
+      "content": "我最大的改變",
+      "workLabel": "改變",
+      "progressType": "free",
+      "statuses": {
+        "1": "blue",
+        "2": "red",
+        "3": "yellow",
+        "4": "blue",
+        "5": "blue",
+        "6": "blue",
+        "7": "yellow",
+        "8": "blue",
+        "9": "blue",
+        "10": "yellow",
+        "11": "blue",
+        "12": "blue",
+        "13": "blue",
+        "14": "blue",
+        "15": "blue",
+        "16": "blue",
+        "17": "blue",
+        "18": "red",
+        "19": "blue",
+        "20": "blue",
+        "21": "blue",
+        "22": "blue",
+        "23": "blue",
+        "24": "blue",
+        "25": "blue",
+        "26": "yellow",
+        "27": "yellow"
+      },
+      "resolved": {
+        "2": true,
+        "3": true,
+        "7": true,
+        "10": true,
+        "18": true,
+        "26": true,
+        "27": true
+      },
+      "resolvedParts": {
+        "2": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "3": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "7": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "10": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "18": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "26": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "27": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        }
+      },
+      "manualResolved": {
+        "2": true,
+        "3": true,
+        "7": true,
+        "10": true,
+        "18": true,
+        "26": true,
+        "27": true
+      },
+      "updated": 1788687018752
+    },
+    {
+      "id": "h_mtmqr52r_wjpka",
+      "catId": "c4",
+      "date": "2026-09-04",
+      "content": "",
+      "workLabel": "",
+      "progressType": "none",
+      "statuses": {
+        "1": "red",
+        "2": "blue",
+        "3": "blue",
+        "4": "red",
+        "5": "blue",
+        "6": "yellow",
+        "7": "blue",
+        "8": "blue",
+        "9": "blue",
+        "10": "blue",
+        "11": "yellow",
+        "12": "blue",
+        "13": "blue",
+        "14": "blue",
+        "15": "blue",
+        "16": "red",
+        "17": "yellow",
+        "18": "yellow",
+        "19": "blue",
+        "20": "yellow",
+        "21": "blue",
+        "22": "red",
+        "23": "blue",
+        "24": "red",
+        "25": "blue",
+        "26": "blue",
+        "27": "yellow"
+      },
+      "resolved": {
+        "1": true,
+        "4": true,
+        "6": true,
+        "11": true,
+        "16": true,
+        "17": true,
+        "18": true,
+        "20": true,
+        "22": true,
+        "24": true,
+        "27": true
+      },
+      "resolvedParts": {
+        "1": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "4": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "6": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "11": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "16": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "17": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "18": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "20": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "22": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "24": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "27": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        }
+      },
+      "manualResolved": {
+        "1": true,
+        "4": true,
+        "22": true,
+        "24": true
+      },
+      "updated": 1788695619614
+    },
+    {
+      "id": "h_mtohtqme_a37gb",
+      "catId": "c8",
+      "date": "2026-09-05",
+      "content": "我的暑假生活",
+      "workLabel": "",
+      "progressType": "free",
+      "statuses": {
+        "1": "red",
+        "2": "blue",
+        "3": "yellow",
+        "4": "blue",
+        "5": "blue",
+        "6": "yellow",
+        "7": "blue",
+        "8": "yellow",
+        "9": "yellow",
+        "10": "blue",
+        "11": "blue",
+        "12": "yellow",
+        "13": "blue",
+        "14": "blue",
+        "15": "blue",
+        "16": "red",
+        "17": "blue",
+        "18": "blue",
+        "19": "blue",
+        "20": "yellow",
+        "21": "blue",
+        "22": "blue",
+        "23": "yellow",
+        "24": "blue",
+        "25": "blue",
+        "26": "blue",
+        "27": "yellow"
+      },
+      "resolved": {
+        "1": true,
+        "3": true,
+        "6": true
+      },
+      "resolvedParts": {
+        "1": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "3": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "6": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        }
+      },
+      "manualResolved": {
+        "1": true,
+        "3": true,
+        "6": true
+      },
+      "updated": 1788687012199
+    },
+    {
+      "id": "h_mtmqz9hf_5sm10",
+      "catId": "c6",
+      "date": "2026-09-04",
+      "content": "",
+      "workLabel": "",
+      "progressType": "none",
+      "statuses": {
+        "1": "red",
+        "2": "yellow",
+        "3": "red",
+        "4": "red",
+        "5": "yellow",
+        "6": "blue",
+        "7": "yellow",
+        "8": "yellow",
+        "9": "blue",
+        "10": "blue",
+        "11": "yellow",
+        "12": "blue",
+        "13": "blue",
+        "14": "blue",
+        "15": "red",
+        "16": "yellow",
+        "17": "blue",
+        "18": "blue",
+        "19": "blue",
+        "20": "yellow",
+        "21": "blue",
+        "22": "blue",
+        "23": "blue",
+        "24": "blue",
+        "25": "blue",
+        "26": "blue",
+        "27": "blue"
+      },
+      "resolved": {
+        "1": true,
+        "4": true,
+        "5": true,
+        "7": true,
+        "15": true
+      },
+      "resolvedParts": {
+        "1": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "4": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "5": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "7": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "15": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        }
+      },
+      "manualResolved": {
+        "1": true,
+        "4": true,
+        "5": true,
+        "7": true,
+        "15": true
+      },
+      "updated": 1788623064916
+    },
+    {
+      "id": "h_mtol6p9i_h09kf",
+      "catId": "c10",
+      "date": "2026-09-06",
+      "content": "畢冊調查",
+      "workLabel": "",
+      "progressType": "free",
+      "statuses": {
+        "1": "blue",
+        "2": "blue",
+        "3": "blue",
+        "4": "blue",
+        "5": "green",
+        "6": "blue",
+        "7": "green",
+        "8": "blue",
+        "9": "blue",
+        "10": "blue",
+        "11": "blue",
+        "12": "yellow",
+        "13": "blue",
+        "14": "blue",
+        "15": "blue",
+        "16": "red",
+        "17": "blue",
+        "18": "blue",
+        "19": "blue",
+        "20": "blue",
+        "21": "green",
+        "22": "blue",
+        "23": "blue",
+        "24": "green",
+        "25": "blue",
+        "26": "blue",
+        "27": "green"
+      },
+      "resolved": {},
+      "resolvedParts": {},
+      "manualResolved": {},
+      "updated": 1788632448880
+    },
+    {
+      "id": "h_mtmqsx4r_v3ofm",
+      "catId": "c0",
+      "date": "2026-09-04",
+      "content": "L1",
+      "workLabel": "",
+      "progressType": "unit",
+      "statuses": {
+        "1": "ring",
+        "2": "red",
+        "3": "yellow",
+        "4": "yellow",
+        "5": "yellow",
+        "6": "blue",
+        "7": "yellow",
+        "8": "blue",
+        "9": "blue",
+        "10": "yellow",
+        "11": "blue",
+        "12": "blue",
+        "13": "blue",
+        "14": "ring",
+        "15": "ring",
+        "16": "ring",
+        "17": "yellow",
+        "18": "blue",
+        "19": "blue",
+        "20": "blue",
+        "21": "yellow",
+        "22": "yellow",
+        "23": "yellow",
+        "24": "red",
+        "25": "yellow",
+        "26": "blue",
+        "27": "yellow"
+      },
+      "resolved": {
+        "1": true,
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "7": true,
+        "10": true,
+        "14": true,
+        "15": true,
+        "16": true,
+        "17": true,
+        "21": true,
+        "22": true,
+        "23": true,
+        "24": true,
+        "27": true
+      },
+      "resolvedParts": {
+        "1": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "2": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "3": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "4": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "5": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "7": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "10": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "14": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "15": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "16": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "17": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "21": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "22": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "23": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "24": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "25": {
+          "signature": true
+        },
+        "27": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        }
+      },
+      "manualResolved": {
+        "1": true,
+        "4": true,
+        "5": true,
+        "14": true,
+        "15": true,
+        "16": true,
+        "22": true
+      },
+      "updated": 1788707128179
+    },
+    {
+      "id": "h_mtoovhq9_t7wt3",
+      "catId": "c10",
+      "date": "2026-09-06",
+      "content": "畢旅",
+      "workLabel": "",
+      "progressType": "free",
+      "statuses": {
+        "1": "blue",
+        "2": "blue",
+        "3": "blue",
+        "4": "blue",
+        "5": "blue",
+        "6": "blue",
+        "7": "blue",
+        "8": "blue",
+        "9": "blue",
+        "10": "blue",
+        "11": "blue",
+        "12": "blue",
+        "13": "blue",
+        "14": "blue",
+        "15": "blue",
+        "16": "blue",
+        "17": "blue",
+        "18": "blue",
+        "19": "blue",
+        "20": "blue",
+        "21": "green",
+        "22": "blue",
+        "23": "blue",
+        "24": "green",
+        "25": "blue",
+        "26": "blue",
+        "27": "blue"
+      },
+      "resolved": {},
+      "resolvedParts": {},
+      "manualResolved": {},
+      "updated": 1788689558485
+    },
+    {
+      "id": "h_mtpev6os_1qfgi",
+      "catId": "c0",
+      "date": "2026-09-06",
+      "content": "L2",
+      "workLabel": "",
+      "progressType": "unit",
+      "statuses": {
+        "1": "blue",
+        "2": "blue",
+        "3": "blue",
+        "4": "blue",
+        "5": "blue",
+        "6": "blue",
+        "7": "blue",
+        "8": "yellow",
+        "9": "blue",
+        "10": "blue",
+        "11": "yellow",
+        "12": "blue",
+        "13": "blue",
+        "14": "blue",
+        "15": "blue",
+        "16": "blue",
+        "17": "blue",
+        "18": "blue",
+        "19": "blue",
+        "20": "blue",
+        "21": "yellow",
+        "22": "blue",
+        "23": "blue",
+        "24": "blue",
+        "25": "yellow",
+        "26": "yellow",
+        "27": "blue"
+      },
+      "resolved": {
+        "8": true,
+        "11": true,
+        "21": true,
+        "26": true
+      },
+      "resolvedParts": {
+        "8": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "11": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "21": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "25": {
+          "signature": true
+        },
+        "26": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        }
+      },
+      "manualResolved": {},
+      "updated": 1788707165369
+    },
+    {
+      "id": "h_mtpexn2u_nbjph",
+      "catId": "c10",
+      "date": "2026-09-06",
+      "content": "班親會",
+      "workLabel": "",
+      "progressType": "free",
+      "statuses": {
+        "1": "blue",
+        "2": "blue",
+        "3": "blue",
+        "4": "blue",
+        "5": "green",
+        "6": "blue",
+        "7": "blue",
+        "8": "blue",
+        "9": "blue",
+        "10": "blue",
+        "11": "blue",
+        "12": "blue",
+        "13": "green",
+        "14": "blue",
+        "15": "blue",
+        "16": "blue",
+        "17": "blue",
+        "18": "blue",
+        "19": "blue",
+        "20": "blue",
+        "21": "green",
+        "22": "blue",
+        "23": "blue",
+        "24": "blue",
+        "25": "blue",
+        "26": "blue",
+        "27": "green"
+      },
+      "resolved": {},
+      "resolvedParts": {},
+      "manualResolved": {},
+      "updated": 1788675067426
+    },
+    {
+      "id": "h_mtphab09_8gnv9",
+      "catId": "c0",
+      "date": "2026-09-06",
+      "content": "L3",
+      "workLabel": "",
+      "progressType": "unit",
+      "statuses": {
+        "1": "blue",
+        "2": "blue",
+        "3": "yellow",
+        "4": "yellow",
+        "5": "yellow",
+        "6": "blue",
+        "7": "yellow",
+        "8": "blue",
+        "9": "blue",
+        "10": "yellow",
+        "11": "red",
+        "12": "blue",
+        "13": "blue",
+        "14": "blue",
+        "15": "yellow",
+        "16": "yellow",
+        "17": "blue",
+        "18": "blue",
+        "19": "yellow",
+        "20": "blue",
+        "21": "yellow",
+        "22": "blue",
+        "23": "yellow",
+        "24": "blue",
+        "25": "yellow",
+        "26": "blue",
+        "27": "yellow"
+      },
+      "resolved": {
+        "7": true,
+        "10": true,
+        "11": true,
+        "15": true,
+        "16": true,
+        "19": true,
+        "21": true
+      },
+      "resolvedParts": {
+        "7": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "10": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "11": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "15": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "16": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "19": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "21": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        }
+      },
+      "manualResolved": {
+        "7": true,
+        "10": true,
+        "11": true,
+        "15": true,
+        "16": true,
+        "19": true,
+        "21": true
+      },
+      "updated": 1788707191668
+    },
+    {
+      "id": "h_mtpm376z_ghpg8",
+      "catId": "c4",
+      "date": "2026-09-06",
+      "content": "L1",
+      "workLabel": "",
+      "progressType": "unit",
+      "statuses": {
+        "1": "red",
+        "2": "blue",
+        "3": "red",
+        "4": "blue",
+        "5": "blue",
+        "6": "blue",
+        "7": "blue",
+        "8": "yellow",
+        "9": "blue",
+        "10": "blue",
+        "11": "blue",
+        "12": "blue",
+        "13": "blue",
+        "14": "blue",
+        "15": "blue",
+        "16": "red",
+        "17": "blue",
+        "18": "blue",
+        "19": "blue",
+        "20": "blue",
+        "21": "yellow",
+        "22": "blue",
+        "23": "blue",
+        "24": "yellow",
+        "25": "blue",
+        "26": "yellow",
+        "27": "yellow"
+      },
+      "resolved": {
+        "1": true,
+        "3": true,
+        "8": true,
+        "16": true,
+        "21": true,
+        "24": true,
+        "26": true,
+        "27": true
+      },
+      "resolvedParts": {
+        "1": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "3": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "8": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "16": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "21": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "24": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "26": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "27": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        }
+      },
+      "manualResolved": {
+        "16": true,
+        "27": true
+      },
+      "updated": 1788695634066
+    },
+    {
+      "id": "h_mtpm3qbq_luq02",
+      "catId": "c4",
+      "date": "2026-09-06",
+      "content": "L2",
+      "workLabel": "",
+      "progressType": "unit",
+      "statuses": {
+        "1": "red",
+        "2": "blue",
+        "3": "red",
+        "4": "ring",
+        "5": "blue",
+        "6": "yellow",
+        "7": "blue",
+        "8": "blue",
+        "9": "yellow",
+        "10": "blue",
+        "11": "yellow",
+        "12": "blue",
+        "13": "yellow",
+        "14": "blue",
+        "15": "blue",
+        "16": "red",
+        "17": "blue",
+        "18": "blue",
+        "19": "blue",
+        "20": "yellow",
+        "21": "blue",
+        "22": "blue",
+        "23": "blue",
+        "24": "yellow",
+        "25": "blue",
+        "26": "blue",
+        "27": "yellow"
+      },
+      "resolved": {
+        "1": true,
+        "3": true,
+        "11": true,
+        "20": true,
+        "24": true
+      },
+      "resolvedParts": {
+        "1": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "3": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "11": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "20": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        },
+        "24": {
+          "missing": true,
+          "correction": true,
+          "signature": true
+        }
+      },
+      "manualResolved": {
+        "1": true,
+        "3": true,
+        "11": true,
+        "20": true,
+        "24": true
+      },
+      "updated": 1788695720324
+    }
+  ],
+  "contact": {
+    "date": "2026-09-07",
+    "statuses": {},
+    "leave": []
+  },
+  "progress": {
+    "mode": "none",
+    "a": "",
+    "b": "",
+    "unit": "L",
+    "free": ""
+  }
+}
