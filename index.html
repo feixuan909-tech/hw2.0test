@@ -6733,9 +6733,26 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 }
 </style>
 
+
+<style id="alpha147-return-slip-custom-labels">
+.return-slip-label-editor{margin-top:9px;padding:8px 10px;border:1px solid rgba(157,126,72,.30);border-radius:10px;background:rgba(250,246,235,.72);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.return-slip-label-editor[hidden]{display:none!important}
+.return-slip-label-editor-title{font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;font-size:12px;font-weight:800;color:#5b3b22;margin-right:2px}
+.return-slip-label-editor label{display:inline-flex;align-items:center;gap:5px}
+.return-slip-label-editor .dot{width:14px;height:14px;border-width:2px;flex:0 0 auto}
+.return-slip-label-editor .input{width:132px;min-height:32px;height:32px;padding:5px 7px;font-size:12px}
+.return-slip-label-editor #returnSlipYellowLabel{width:170px}
+.return-slip-label-editor .btn{padding:6px 9px;font-size:11px}
+@media(max-width:760px){
+ .return-slip-label-editor{align-items:stretch}
+ .return-slip-label-editor-title{width:100%}
+ .return-slip-label-editor label{width:100%}
+ .return-slip-label-editor .input,.return-slip-label-editor #returnSlipYellowLabel{width:100%;flex:1}
+}
+</style>
 </head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.146</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.147</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
@@ -6904,6 +6921,13 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
   <hr class="homework-entry-divider">
   <div class="small">可一次選多個座號，再點狀態；套用後會自動取消選取。</div>
   <div id="historyMainEditBanner" class="history-main-edit-banner" aria-hidden="true"></div>
+  <div id="returnSlipLabelEditor" class="return-slip-label-editor" hidden>
+    <span class="return-slip-label-editor-title">回條結果文字</span>
+    <label><span class="dot blue"></span><input id="returnSlipBlueLabel" class="input" type="text" maxlength="16" placeholder="參加"></label>
+    <label><span class="dot green"></span><input id="returnSlipGreenLabel" class="input" type="text" maxlength="16" placeholder="不參加"></label>
+    <label><span class="dot yellow"></span><input id="returnSlipYellowLabel" class="input" type="text" maxlength="16" placeholder="參加（特殊情況）"></label>
+    <button id="returnSlipResetLabelsBtn" class="btn" type="button">恢復預設</button>
+  </div>
   <div id="homeworkStatusbar" class="statusbar" style="margin-top:10px"><button class="status-btn homework-status-btn active" type="button" data-status="blue"><span class="dot blue"></span>通過</button><button class="status-btn homework-status-btn" type="button" data-status="red"><span class="dot red"></span>未交／未寫</button><button class="status-btn homework-status-btn" type="button" data-status="green"><span class="dot green"></span>未簽</button><button class="status-btn homework-status-btn" type="button" data-status="ring"><span class="dot ring"></span>未訂簽</button><button class="status-btn homework-status-btn" type="button" data-status="yellow"><span class="dot yellow"></span>未訂正</button><button class="status-btn homework-status-btn" type="button" data-status="orange"><span class="dot orange"></span>請假</button></div>
   <div id="studentGrid" class="grid"></div>
   <div class="action-row">
@@ -6958,8 +6982,18 @@ function isReturnSlipCategory(catOrId){
  const c=typeof catOrId==='object'?catOrId:state.categories.find(x=>x.id===catOrId);
  return normalizeCategoryName(c?.name||'')===normalizeCategoryName('回條');
 }
-function statusLabelsForCategory(catOrId){
- if(isReturnSlipCategory(catOrId))return {blue:'參加',red:'未交',green:'不參加',yellow:'參加（特殊情況）',ring:'補繳',orange:'請假'};
+function statusLabelsForCategory(catOrId,record=null){
+ if(isReturnSlipCategory(catOrId)){
+   const base={blue:'參加',red:'未交',green:'不參加',yellow:'參加（特殊情況）',ring:'補繳',orange:'請假'};
+   const custom=record?.returnSlipLabels;
+   if(custom&&typeof custom==='object'){
+     for(const k of ['blue','green','yellow']){
+       const v=cleanText(custom[k]||'',16);
+       if(v)base[k]=v;
+     }
+   }
+   return base;
+ }
  return {blue:'通過',red:'未交／未寫',green:'未簽',ring:'未訂簽',yellow:'未訂正',orange:'請假'};
 }
 function statusIsPendingForCategory(catOrId,st,h=null,seat=null){
@@ -6967,9 +7001,43 @@ function statusIsPendingForCategory(catOrId,st,h=null,seat=null){
  if(!['red','yellow','green','ring'].includes(st))return false;
  return !(h&&seat!=null&&isStatusFullyResolved(h,seat));
 }
+const RETURN_SLIP_DEFAULT_LABELS={blue:'參加',green:'不參加',yellow:'參加（特殊情況）'};
+let returnSlipDraftLabels={...RETURN_SLIP_DEFAULT_LABELS};
+function normalizedReturnSlipLabels(raw){
+ const out={...RETURN_SLIP_DEFAULT_LABELS};
+ if(raw&&typeof raw==='object')for(const k of ['blue','green','yellow']){
+   const v=cleanText(raw[k]||'',16);if(v)out[k]=v;
+ }
+ return out;
+}
+function currentReturnSlipEntryLabels(){
+ if(historyEditId){
+   const h=state.history.find(x=>x.id===historyEditId);
+   if(h&&isReturnSlipCategory(h.catId))return normalizedReturnSlipLabels(h.returnSlipLabels);
+ }
+ return normalizedReturnSlipLabels(returnSlipDraftLabels);
+}
+function syncReturnSlipLabelEditor(){
+ const box=$('returnSlipLabelEditor');if(!box)return;
+ const c=currentCat(),show=isReturnSlipCategory(c);
+ box.hidden=!show;if(!show)return;
+ const labels=currentReturnSlipEntryLabels();
+ $('returnSlipBlueLabel').value=labels.blue;
+ $('returnSlipGreenLabel').value=labels.green;
+ $('returnSlipYellowLabel').value=labels.yellow;
+}
+function readReturnSlipLabelEditor(){
+ if(!isReturnSlipCategory(currentCat()))return null;
+ const labels=normalizedReturnSlipLabels({
+   blue:$('returnSlipBlueLabel')?.value,
+   green:$('returnSlipGreenLabel')?.value,
+   yellow:$('returnSlipYellowLabel')?.value
+ });
+ return labels;
+}
 function syncHomeworkStatusbar(){
  const c=currentCat();if(!c)return;
- const labels=statusLabelsForCategory(c);
+ const labels=isReturnSlipCategory(c)?{...statusLabelsForCategory(c),...currentReturnSlipEntryLabels()}:statusLabelsForCategory(c);
  document.querySelectorAll('.homework-status-btn').forEach(btn=>{
    const st=btn.dataset.status;
    btn.hidden=isReturnSlipCategory(c)&&st==='orange';
@@ -7051,6 +7119,7 @@ function sanitizeState(raw,keepDrafts=false){
 
       s.history.push({
         id,catId,date:h.date,content:cleanText(h.content,100),workLabel:cleanText(h.workLabel,6),
+        returnSlipLabels:isReturnSlipCategory(catMeta)?normalizedReturnSlipLabels(h.returnSlipLabels):undefined,
         progressType:['pages','unit','free','none'].includes(h.progressType)?h.progressType:'free',
         statuses,resolved,resolvedParts,manualResolved,updated:Number.isFinite(Number(h.updated))?Number(h.updated):Date.now()
       });
@@ -7247,7 +7316,7 @@ function setupMobileTopbar(){
    menu.classList.remove('show');more.textContent='更多 ▾';more.setAttribute('aria-expanded','false');
  }
 }
-function renderAll(){refreshToday();$('studentCount').value=state.studentCount;if(!$('recordDate').value)$('recordDate').value=TODAY;if(selectedStudentSeat>state.studentCount)selectedStudentSeat=state.studentCount;renderCats();updateMobileCategoryUI();syncHomeworkStatusbar();renderProgress();renderHistoryMainEditBanner();renderContact();renderStudentGrid();renderOverview();renderStudentRecord();renderTable();renderCurrentCategorySummary()}
+function renderAll(){refreshToday();$('studentCount').value=state.studentCount;if(!$('recordDate').value)$('recordDate').value=TODAY;if(selectedStudentSeat>state.studentCount)selectedStudentSeat=state.studentCount;renderCats();updateMobileCategoryUI();syncHomeworkStatusbar();renderProgress();renderHistoryMainEditBanner();syncReturnSlipLabelEditor();syncHomeworkStatusbar();renderContact();renderStudentGrid();renderOverview();renderStudentRecord();renderTable();renderCurrentCategorySummary()}
 let categoryEditMode=false;
 let selectedStudentSeat=1;
 let studentRecordSortMode='category';
@@ -7762,6 +7831,24 @@ function markAllPass(){
  save();selectedStudents.clear();renderStudentGrid();
 }
 $('recordDate').addEventListener('change',()=>{selectedStudents.clear();renderStudentGrid();if(!historyEditId)renderCurrentCategorySummary()});
+for(const id of ['returnSlipBlueLabel','returnSlipGreenLabel','returnSlipYellowLabel']){
+ $(id)?.addEventListener('input',()=>{
+   if(historyEditId){
+     const h=state.history.find(x=>x.id===historyEditId);
+     if(h&&isReturnSlipCategory(h.catId))h.returnSlipLabels=readReturnSlipLabelEditor();
+   }else returnSlipDraftLabels=readReturnSlipLabelEditor()||{...RETURN_SLIP_DEFAULT_LABELS};
+   syncHomeworkStatusbar();
+ });
+}
+$('returnSlipResetLabelsBtn')?.addEventListener('click',()=>{
+ returnSlipDraftLabels={...RETURN_SLIP_DEFAULT_LABELS};
+ if(historyEditId){
+   const h=state.history.find(x=>x.id===historyEditId);
+   if(h&&isReturnSlipCategory(h.catId))h.returnSlipLabels={...RETURN_SLIP_DEFAULT_LABELS};
+ }
+ syncReturnSlipLabelEditor();syncHomeworkStatusbar();
+});
+
 function resolvedPartState(h,n){
  const p=h.resolvedParts?.[n]||{};
  if(h.resolved?.[n])return {missing:true,correction:true,signature:true};
@@ -7890,6 +7977,7 @@ function commitHomeworkRecord(c,date,content,progressType,d,mode='new',existingI
    resolved:mode==='overwrite'&&existing?(existing.resolved||{}):{},
    resolvedParts:mode==='overwrite'&&existing?(existing.resolvedParts||{}):{},
    manualResolved:mode==='overwrite'&&existing?(existing.manualResolved||{}):{},
+   returnSlipLabels:isReturnSlipCategory(c)?readReturnSlipLabelEditor():undefined,
    updated:nextUpdatedStamp()
  };
  if(mode==='overwrite'&&existingIndex>=0)state.history[existingIndex]=rec;
@@ -7897,6 +7985,7 @@ function commitHomeworkRecord(c,date,content,progressType,d,mode='new',existingI
 
  resolvePrevious(c.id,rec);
  delete state.drafts[draftKey()];
+ if(isReturnSlipCategory(c)&&mode==='new')returnSlipDraftLabels={...RETURN_SLIP_DEFAULT_LABELS};
  save();selectedStudents.clear();renderSummary(rec);renderAll();
 }
 function showSameRecordChoice(c,date,content,progressType,d,idx){
@@ -7950,7 +8039,7 @@ function summaryStatusGroups(rec){
  return groups;
 }
 function renderSummary(rec){
- const groups=summaryStatusGroups(rec),labels=statusLabelsForCategory(rec.catId);
+ const groups=summaryStatusGroups(rec),labels=statusLabelsForCategory(rec.catId,rec);
  const isReturnSlip=isReturnSlipCategory(rec.catId);
  const lines=Object.entries(groups).filter(([,v])=>v.length).map(([k,v])=>{
    const label=isReturnSlip?`${labels[k]}－${v.length}人：`:`${labels[k]}：`;
@@ -8092,7 +8181,7 @@ function editIndependentWorkLabel(historyId){
 }
 
 function statusText(st,h=null,seat=null){
- const labels=statusLabelsForCategory(h?.catId||currentCat());
+ const labels=statusLabelsForCategory(h?.catId||currentCat(),h);
  let cls=VALID_STATUS.has(st)?st:'red';
  let suffix='';
  if(h&&seat!=null&&!isReturnSlipCategory(h.catId)){
@@ -8274,7 +8363,7 @@ function excelCellTextForIndependent(catId,seat){
 }
 function studentExportStatusText(h,seat){
  const st=h.statuses?.[seat]||'red';
- const labels=statusLabelsForCategory(h.catId);
+ const labels=statusLabelsForCategory(h.catId,h);
  if(isReturnSlipCategory(h.catId))return labels[st]||labels.red;
  // 與學生個人紀錄畫面一致：完整 OK 在統計／匯出結果中視為「通過」。
  // 原始狀況與 OK 歷程不改寫，仍由正式歷史紀錄保存。
@@ -8428,7 +8517,7 @@ function overviewExportData(){
    rows.push([String(n),...cols.map(({type,h})=>{
      if(type==='continuous')return excelCellTextForContinuous(h,n);
      const st=h.statuses?.[n]||'red';
-     const labels=statusLabelsForCategory(h.catId);
+     const labels=statusLabelsForCategory(h.catId,h);
      // alpha.145：獨立項目的總覽 Excel 也採「當下結果」。
      // 回條保留自己的實際結果；一般獨立作業已完成則統一顯示「通過」，
      // 尚未完成才保留未交／未簽／未訂簽／未訂正等原狀態。
@@ -8646,7 +8735,7 @@ function saveHistoryRecordFromMain(){
    if(msg)alert(msg);
    return;
  }
- h.date=date;h.content=pr.content;h.progressType=pr.type;h.statuses={};
+ h.date=date;h.content=pr.content;h.progressType=pr.type;if(isReturnSlipCategory(h.catId))h.returnSlipLabels=readReturnSlipLabelEditor();h.statuses={};
  for(let n=1;n<=state.studentCount;n++){
    const st=historyEditDraft?.[n]||'red';h.statuses[n]=VALID_STATUS.has(st)?st:'red';
  }
@@ -8693,8 +8782,8 @@ function saveHistoryRecordFromMain(){
  selectedStudents.clear();progress={a:'',b:'',skipPages:'',unit:'L',unitNums:'',unitDetail:'',free:''};
  renderAll();
 }
-function returnSlipHistoryIcon(st){
- const labels=statusLabelsForCategory('回條');
+function returnSlipHistoryIcon(st,h=null){
+ const labels=statusLabelsForCategory(h?.catId||'回條',h);
  return `<span class="return-slip-history-mark" title="${esc(labels[st]||'')}"><span class="dot ${st}"></span></span>`;
 }
 function renderTable(){
@@ -8752,7 +8841,7 @@ function renderTable(){
        const st=h.statuses[n]||'red';
        const editable=historyOkEditId===h.id&&['red','yellow','green','ring','orange'].includes(st);
        const pending=editable&&historyOkPending.has(n);
-       cells+=`<td class="${latest} ${editable?'ok-editable':''} ${pending?'pending-toggle':''}"${editable?` data-history-id="${esc(h.id)}" data-seat="${n}"`:''}>${isReturnSlipCategory(h.catId)?returnSlipHistoryIcon(st):statusIcon(st,previewManualHistoryOK(h,n),previewManualHistoryParts(h,n))}</td>`;
+       cells+=`<td class="${latest} ${editable?'ok-editable':''} ${pending?'pending-toggle':''}"${editable?` data-history-id="${esc(h.id)}" data-seat="${n}"`:''}>${isReturnSlipCategory(h.catId)?returnSlipHistoryIcon(st,h):statusIcon(st,previewManualHistoryOK(h,n),previewManualHistoryParts(h,n))}</td>`;
      }
    }
    rows+=`<tr><td>${n}</td>${cells}</tr>`;
