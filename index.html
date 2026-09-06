@@ -5931,9 +5931,87 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 }
 </style>
 
+
+<style id="alpha100-overview-corner-overlay">
+/* alpha.100｜固定表頭模式
+   - 垂直固定：回到 alpha.92 已實機確認 OK 的「整個 thead sticky」
+   - 水平第一欄：tbody 繼續沿用原本 sticky left:0
+   - 左上兩格：不再依賴 Android Chrome 的 nested sticky，
+     改用獨立覆蓋層，直接鎖在捲動容器左上角。 */
+
+#overviewPanel.overview-sticky-mode .overview-table-wrap{
+  position:relative!important;
+  overflow:auto!important;
+  max-height:180px!important;
+  -webkit-overflow-scrolling:touch!important;
+  overscroll-behavior:contain!important;
+}
+
+/* 兩列表頭整體上下固定 */
+#overviewPanel.overview-sticky-mode .overview-table thead{
+  position:sticky!important;
+  top:0!important;
+  z-index:40!important;
+}
+
+/* thead 內各格不再自己做 vertical sticky，避免兩套 top 規則互撞 */
+#overviewPanel.overview-sticky-mode .overview-table thead th{
+  position:static!important;
+  top:auto!important;
+}
+
+/* 學生座號欄：維持原本成功的左側 sticky */
+#overviewPanel.overview-sticky-mode .overview-table tbody .seat-col{
+  position:sticky!important;
+  left:0!important;
+  z-index:30!important;
+  background:#fbf6ea!important;
+}
+
+/* 真正顯示在左上角的兩格，改由 overlay 呈現 */
+#overviewPanel .overview-corner-overlay{
+  display:none;
+}
+#overviewPanel.overview-sticky-mode .overview-corner-overlay{
+  display:block;
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:200;
+  pointer-events:none;
+  box-sizing:border-box;
+  will-change:transform;
+}
+#overviewPanel .overview-corner-overlay-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-sizing:border-box;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  color:#4A3420;
+  font-weight:800;
+  white-space:nowrap;
+  overflow:hidden;
+}
+#overviewPanel .overview-corner-overlay-row.row1{
+  background:#eadcc0;
+}
+#overviewPanel .overview-corner-overlay-row.row2{
+  background:#f3ecdc;
+  font-weight:600;
+  color:#6e5d49;
+}
+
+/* 完整展開完全不使用 overlay，維持已確認 OK 的原行為 */
+#overviewPanel:not(.overview-sticky-mode) .overview-corner-overlay{
+  display:none!important;
+}
+</style>
+
 </head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.99</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.100</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
@@ -8669,6 +8747,73 @@ if(localStorage.getItem(CLOUD_AUTO_INIT_KEY)==='1')ensureFirebaseReady();
   if('ResizeObserver' in window)new ResizeObserver(sync).observe(head);
   window.addEventListener('resize',sync,{passive:true});
   window.addEventListener('orientationchange',sync,{passive:true});
+  sync();
+})();
+</script>
+
+
+<script id="alpha100-overview-corner-overlay-sync">
+(function(){
+  const panel=document.getElementById('overviewPanel');
+  const wrap=panel?.querySelector('.overview-table-wrap');
+  const head=document.getElementById('overviewHead');
+  if(!panel||!wrap||!head)return;
+
+  let overlay=wrap.querySelector('.overview-corner-overlay');
+  if(!overlay){
+    overlay=document.createElement('div');
+    overlay.className='overview-corner-overlay';
+    overlay.innerHTML='<div class="overview-corner-overlay-row row1"></div><div class="overview-corner-overlay-row row2"></div>';
+    wrap.appendChild(overlay);
+  }
+  const r1=overlay.querySelector('.row1');
+  const r2=overlay.querySelector('.row2');
+  let raf=0;
+
+  function sync(){
+    cancelAnimationFrame(raf);
+    raf=requestAnimationFrame(()=>{
+      if(!panel.classList.contains('overview-sticky-mode')){
+        overlay.style.transform='translate3d(0,0,0)';
+        return;
+      }
+
+      const tr1=head.querySelector('tr:first-child');
+      const tr2=head.querySelector('tr:nth-child(2)');
+      const c1=tr1?.querySelector('th:first-child');
+      const c2=tr2?.querySelector('th:first-child');
+      if(!tr1||!tr2||!c1||!c2)return;
+
+      const b1=c1.getBoundingClientRect();
+      const b2=c2.getBoundingClientRect();
+
+      r1.textContent=c1.textContent||'類別';
+      r2.textContent=c2.textContent||'座號＼進度＆日期';
+
+      const w=Math.ceil(Math.max(b1.width,b2.width));
+      const h1=Math.ceil(b1.height);
+      const h2=Math.ceil(b2.height);
+
+      overlay.style.width=w+'px';
+      r1.style.width=w+'px';
+      r2.style.width=w+'px';
+      r1.style.height=h1+'px';
+      r2.style.height=h2+'px';
+
+      /* absolute 元素會跟著 scroll content 移動；
+         加回 scrollLeft / scrollTop 後，畫面上就固定在左上角。 */
+      overlay.style.transform=`translate3d(${wrap.scrollLeft}px,${wrap.scrollTop}px,0)`;
+    });
+  }
+
+  wrap.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  window.addEventListener('orientationchange',sync,{passive:true});
+
+  new MutationObserver(sync).observe(head,{childList:true,subtree:true,characterData:true});
+  new MutationObserver(sync).observe(panel,{attributes:true,attributeFilter:['class']});
+  if('ResizeObserver' in window)new ResizeObserver(sync).observe(head);
+
   sync();
 })();
 </script>
