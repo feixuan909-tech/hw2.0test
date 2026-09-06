@@ -6160,9 +6160,66 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 }
 </style>
 
+
+<style id="alpha125-category-surface-layout">
+/* alpha.125｜只整理「表面類別清單」：
+   日期固定左邊；名稱整體置中；「獨」印章跟著名稱放右側。
+   編輯模式與其他區域不動。 */
+#catList:not(.editing) .cat-item{
+  position:relative!important;
+  display:grid!important;
+  grid-template-columns:52px minmax(0,1fr) 52px!important;
+  align-items:center!important;
+  min-height:52px!important;
+}
+
+#catList:not(.editing) .cat-item > .cat-date{
+  grid-column:1!important;
+  grid-row:1!important;
+  justify-self:start!important;
+  position:static!important;
+  margin:0!important;
+  z-index:2!important;
+}
+
+#catList:not(.editing) .cat-item > .cat-name{
+  grid-column:2!important;
+  grid-row:1!important;
+  position:static!important;
+  left:auto!important;
+  transform:none!important;
+  width:auto!important;
+  max-width:none!important;
+  justify-self:center!important;
+  text-align:center!important;
+  pointer-events:none!important;
+}
+
+/* 「獨」緊跟在置中的標題右側；用中心欄的中線為基準，不去推動標題本身。 */
+#catList:not(.editing) .cat-item > .independent-badge{
+  grid-column:2!important;
+  grid-row:1!important;
+  justify-self:center!important;
+  position:relative!important;
+  left:calc(50% + 24px)!important;
+  margin:0!important;
+  z-index:3!important;
+}
+
+/* 「目前」仍保留，但放到右側資訊欄，不擠壓標題。 */
+#catList:not(.editing) .cat-item > .cat-current-badge{
+  grid-column:3!important;
+  grid-row:1!important;
+  justify-self:end!important;
+  position:static!important;
+  margin:0!important;
+  z-index:2!important;
+}
+</style>
+
 </head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.124</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.126</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
@@ -6678,6 +6735,7 @@ let historyEditId='';
 let historyEditDraft=null;
 let historyEditOriginalManual={};
 let historyEditOriginalStatuses={};
+let historyEditOriginalResolved={};
 let categoryDragId='';
 function normalizeCategoryName(v){
  return cleanText(v,30).trim().replace(/\s+/g,' ').toLocaleLowerCase('zh-Hant');
@@ -7082,9 +7140,16 @@ function todayLeaveSet(){return new Set(state.contact.date===TODAY?state.contact
 function historyEditSeatHasOK(seat){
  if(!historyEditId)return false;
  const h=state.history.find(x=>x.id===historyEditId);
- if(!h)return false;
- // 補登 OK 屬於歷程，不把原始紅／綠／黃／圈狀態洗成藍色。
- return !isReturnSlipCategory(h.catId)&&historyEditOriginalManual?.[seat]===true;
+ if(!h||isReturnSlipCategory(h.catId))return false;
+
+ // alpha.126：號碼盤的 OK 小註記只屬於「最新一筆紀錄」。
+ // 舊紀錄即使歷史上曾被結清，也不在號碼盤上額外蓋 OK；
+ // 避免把歷史狀態與目前最新狀態混在一起。
+ const latest=latestRecord(h.catId);
+ if(!latest||latest.id!==h.id)return false;
+
+ const originalStatus=historyEditOriginalStatuses?.[seat]||h.statuses?.[seat];
+ return originalStatus!=='blue' && historyEditOriginalResolved?.[seat]===true;
 }
 function renderStudentGrid(){
  const d=getDraft(),leave=todayLeaveSet(),isToday=($('recordDate').value||TODAY)===TODAY,grid=$('studentGrid');
@@ -8014,7 +8079,7 @@ function toggleHistoryOkEdit(id){
 
 
 function cancelHistoryRecordEdit(render=true){
- historyEditId='';historyEditDraft=null;historyEditOriginalManual={};historyEditOriginalStatuses={};
+ historyEditId='';historyEditDraft=null;historyEditOriginalManual={};historyEditOriginalStatuses={};historyEditOriginalResolved={};
  selectedStudents.clear();progress={a:'',b:'',skipPages:'',unit:'L',unitNums:'',unitDetail:'',free:''};
  if(render){renderProgress();renderHistoryMainEditBanner();renderStudentGrid();renderTable();renderCurrentCategorySummary()}
 }
@@ -8025,6 +8090,8 @@ function startHistoryRecordEdit(id){
  for(let n=1;n<=state.studentCount;n++)historyEditDraft[n]=h.statuses?.[n]||'red';
  historyEditOriginalManual={...(h.manualResolved||{})};
  historyEditOriginalStatuses={...(h.statuses||{})};
+ historyEditOriginalResolved={};
+ for(let n=1;n<=state.studentCount;n++)historyEditOriginalResolved[n]=isStatusFullyResolved(h,n);
  state.currentCategory=h.catId;
  $('recordDate').value=h.date;
  const entryBody=$('homeworkEntryBody'),entryBtn=$('homeworkEntryCollapseBtn');
@@ -8062,13 +8129,46 @@ function saveHistoryRecordFromMain(){
  }
  h.updated=nextUpdatedStamp();
  const c=state.categories.find(x=>x.id===h.catId);
- if(c?.kind==='continuous')recomputeContinuousResolutions(h.catId);
- else{
+
+ // alpha.125：歷史編輯的「未通過」是從此筆起生效的事件。
+ // 如果原本這一筆是已完成／有 OK，現在被明確改成未通過，
+ // 就把同一學生的未通過狀態往後延續；遇到後面明確手動補登 OK 才停止。
+ // 舊紀錄完全不回頭修改。
+ if(c?.kind==='continuous'){
+   const records=continuousChronological(h.catId);
+   const idx=records.findIndex(x=>x.id===h.id);
+   if(idx>=0){
+     for(let n=1;n<=state.studentCount;n++){
+       const now=h.statuses?.[n];
+       const wasResolved=historyEditOriginalResolved?.[n]===true;
+       const oldStatus=historyEditOriginalStatuses?.[n];
+       const changedToPending=wasResolved &&
+         ['red','yellow','green','ring','orange'].includes(now) &&
+         now!==oldStatus;
+       if(!changedToPending)continue;
+
+       // 這一筆的舊 OK 已失效。
+       if(h.manualResolved)delete h.manualResolved[n];
+
+       for(let j=idx+1;j<records.length;j++){
+         const later=records[j];
+         // 後面若有老師明確補登 OK，視為新的通過事件，從那裡停止往後延續。
+         if(later.manualResolved?.[n]===true)break;
+         later.statuses||={};
+         later.statuses[n]=now;
+         if(later.manualResolved)delete later.manualResolved[n];
+         if(later.resolved)delete later.resolved[n];
+         if(later.resolvedParts)delete later.resolvedParts[n];
+       }
+     }
+   }
+   recomputeContinuousResolutions(h.catId);
+ } else{
    h.resolved={};h.resolvedParts={};
    for(const seat of Object.keys(h.manualResolved)){h.resolved[seat]=true;h.resolvedParts[seat]={missing:true,correction:true,signature:true}}
  }
  save();
- historyEditId='';historyEditDraft=null;historyEditOriginalManual={};historyEditOriginalStatuses={};
+ historyEditId='';historyEditDraft=null;historyEditOriginalManual={};historyEditOriginalStatuses={};historyEditOriginalResolved={};
  selectedStudents.clear();progress={a:'',b:'',skipPages:'',unit:'L',unitNums:'',unitDetail:'',free:''};
  renderAll();
 }
