@@ -5772,32 +5772,8 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 </style>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<style id="alpha99-history-confirmed-lock">
-/* 歷史紀錄：保留使用者已確認 OK 的狀態，不參與總覽 sticky 修正。 */
+<style id="alpha103-history-confirmed-lock">
+/* ===== 歷史紀錄：保留 alpha.94～96 已確認 OK 的視覺 ===== */
 .history-table td{vertical-align:middle!important}
 .history-table tbody td:not(:first-child):not(.all-ok-cell){position:relative!important;vertical-align:middle!important}
 .history-table tbody td:not(:first-child):not(.all-ok-cell) > .cell-mark{
@@ -5846,36 +5822,15 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 </style>
 
 
+<style id="alpha103-fixed-mode-only">
+/* =========================================================
+   重要：這裡只作用於 .overview-sticky-mode。
+   完整展開完全使用 alpha.89 原始規則，不覆寫任何欄寬、sticky、overflow。
+   ========================================================= */
 
+#overviewPanel{position:relative!important}
 
-
-
-
-
-<style id="alpha101-overview-external-corner-overlay">
-/* alpha.101｜固定表頭重新收斂：
-   1. 右側兩列表頭：整個 thead 垂直固定。
-   2. 學生座號欄：沿用原本成功的 sticky left:0。
-   3. 左上兩格：不再放在 scroll container 裡，也不做 transform。
-      改成掛在 overviewPanel 上的「外層覆蓋」，因此上下、左右捲動都不會帶走它。
-   完整展開模式不使用覆蓋層。 */
-
-#overviewPanel{
-  position:relative!important;
-}
-
-/* 固定表頭：只讓整個 thead 固定，不讓每個 th 再各自 sticky。 */
-#overviewPanel.overview-sticky-mode .overview-table thead{
-  position:sticky!important;
-  top:0!important;
-  z-index:40!important;
-}
-#overviewPanel.overview-sticky-mode .overview-table thead th{
-  position:static!important;
-  top:auto!important;
-}
-
-/* 固定表頭模式的捲動容器。 */
+/* 固定表頭模式：表格內部才開垂直捲動 */
 #overviewPanel.overview-sticky-mode .overview-table-wrap{
   overflow:auto!important;
   max-height:180px!important;
@@ -5883,16 +5838,22 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
   overscroll-behavior:contain!important;
 }
 
-/* 學生座號欄只做水平 sticky；不參與垂直 sticky。 */
+/* 右側兩列表頭整體上下固定 */
+#overviewPanel.overview-sticky-mode .overview-table thead{
+  position:sticky!important;
+  top:0!important;
+  z-index:40!important;
+}
+
+/* 學生座號欄：沿用 alpha.89 原有 left:0 sticky */
 #overviewPanel.overview-sticky-mode .overview-table tbody .seat-col{
   position:sticky!important;
   left:0!important;
-  top:auto!important;
   z-index:8!important;
-  background:#fbf6ea!important;
+  background:#f7f0e2!important;
 }
 
-/* 外層固定雙格。它是 overviewPanel 的 child，不在 scroll content 裡。 */
+/* 左上兩格用外層固定層，只在固定表頭模式出現 */
 #overviewPanel .overview-fixed-corner{
   display:none;
   position:absolute;
@@ -5900,19 +5861,17 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
   pointer-events:none;
   box-sizing:border-box;
 }
-#overviewPanel.overview-sticky-mode .overview-fixed-corner{
-  display:block;
-}
+#overviewPanel.overview-sticky-mode .overview-fixed-corner{display:block}
 #overviewPanel .overview-fixed-corner-row{
   display:flex;
   align-items:center;
   justify-content:center;
   box-sizing:border-box;
-  border-right:1.5px solid rgba(126,91,48,.30);
-  border-bottom:1px solid rgba(126,91,48,.27);
   color:#4a3827;
   overflow:hidden;
   white-space:nowrap;
+  border-right:1px solid rgba(126,91,48,.24);
+  border-bottom:1px solid rgba(126,91,48,.24);
 }
 #overviewPanel .overview-fixed-corner-row.row1{
   background:#eadcc0;
@@ -5927,11 +5886,6 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
   font-weight:700;
 }
 
-/* 完整展開模式完全不顯示外層固定格。 */
-#overviewPanel:not(.overview-sticky-mode) .overview-fixed-corner{
-  display:none!important;
-}
-
 @media(min-width:761px){
   #overviewPanel.overview-sticky-mode .overview-table-wrap{
     max-height:min(70vh,720px)!important;
@@ -5939,17 +5893,9 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 }
 </style>
 
-
-<style id="alpha102-overview-corner-border-harmonize">
-#overviewPanel .overview-fixed-corner-row{
-  border-right:1px solid rgba(126,91,48,.26)!important;
-  border-bottom:1px solid rgba(126,91,48,.24)!important;
-}
-</style>
-
 </head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.102</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.103</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
@@ -8655,23 +8601,7 @@ if(localStorage.getItem(CLOUD_AUTO_INIT_KEY)==='1')ensureFirebaseReady();
 </script>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script id="alpha102-overview-external-corner-sync">
+<script id="alpha103-fixed-corner-sync">
 (function(){
   const panel=document.getElementById('overviewPanel');
   const wrap=panel?.querySelector('.overview-table-wrap');
@@ -8702,24 +8632,18 @@ if(localStorage.getItem(CLOUD_AUTO_INIT_KEY)==='1')ensureFirebaseReady();
       const c2=tr2?.querySelector('th:first-child');
       if(!c1||!c2)return;
 
-      /*
-        對齊基準改成 table / cell 自己的 layout offset，
-        不再用 viewport rect + clientLeft 推算，避免手機上出現 1~2px 誤差。
-      */
-      const left = wrap.offsetLeft + table.offsetLeft + c1.offsetLeft;
-      const top  = wrap.offsetTop  + table.offsetTop  + tr1.offsetTop;
+      const panelRect=panel.getBoundingClientRect();
+      const wrapRect=wrap.getBoundingClientRect();
 
-      const b1=c1.getBoundingClientRect();
-      const b2=c2.getBoundingClientRect();
+      /* 固定在 scroll viewport 左上角；不碰原始表格布局 */
+      box.style.left=(wrapRect.left-panelRect.left)+'px';
+      box.style.top=(wrapRect.top-panelRect.top)+'px';
 
-      const w=Math.max(b1.width,b2.width);
-      const h1=b1.height;
-      const h2=b2.height;
+      const w=Math.max(c1.offsetWidth,c2.offsetWidth);
+      const h1=c1.offsetHeight;
+      const h2=c2.offsetHeight;
 
-      box.style.left=left+'px';
-      box.style.top=top+'px';
       box.style.width=w+'px';
-
       row1.style.width=w+'px';
       row2.style.width=w+'px';
       row1.style.height=h1+'px';
@@ -8735,17 +8659,12 @@ if(localStorage.getItem(CLOUD_AUTO_INIT_KEY)==='1')ensureFirebaseReady();
   window.addEventListener('orientationchange',sync,{passive:true});
   new MutationObserver(sync).observe(head,{childList:true,subtree:true,characterData:true});
   new MutationObserver(sync).observe(panel,{attributes:true,attributeFilter:['class']});
-
   if('ResizeObserver' in window){
     const ro=new ResizeObserver(sync);
-    ro.observe(wrap);
-    ro.observe(head);
-    ro.observe(table);
+    ro.observe(wrap); ro.observe(head); ro.observe(table);
   }
-
   sync();
 })();
 </script>
-
 
 </body></html>
