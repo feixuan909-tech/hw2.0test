@@ -6072,9 +6072,133 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 }
 </style>
 
+
+<style id="alpha94-targeted-root-fixes">
+/* =========================================================
+   alpha.94
+   這版不再用猜測的 class：
+   - 總覽固定表頭：固定第一欄改由 scrollLeft 位移補償，避開 Android Chrome
+     對 nested sticky（sticky thead 內再 sticky first-column）的相容問題。
+   - 歷史紀錄：使用實際 DOM selector 修正圓點、按鈕、標題與說明文字。
+   ========================================================= */
+
+/* A｜固定表頭模式：thead 維持 alpha.92 已通過的整體垂直固定。
+      第一欄不再依賴 nested position:sticky，而是由 --overview-scroll-x 抵消水平捲動。 */
+#overviewPanel.overview-sticky-mode .overview-table tr > :first-child{
+  position:relative!important;
+  left:auto!important;
+  transform:translateX(var(--overview-scroll-x, 0px))!important;
+  will-change:transform;
+  background-clip:padding-box!important;
+}
+#overviewPanel.overview-sticky-mode .overview-table thead tr:first-child > th:first-child{
+  z-index:80!important;
+  background:#eadcc0!important;
+}
+#overviewPanel.overview-sticky-mode .overview-table thead tr:nth-child(2) > th:first-child{
+  z-index:79!important;
+  background:#f3ecdc!important;
+}
+#overviewPanel.overview-sticky-mode .overview-table tbody tr > td:first-child{
+  z-index:45!important;
+  background:#fbf6ea!important;
+}
+
+/* 完整展開模式沿用已確認 OK 的原 sticky 第一欄，不套 transform 補償。 */
+#overviewPanel:not(.overview-sticky-mode) .overview-table tr > :first-child{
+  transform:none!important;
+}
+
+/* B｜歷史紀錄圓形圖示：直接以儲存格中心定位，不再受文字 baseline 影響。 */
+.history-table tbody td:not(:first-child):not(.all-ok-cell){
+  position:relative!important;
+  vertical-align:middle!important;
+}
+.history-table tbody td:not(:first-child):not(.all-ok-cell) > .cell-mark{
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  margin:0!important;
+  transform:translate(-50%,-50%)!important;
+}
+.history-table tbody td:not(:first-child):not(.all-ok-cell) > .return-slip-history-mark{
+  position:absolute!important;
+  inset:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  margin:0!important;
+}
+.history-table tbody td:not(:first-child):not(.all-ok-cell) > .return-slip-history-mark > .dot{
+  margin:0!important;
+  flex:0 0 auto!important;
+}
+
+/* C｜手機歷史紀錄按鈕：實際 class 是 history-record-controls。
+      三顆上下排列；單顆按鈕永遠單行。 */
+@media(max-width:760px){
+  .history-table .history-record-controls{
+    display:flex!important;
+    flex-direction:column!important;
+    flex-wrap:nowrap!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    gap:4px!important;
+    margin-top:5px!important;
+  }
+  .history-table .history-record-controls .btn{
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    width:auto!important;
+    min-width:82px!important;
+    max-width:none!important;
+    white-space:nowrap!important;
+    word-break:keep-all!important;
+    overflow-wrap:normal!important;
+    line-height:1.15!important;
+  }
+}
+
+/* D｜歷史紀錄桌機標題：直接對準實際 DOM
+      #historySection .history-section-head .section-title，
+      完整沿用作業登記主標題的字型、字重、色彩語言。 */
+@media(min-width:761px){
+  #historySection .history-section-head .section-title{
+    font-family:"Noto Serif TC","PMingLiU","Songti TC",serif!important;
+    font-size:21px!important;
+    line-height:1.2!important;
+    font-weight:900!important;
+    letter-spacing:.055em!important;
+    color:#0F2B23!important;
+  }
+  #historySection .history-section-head .section-title::after{
+    content:" / ARCHIVE LOG"!important;
+    font-family:Georgia,"Times New Roman",serif!important;
+    font-size:9.5px!important;
+    font-weight:700!important;
+    letter-spacing:.14em!important;
+    color:#9a8050!important;
+    vertical-align:3px!important;
+    margin-left:7px!important;
+  }
+
+  /* 歷史說明文字：直接對準 #historyBody > .small，
+     使用「可一次選多個座號…」那行實際繼承的正文 sans + 紙張棕色。 */
+  #historyBody > .small{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif!important;
+    font-size:12px!important;
+    font-weight:400!important;
+    line-height:1.5!important;
+    letter-spacing:0!important;
+    color:#776a58!important;
+  }
+}
+</style>
+
 </head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.93</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.94</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
@@ -7958,7 +8082,7 @@ function renderTable(){
    }
    const progressDiv=document.createElement('div');progressDiv.className='history-progress-box';progressDiv.innerHTML=progressHTML(h);
    const dateDiv=document.createElement('div');dateDiv.textContent=h.date;
-   const controls=document.createElement('div');controls.style.cssText='display:flex;gap:4px;justify-content:center;flex-wrap:wrap;margin-top:5px';
+   const controls=document.createElement('div');controls.className='history-record-controls';controls.style.cssText='display:flex;gap:4px;justify-content:center;flex-wrap:wrap;margin-top:5px';
    const recordEdit=document.createElement('button');
    recordEdit.type='button';recordEdit.className=`btn history-record-edit-btn ${historyEditId===h.id?'active':''}`;
    recordEdit.style.cssText='padding:4px 7px;font-size:11px';
@@ -8809,6 +8933,34 @@ if(localStorage.getItem(CLOUD_AUTO_INIT_KEY)==='1')ensureFirebaseReady();
   window.addEventListener('resize',syncOverviewHeaderOffset,{passive:true});
   window.addEventListener('orientationchange',syncOverviewHeaderOffset,{passive:true});
   syncOverviewHeaderOffset();
+})();
+</script>
+
+
+<script id="alpha94-overview-fixed-axis-scroll-compensation">
+(function(){
+  const panel=document.getElementById('overviewPanel');
+  const wrap=panel?.querySelector('.overview-table-wrap');
+  const table=panel?.querySelector('.overview-table');
+  if(!panel||!wrap||!table)return;
+
+  let raf=0;
+  function syncFixedAxis(){
+    cancelAnimationFrame(raf);
+    raf=requestAnimationFrame(()=>{
+      const x=panel.classList.contains('overview-sticky-mode') ? wrap.scrollLeft : 0;
+      table.style.setProperty('--overview-scroll-x', x+'px');
+    });
+  }
+
+  wrap.addEventListener('scroll',syncFixedAxis,{passive:true});
+  window.addEventListener('resize',syncFixedAxis,{passive:true});
+  document.getElementById('overviewStickyBtn')?.addEventListener('click',()=>requestAnimationFrame(syncFixedAxis));
+  document.getElementById('overviewExpandBtn')?.addEventListener('click',()=>requestAnimationFrame(syncFixedAxis));
+
+  const mo=new MutationObserver(syncFixedAxis);
+  mo.observe(panel,{attributes:true,attributeFilter:['class']});
+  syncFixedAxis();
 })();
 </script>
 
