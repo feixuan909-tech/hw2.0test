@@ -6999,7 +6999,7 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 </style>
 
 <style id="alpha152-unit-label-align">
-/* alpha.154｜窄桌機換行時，把早期桌機版為了「單元整組右移」留下的
+/* alpha.155｜窄桌機換行時，把早期桌機版為了「單元整組右移」留下的
    42px 位移取消；只影響換行後的「單元」標籤。 */
 #homeworkEntryBody .homework-entry-progress>.field.grow{
   container-type:inline-size;
@@ -7016,7 +7016,7 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 }
 </style>
 <style id="alpha153-return-slip-editor">
-/* alpha.154｜回條專用：四種完成結果、單一編輯列與前兩項合計。 */
+/* alpha.155｜回條專用：四種完成結果、單一編輯列與前兩項合計。 */
 .return-slip-label-editor .return-slip-label-color{width:112px;min-height:32px;height:32px;padding:4px 7px;font-size:12px}
 .return-slip-label-editor .return-slip-label-text{width:180px;min-height:32px;height:32px;padding:5px 7px;font-size:12px}
 .return-slip-label-editor .btn.compact{padding:5px 8px!important;min-height:30px;font-size:11px!important}
@@ -7036,7 +7036,7 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 </style>
 
 <style id="alpha154-return-slip-editor-polish">
-/* alpha.154｜只精修回條結果設定列：縮小顏色選擇、放大操作鈕、統一紙張／檔案風格。 */
+/* alpha.155｜只精修回條結果設定列：縮小顏色選擇、放大操作鈕、統一紙張／檔案風格。 */
 #returnSlipLabelEditor{
   gap:9px;
 }
@@ -7106,9 +7106,116 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 }
 </style>
 
+
+<style id="alpha155-return-slip-visual-polish">
+/* alpha.155｜回條設定列第二輪：扁平色點下拉、提高按鈕辨識度、修正合計勾選對齊。 */
+#returnSlipLabelEditor .return-slip-label-editor-title{
+  font-size:14px!important;
+  font-weight:900!important;
+  letter-spacing:.035em;
+  margin-right:4px!important;
+}
+.return-slip-color-picker{
+  position:relative;
+  flex:0 0 auto;
+}
+.return-slip-label-color-native{
+  position:absolute!important;
+  width:1px!important;height:1px!important;
+  padding:0!important;margin:-1px!important;
+  overflow:hidden!important;clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;border:0!important;
+}
+.return-slip-color-picker-btn{
+  width:64px;height:38px;
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  border:1px solid #cbae78;border-radius:10px;
+  background:#fffaf0;
+  color:#6b4a25;
+  box-shadow:0 1px 0 rgba(255,255,255,.8) inset,0 1px 2px rgba(79,55,24,.10);
+  cursor:pointer;
+}
+.return-slip-color-picker-btn:hover{background:#f8eedb;border-color:#b58e56}
+.return-slip-color-picker-btn .dot,
+.return-slip-color-option .dot{
+  width:18px!important;height:18px!important;border-width:3px!important;
+}
+.return-slip-color-caret{font-size:15px;line-height:1;transform:translateY(-1px)}
+.return-slip-color-picker-menu{
+  position:absolute;z-index:30;left:0;top:calc(100% + 5px);
+  min-width:64px;padding:5px;
+  border:1px solid #cbae78;border-radius:10px;
+  background:#fffaf0;
+  box-shadow:0 6px 16px rgba(73,50,21,.16);
+}
+.return-slip-color-picker-menu[hidden]{display:none!important}
+.return-slip-color-option{
+  width:52px;height:34px;padding:0;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid transparent;border-radius:8px;background:transparent;
+  cursor:pointer;
+}
+.return-slip-color-option:hover,
+.return-slip-color-option[aria-selected="true"]{
+  background:#f3e8d3;border-color:#d7bd8e;
+}
+#returnSlipLabelEditor .btn.compact{
+  min-height:38px!important;
+  padding:7px 14px!important;
+  font-size:12.5px!important;
+  font-weight:800!important;
+  border-color:#b9955f!important;
+  background:linear-gradient(180deg,#fffaf0 0%,#eadcc3 100%)!important;
+  color:#4e351d!important;
+  box-shadow:0 1px 0 rgba(255,255,255,.78) inset,0 1px 2px rgba(75,48,18,.13)!important;
+}
+#returnSlipLabelEditor .btn.compact:hover{
+  background:linear-gradient(180deg,#fff6e5 0%,#dfc9a4 100%)!important;
+  border-color:#a77f46!important;
+}
+#returnSlipLabelEditor #returnSlipConfirmLabelBtn{
+  border-color:#a87527!important;
+  background:linear-gradient(180deg,#c99847 0%,#ad7728 100%)!important;
+  color:#fffdf7!important;
+}
+#returnSlipLabelEditor #returnSlipConfirmLabelBtn:hover{
+  background:linear-gradient(180deg,#d0a252 0%,#9f681e 100%)!important;
+}
+#returnSlipLabelEditor .return-slip-combine-option{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:7px!important;
+  min-height:38px;
+  margin:0 0 0 5px!important;
+  line-height:1!important;
+  vertical-align:middle;
+}
+#returnSlipLabelEditor .return-slip-combine-option input{
+  width:15px!important;height:15px!important;
+  margin:0!important;padding:0!important;
+  flex:0 0 15px;
+  align-self:center;
+}
+#returnSlipLabelEditor .return-slip-combine-option span{
+  display:inline-block;
+  line-height:1.15!important;
+  transform:none!important;
+}
+#returnSlipLabelEditor .return-slip-label-text,
+#returnSlipLabelEditor .return-slip-combine-label{
+  min-height:38px!important;height:38px!important;
+}
+@media(max-width:760px){
+ .return-slip-color-picker{width:auto!important}
+ .return-slip-color-picker-btn{width:64px!important}
+ #returnSlipLabelEditor .return-slip-combine-option{width:auto!important;margin-left:0!important}
+}
+</style>
+
 </head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.154</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.155</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
@@ -7279,12 +7386,23 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
   <div id="historyMainEditBanner" class="history-main-edit-banner" aria-hidden="true"></div>
   <div id="returnSlipLabelEditor" class="return-slip-label-editor" hidden>
     <span class="return-slip-label-editor-title">回條結果文字</span>
-    <select id="returnSlipLabelColor" class="input return-slip-label-color" aria-label="選擇要修改的回條結果顏色">
-      <option value="blue">🔵</option>
-      <option value="yellow">🟡</option>
-      <option value="green">🟢</option>
-      <option value="orange">🟠</option>
-    </select>
+    <div class="return-slip-color-picker">
+      <button id="returnSlipColorPickerBtn" class="return-slip-color-picker-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="選擇要修改的回條結果顏色">
+        <span id="returnSlipColorPickerDot" class="dot blue"></span><span class="return-slip-color-caret">⌄</span>
+      </button>
+      <div id="returnSlipColorPickerMenu" class="return-slip-color-picker-menu" role="listbox" hidden>
+        <button type="button" class="return-slip-color-option" data-color="blue" role="option" aria-label="藍色"><span class="dot blue"></span></button>
+        <button type="button" class="return-slip-color-option" data-color="yellow" role="option" aria-label="黃色"><span class="dot yellow"></span></button>
+        <button type="button" class="return-slip-color-option" data-color="green" role="option" aria-label="綠色"><span class="dot green"></span></button>
+        <button type="button" class="return-slip-color-option" data-color="orange" role="option" aria-label="橘色"><span class="dot orange"></span></button>
+      </div>
+      <select id="returnSlipLabelColor" class="return-slip-label-color-native" aria-hidden="true" tabindex="-1">
+        <option value="blue">藍色</option>
+        <option value="yellow">黃色</option>
+        <option value="green">綠色</option>
+        <option value="orange">橘色</option>
+      </select>
+    </div>
     <input id="returnSlipLabelText" class="input return-slip-label-text" type="text" maxlength="16" placeholder="參加" aria-label="回條結果文字">
     <button id="returnSlipConfirmLabelBtn" class="btn primary compact" type="button">確定</button>
     <button id="returnSlipResetOneLabelBtn" class="btn compact" type="button">恢復預設</button>
@@ -7399,6 +7517,13 @@ function currentReturnSlipEntrySummary(){
  }
  return normalizedReturnSlipSummary(returnSlipDraftSummary);
 }
+function syncReturnSlipColorPickerUI(){
+ const select=$('returnSlipLabelColor'),dot=$('returnSlipColorPickerDot'),menu=$('returnSlipColorPickerMenu');
+ if(!select||!dot)return;
+ const color=['blue','yellow','green','orange'].includes(select.value)?select.value:'blue';
+ dot.className=`dot ${color}`;
+ if(menu)menu.querySelectorAll('.return-slip-color-option').forEach(btn=>btn.setAttribute('aria-selected',btn.dataset.color===color?'true':'false'));
+}
 function syncReturnSlipLabelEditor(){
  const box=$('returnSlipLabelEditor');if(!box)return;
  const c=currentCat(),show=isReturnSlipCategory(c);
@@ -7406,6 +7531,7 @@ function syncReturnSlipLabelEditor(){
  const labels=currentReturnSlipEntryLabels(),summary=currentReturnSlipEntrySummary();
  if(!['blue','yellow','green','orange'].includes(returnSlipEditingColor))returnSlipEditingColor='blue';
  $('returnSlipLabelColor').value=returnSlipEditingColor;
+ syncReturnSlipColorPickerUI();
  $('returnSlipLabelText').value=labels[returnSlipEditingColor]||RETURN_SLIP_DEFAULT_LABELS[returnSlipEditingColor];
  $('returnSlipLabelText').placeholder=RETURN_SLIP_DEFAULT_LABELS[returnSlipEditingColor];
  $('returnSlipCombineFirstTwo').checked=summary.combineFirstTwo;
@@ -8253,9 +8379,34 @@ function markAllPass(){
  save();selectedStudents.clear();renderStudentGrid();
 }
 $('recordDate').addEventListener('change',()=>{selectedStudents.clear();renderStudentGrid();if(!historyEditId)renderCurrentCategorySummary()});
+$('returnSlipColorPickerBtn')?.addEventListener('click',()=>{
+ const menu=$('returnSlipColorPickerMenu'),btn=$('returnSlipColorPickerBtn');
+ if(!menu||!btn)return;
+ const open=menu.hidden;
+ menu.hidden=!open;
+ btn.setAttribute('aria-expanded',open?'true':'false');
+});
+document.querySelectorAll('.return-slip-color-option').forEach(btn=>btn.addEventListener('click',()=>{
+ const color=btn.dataset.color;
+ if(!['blue','yellow','green','orange'].includes(color))return;
+ const select=$('returnSlipLabelColor');
+ select.value=color;
+ select.dispatchEvent(new Event('change',{bubbles:true}));
+ const menu=$('returnSlipColorPickerMenu'),toggle=$('returnSlipColorPickerBtn');
+ if(menu)menu.hidden=true;
+ if(toggle)toggle.setAttribute('aria-expanded','false');
+}));
+document.addEventListener('click',e=>{
+ const picker=e.target.closest?.('.return-slip-color-picker');
+ if(picker)return;
+ const menu=$('returnSlipColorPickerMenu'),toggle=$('returnSlipColorPickerBtn');
+ if(menu&&!menu.hidden)menu.hidden=true;
+ if(toggle)toggle.setAttribute('aria-expanded','false');
+});
 $('returnSlipLabelColor')?.addEventListener('change',()=>{
  returnSlipEditingColor=$('returnSlipLabelColor').value;
  syncReturnSlipLabelEditor();
+ syncReturnSlipColorPickerUI();
 });
 $('returnSlipConfirmLabelBtn')?.addEventListener('click',()=>{
  if(!isReturnSlipCategory(currentCat()))return;
