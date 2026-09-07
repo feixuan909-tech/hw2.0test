@@ -6999,7 +6999,7 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 </style>
 
 <style id="alpha152-unit-label-align">
-/* alpha.152｜窄桌機換行時，把早期桌機版為了「單元整組右移」留下的
+/* alpha.153｜窄桌機換行時，把早期桌機版為了「單元整組右移」留下的
    42px 位移取消；只影響換行後的「單元」標籤。 */
 #homeworkEntryBody .homework-entry-progress>.field.grow{
   container-type:inline-size;
@@ -7015,9 +7015,28 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
   }
 }
 </style>
+<style id="alpha153-return-slip-editor">
+/* alpha.153｜回條專用：四種完成結果、單一編輯列與前兩項合計。 */
+.return-slip-label-editor .return-slip-label-color{width:112px;min-height:32px;height:32px;padding:4px 7px;font-size:12px}
+.return-slip-label-editor .return-slip-label-text{width:180px;min-height:32px;height:32px;padding:5px 7px;font-size:12px}
+.return-slip-label-editor .btn.compact{padding:5px 8px!important;min-height:30px;font-size:11px!important}
+.return-slip-combine-option{display:inline-flex!important;align-items:center;gap:5px!important;margin-left:5px;font-size:12px;color:#5b3b22;white-space:nowrap}
+.return-slip-combine-option input{accent-color:#8b6b35}
+.return-slip-label-editor .return-slip-combine-label{width:110px;min-height:32px;height:32px;padding:5px 7px;font-size:12px}
+@media(max-width:760px){
+ .return-slip-label-editor .return-slip-label-color,
+ .return-slip-label-editor .return-slip-label-text,
+ .return-slip-label-editor .return-slip-combine-label{width:100%}
+ .return-slip-combine-option{width:100%;margin-left:0}
+}
+</style>
+<style id="alpha153-return-slip-total">
+.return-slip-combined-total{margin-top:5px;padding-top:6px;border-top:1px dashed rgba(139,107,53,.35)}
+.return-slip-combined-total .summary-status-label{min-width:0}
+</style>
 </head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.152</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.153</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
@@ -7188,10 +7207,18 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
   <div id="historyMainEditBanner" class="history-main-edit-banner" aria-hidden="true"></div>
   <div id="returnSlipLabelEditor" class="return-slip-label-editor" hidden>
     <span class="return-slip-label-editor-title">回條結果文字</span>
-    <label><span class="dot blue"></span><input id="returnSlipBlueLabel" class="input" type="text" maxlength="16" placeholder="參加"></label>
-    <label><span class="dot green"></span><input id="returnSlipGreenLabel" class="input" type="text" maxlength="16" placeholder="不參加"></label>
-    <label><span class="dot yellow"></span><input id="returnSlipYellowLabel" class="input" type="text" maxlength="16" placeholder="參加（特殊情況）"></label>
-    <button id="returnSlipResetLabelsBtn" class="btn" type="button">恢復預設</button>
+    <select id="returnSlipLabelColor" class="input return-slip-label-color" aria-label="選擇要修改的回條結果顏色">
+      <option value="blue">🔵 藍色</option>
+      <option value="yellow">🟡 黃色</option>
+      <option value="green">🟢 綠色</option>
+      <option value="orange">🟠 橘色</option>
+    </select>
+    <input id="returnSlipLabelText" class="input return-slip-label-text" type="text" maxlength="16" placeholder="參加" aria-label="回條結果文字">
+    <button id="returnSlipConfirmLabelBtn" class="btn primary compact" type="button">確定</button>
+    <button id="returnSlipResetOneLabelBtn" class="btn compact" type="button">恢復預設</button>
+    <button id="returnSlipResetAllLabelsBtn" class="btn compact" type="button">全部恢復</button>
+    <label class="return-slip-combine-option"><input id="returnSlipCombineFirstTwo" type="checkbox" checked><span>合計前兩項</span></label>
+    <input id="returnSlipCombineLabel" class="input return-slip-combine-label" type="text" maxlength="16" value="參加總計" aria-label="前兩項合計名稱">
   </div>
   <div id="homeworkStatusbar" class="statusbar" style="margin-top:10px"><button class="status-btn homework-status-btn active" type="button" data-status="blue"><span class="dot blue"></span>通過</button><button class="status-btn homework-status-btn" type="button" data-status="red"><span class="dot red"></span>未交／未寫</button><button class="status-btn homework-status-btn" type="button" data-status="green"><span class="dot green"></span>未簽</button><button class="status-btn homework-status-btn" type="button" data-status="ring"><span class="dot ring"></span>未訂簽</button><button class="status-btn homework-status-btn" type="button" data-status="yellow"><span class="dot yellow"></span>未訂正</button><button class="status-btn homework-status-btn" type="button" data-status="orange"><span class="dot orange"></span>請假</button></div>
   <div id="studentGrid" class="grid"></div>
@@ -7249,10 +7276,12 @@ function isReturnSlipCategory(catOrId){
 }
 function statusLabelsForCategory(catOrId,record=null){
  if(isReturnSlipCategory(catOrId)){
-   const base={blue:'參加',red:'未交',green:'不參加',yellow:'參加（特殊情況）',ring:'補繳',orange:'請假'};
+   const base={blue:'參加',yellow:'參加（特殊情況）',green:'不參加',orange:'其他',red:'未交',ring:'補繳'};
+   if(record?.returnSlipOrangeIsLegacyLeave===true)base.orange='請假';
    const custom=record?.returnSlipLabels;
    if(custom&&typeof custom==='object'){
-     for(const k of ['blue','green','yellow']){
+     for(const k of ['blue','yellow','green','orange']){
+       if(k==='orange'&&record?.returnSlipOrangeIsLegacyLeave===true&&!record?.returnSlipLabels?.orange)continue;
        const v=cleanText(custom[k]||'',16);
        if(v)base[k]=v;
      }
@@ -7262,18 +7291,27 @@ function statusLabelsForCategory(catOrId,record=null){
  return {blue:'通過',red:'未交／未寫',green:'未簽',ring:'未訂簽',yellow:'未訂正',orange:'請假'};
 }
 function statusIsPendingForCategory(catOrId,st,h=null,seat=null){
- if(isReturnSlipCategory(catOrId))return st==='red'||st==='ring';
+ if(isReturnSlipCategory(catOrId))return st==='red'||st==='ring'||(st==='orange'&&h?.returnSlipOrangeIsLegacyLeave===true);
  if(!['red','yellow','green','ring'].includes(st))return false;
  return !(h&&seat!=null&&isStatusFullyResolved(h,seat));
 }
-const RETURN_SLIP_DEFAULT_LABELS={blue:'參加',green:'不參加',yellow:'參加（特殊情況）'};
+const RETURN_SLIP_DEFAULT_LABELS={blue:'參加',yellow:'參加（特殊情況）',green:'不參加',orange:'其他'};
+const RETURN_SLIP_RESULT_ORDER=['blue','yellow','green','orange','red','ring'];
 let returnSlipDraftLabels={...RETURN_SLIP_DEFAULT_LABELS};
+let returnSlipDraftSummary={combineFirstTwo:true,combineLabel:'參加總計'};
+let returnSlipEditingColor='blue';
 function normalizedReturnSlipLabels(raw){
  const out={...RETURN_SLIP_DEFAULT_LABELS};
- if(raw&&typeof raw==='object')for(const k of ['blue','green','yellow']){
+ if(raw&&typeof raw==='object')for(const k of ['blue','yellow','green','orange']){
    const v=cleanText(raw[k]||'',16);if(v)out[k]=v;
  }
  return out;
+}
+function normalizedReturnSlipSummary(raw){
+ return {
+   combineFirstTwo:raw?.combineFirstTwo!==false,
+   combineLabel:cleanText(raw?.combineLabel||'參加總計',16)||'參加總計'
+ };
 }
 function currentReturnSlipEntryLabels(){
  if(historyEditId){
@@ -7282,36 +7320,65 @@ function currentReturnSlipEntryLabels(){
  }
  return normalizedReturnSlipLabels(returnSlipDraftLabels);
 }
+function currentReturnSlipEntrySummary(){
+ if(historyEditId){
+   const h=state.history.find(x=>x.id===historyEditId);
+   if(h&&isReturnSlipCategory(h.catId))return normalizedReturnSlipSummary(h.returnSlipSummary);
+ }
+ return normalizedReturnSlipSummary(returnSlipDraftSummary);
+}
 function syncReturnSlipLabelEditor(){
  const box=$('returnSlipLabelEditor');if(!box)return;
  const c=currentCat(),show=isReturnSlipCategory(c);
  box.hidden=!show;if(!show)return;
- const labels=currentReturnSlipEntryLabels();
- $('returnSlipBlueLabel').value=labels.blue;
- $('returnSlipGreenLabel').value=labels.green;
- $('returnSlipYellowLabel').value=labels.yellow;
+ const labels=currentReturnSlipEntryLabels(),summary=currentReturnSlipEntrySummary();
+ if(!['blue','yellow','green','orange'].includes(returnSlipEditingColor))returnSlipEditingColor='blue';
+ $('returnSlipLabelColor').value=returnSlipEditingColor;
+ $('returnSlipLabelText').value=labels[returnSlipEditingColor]||RETURN_SLIP_DEFAULT_LABELS[returnSlipEditingColor];
+ $('returnSlipLabelText').placeholder=RETURN_SLIP_DEFAULT_LABELS[returnSlipEditingColor];
+ $('returnSlipCombineFirstTwo').checked=summary.combineFirstTwo;
+ $('returnSlipCombineLabel').value=summary.combineLabel;
+}
+function storeReturnSlipDraftSettings(labels,summary){
+ if(historyEditId){
+   const h=state.history.find(x=>x.id===historyEditId);
+   if(h&&isReturnSlipCategory(h.catId)){
+     h.returnSlipLabels=normalizedReturnSlipLabels(labels);
+     h.returnSlipSummary=normalizedReturnSlipSummary(summary);
+   }
+ }else{
+   returnSlipDraftLabels=normalizedReturnSlipLabels(labels);
+   returnSlipDraftSummary=normalizedReturnSlipSummary(summary);
+ }
 }
 function readReturnSlipLabelEditor(){
  if(!isReturnSlipCategory(currentCat()))return null;
- const labels=normalizedReturnSlipLabels({
-   blue:$('returnSlipBlueLabel')?.value,
-   green:$('returnSlipGreenLabel')?.value,
-   yellow:$('returnSlipYellowLabel')?.value
- });
- return labels;
+ return currentReturnSlipEntryLabels();
+}
+function readReturnSlipSummaryEditor(){
+ if(!isReturnSlipCategory(currentCat()))return null;
+ return currentReturnSlipEntrySummary();
 }
 function syncHomeworkStatusbar(){
  const c=currentCat();if(!c)return;
- const labels=isReturnSlipCategory(c)?{...statusLabelsForCategory(c),...currentReturnSlipEntryLabels()}:statusLabelsForCategory(c);
- document.querySelectorAll('.homework-status-btn').forEach(btn=>{
+ const isSlip=isReturnSlipCategory(c);
+ const labels=isSlip?{...statusLabelsForCategory(c),...currentReturnSlipEntryLabels()}:statusLabelsForCategory(c);
+ const bar=$('homeworkStatusbar');
+ const buttons=[...document.querySelectorAll('.homework-status-btn')];
+ buttons.forEach(btn=>{
    const st=btn.dataset.status;
-   btn.hidden=isReturnSlipCategory(c)&&st==='orange';
+   btn.hidden=false;
    const dot=btn.querySelector('.dot');
    btn.innerHTML='';if(dot)btn.appendChild(dot);
    btn.appendChild(document.createTextNode(labels[st]||st));
  });
- if(isReturnSlipCategory(c)&&selectedStatus==='orange')selectedStatus='blue';
- document.querySelectorAll('.homework-status-btn').forEach(b=>b.classList.toggle('active',b.dataset.status===selectedStatus));
+ if(isSlip&&bar){
+   const byStatus=new Map(buttons.map(b=>[b.dataset.status,b]));
+   RETURN_SLIP_RESULT_ORDER.forEach(st=>{const b=byStatus.get(st);if(b)bar.appendChild(b)});
+ }else if(bar){
+   ['blue','red','green','ring','yellow','orange'].forEach(st=>{const b=buttons.find(x=>x.dataset.status===st);if(b)bar.appendChild(b)});
+ }
+ buttons.forEach(b=>b.classList.toggle('active',b.dataset.status===selectedStatus));
 }
 function freshState(){return{studentCount:27,categories:DEFAULT_CATS.map((name,i)=>({id:'c'+i,name,...defaultCategoryMeta(name)})),currentCategory:'c0',drafts:{},history:[],contact:{date:refreshToday(),statuses:{},leave:[]},progress:{mode:'none',a:'',b:'',unit:'L',free:''}}}
 function sanitizeState(raw,keepDrafts=false){
@@ -7387,7 +7454,11 @@ function sanitizeState(raw,keepDrafts=false){
         progressType:['pages','unit','free','none'].includes(h.progressType)?h.progressType:'free',
         statuses,resolved,resolvedParts,manualResolved,updated:Number.isFinite(Number(h.updated))?Number(h.updated):Date.now()
       };
-      if(isReturnSlipCategory(catMeta))safeHistory.returnSlipLabels=normalizedReturnSlipLabels(h.returnSlipLabels);
+      if(isReturnSlipCategory(catMeta)){
+        safeHistory.returnSlipLabels=normalizedReturnSlipLabels(h.returnSlipLabels);
+        safeHistory.returnSlipSummary=normalizedReturnSlipSummary(h.returnSlipSummary);
+        safeHistory.returnSlipOrangeIsLegacyLeave=(h.returnSlipOrangeIsLegacyLeave===true)||(!h.returnSlipLabels?.orange&&Object.values(statuses).includes('orange'));
+      }
       s.history.push(safeHistory);
     }
   }
@@ -8000,7 +8071,14 @@ function renderProgress(){
  setMobileProgressMode(initialMode,false);
 }
 $('categoryEditBtn').addEventListener('click',toggleCategoryManager);
-document.querySelectorAll('.homework-status-btn').forEach(btn=>btn.addEventListener('click',()=>{selectedStatus=btn.dataset.status;document.querySelectorAll('.homework-status-btn').forEach(b=>b.classList.toggle('active',b===btn));if(selectedStudents.size)applyStatusToSelected()}));
+document.querySelectorAll('.homework-status-btn').forEach(btn=>btn.addEventListener('click',()=>{
+ selectedStatus=btn.dataset.status;
+ document.querySelectorAll('.homework-status-btn').forEach(b=>b.classList.toggle('active',b===btn));
+ if(isReturnSlipCategory(currentCat())&&['blue','yellow','green','orange'].includes(selectedStatus)){
+   returnSlipEditingColor=selectedStatus;syncReturnSlipLabelEditor();
+ }
+ if(selectedStudents.size)applyStatusToSelected();
+}));
 function todayLeaveSet(){return new Set(state.contact.date===TODAY?state.contact.leave:[])}
 function historyEditSeatHasOK(seat){
  if(!historyEditId)return false;
@@ -8016,7 +8094,7 @@ function renderStudentGrid(){
  const d=getDraft(),leave=todayLeaveSet(),isToday=($('recordDate').value||TODAY)===TODAY,grid=$('studentGrid');
  grid.innerHTML='';
  for(let n=1;n<=state.studentCount;n++){
-   const isAutoLeave=isToday&&leave.has(n)&&!Object.prototype.hasOwnProperty.call(d,n);
+   const isAutoLeave=!isReturnSlipCategory(currentCat())&&isToday&&leave.has(n)&&!Object.prototype.hasOwnProperty.call(d,n);
    const hasExplicit=Object.prototype.hasOwnProperty.call(d,n);
    const st=hasExplicit?d[n]:(isAutoLeave?'orange':'red');
    const b=document.createElement('button');
@@ -8081,6 +8159,12 @@ function clearCurrentDraft(){
 }
 function markAllPass(){
  const d=getDraft();
+ const isSlip=isReturnSlipCategory(currentCat());
+ if(isSlip){
+   for(let n=1;n<=state.studentCount;n++)d[n]='blue';
+   if(!historyEditId)save();
+   selectedStudents.clear();renderStudentGrid();return;
+ }
  const excludeLeave=!!$('excludeLeaveOnAllPass')?.checked;
  const leave=todayLeaveSet();
  const isToday=($('recordDate').value||TODAY)===TODAY;
@@ -8097,23 +8181,46 @@ function markAllPass(){
  save();selectedStudents.clear();renderStudentGrid();
 }
 $('recordDate').addEventListener('change',()=>{selectedStudents.clear();renderStudentGrid();if(!historyEditId)renderCurrentCategorySummary()});
-for(const id of ['returnSlipBlueLabel','returnSlipGreenLabel','returnSlipYellowLabel']){
- $(id)?.addEventListener('input',()=>{
-   if(historyEditId){
-     const h=state.history.find(x=>x.id===historyEditId);
-     if(h&&isReturnSlipCategory(h.catId))h.returnSlipLabels=readReturnSlipLabelEditor();
-   }else returnSlipDraftLabels=readReturnSlipLabelEditor()||{...RETURN_SLIP_DEFAULT_LABELS};
-   syncHomeworkStatusbar();
- });
-}
-$('returnSlipResetLabelsBtn')?.addEventListener('click',()=>{
- returnSlipDraftLabels={...RETURN_SLIP_DEFAULT_LABELS};
- if(historyEditId){
-   const h=state.history.find(x=>x.id===historyEditId);
-   if(h&&isReturnSlipCategory(h.catId))h.returnSlipLabels={...RETURN_SLIP_DEFAULT_LABELS};
- }
- syncReturnSlipLabelEditor();syncHomeworkStatusbar();
+$('returnSlipLabelColor')?.addEventListener('change',()=>{
+ returnSlipEditingColor=$('returnSlipLabelColor').value;
+ syncReturnSlipLabelEditor();
 });
+$('returnSlipConfirmLabelBtn')?.addEventListener('click',()=>{
+ if(!isReturnSlipCategory(currentCat()))return;
+ const color=$('returnSlipLabelColor').value;
+ if(!['blue','yellow','green','orange'].includes(color))return;
+ const value=cleanText($('returnSlipLabelText').value,16);
+ if(!value){$('returnSlipLabelText').value=currentReturnSlipEntryLabels()[color];return}
+ const labels=currentReturnSlipEntryLabels(),summary=currentReturnSlipEntrySummary();
+ labels[color]=value;returnSlipEditingColor=color;
+ storeReturnSlipDraftSettings(labels,summary);
+ syncReturnSlipLabelEditor();syncHomeworkStatusbar();renderStudentRecord();renderOverview();renderTable();renderCurrentCategorySummary();
+});
+$('returnSlipResetOneLabelBtn')?.addEventListener('click',()=>{
+ const color=$('returnSlipLabelColor').value;
+ if(!['blue','yellow','green','orange'].includes(color))return;
+ const labels=currentReturnSlipEntryLabels(),summary=currentReturnSlipEntrySummary();
+ labels[color]=RETURN_SLIP_DEFAULT_LABELS[color];returnSlipEditingColor=color;
+ storeReturnSlipDraftSettings(labels,summary);
+ syncReturnSlipLabelEditor();syncHomeworkStatusbar();renderStudentRecord();renderOverview();renderTable();renderCurrentCategorySummary();
+});
+$('returnSlipResetAllLabelsBtn')?.addEventListener('click',()=>{
+ const summary=currentReturnSlipEntrySummary();
+ storeReturnSlipDraftSettings({...RETURN_SLIP_DEFAULT_LABELS},summary);
+ syncReturnSlipLabelEditor();syncHomeworkStatusbar();renderStudentRecord();renderOverview();renderTable();renderCurrentCategorySummary();
+});
+function saveReturnSlipSummaryControls(){
+ if(!isReturnSlipCategory(currentCat()))return;
+ const labels=currentReturnSlipEntryLabels();
+ const summary=normalizedReturnSlipSummary({
+   combineFirstTwo:!!$('returnSlipCombineFirstTwo').checked,
+   combineLabel:$('returnSlipCombineLabel').value
+ });
+ storeReturnSlipDraftSettings(labels,summary);
+ renderCurrentCategorySummary();
+}
+$('returnSlipCombineFirstTwo')?.addEventListener('change',saveReturnSlipSummaryControls);
+$('returnSlipCombineLabel')?.addEventListener('change',saveReturnSlipSummaryControls);
 
 function resolvedPartState(h,n){
  const p=h.resolvedParts?.[n]||{};
@@ -8245,13 +8352,21 @@ function commitHomeworkRecord(c,date,content,progressType,d,mode='new',existingI
    manualResolved:mode==='overwrite'&&existing?(existing.manualResolved||{}):{},
    updated:nextUpdatedStamp()
  };
- if(isReturnSlipCategory(c))rec.returnSlipLabels=readReturnSlipLabelEditor();
+ if(isReturnSlipCategory(c)){
+   rec.returnSlipLabels=readReturnSlipLabelEditor();
+   rec.returnSlipSummary=readReturnSlipSummaryEditor();
+   rec.returnSlipOrangeIsLegacyLeave=false;
+ }
  if(mode==='overwrite'&&existingIndex>=0)state.history[existingIndex]=rec;
  else state.history.push(rec);
 
  resolvePrevious(c.id,rec);
  delete state.drafts[draftKey()];
- if(isReturnSlipCategory(c)&&mode==='new')returnSlipDraftLabels={...RETURN_SLIP_DEFAULT_LABELS};
+ if(isReturnSlipCategory(c)&&mode==='new'){
+   returnSlipDraftLabels={...RETURN_SLIP_DEFAULT_LABELS};
+   returnSlipDraftSummary={combineFirstTwo:true,combineLabel:'參加總計'};
+   returnSlipEditingColor='blue';
+ }
  save();selectedStudents.clear();renderSummary(rec);renderAll();
 }
 function showSameRecordChoice(c,date,content,progressType,d,idx){
@@ -8290,7 +8405,7 @@ function updateHomework(){
  }
  const content=progressResult.content,progressType=progressResult.type;
  const key=draftKey(),d={...(state.drafts[key]||{})},leave=todayLeaveSet(),isToday=date===TODAY;
- for(let n=1;n<=state.studentCount;n++)if(!d[n])d[n]=isToday&&leave.has(n)?'orange':'red';
+ for(let n=1;n<=state.studentCount;n++)if(!d[n])d[n]=isReturnSlipCategory(c)?'red':(isToday&&leave.has(n)?'orange':'red');
 
  // 同一天、同一類別、標題／進度完全一致（包含兩筆都沒填）時，不再偷偷覆蓋。
  // 由使用者選擇「覆蓋原紀錄」或「保留兩筆」。
@@ -8304,7 +8419,7 @@ function updateHomework(){
 }
 function summaryStatusGroups(rec){
  const isSlip=isReturnSlipCategory(rec?.catId);
- const groups=isSlip?{blue:[],red:[],green:[],yellow:[],ring:[]}:{orange:[],red:[],green:[],ring:[],yellow:[]};
+ const groups=isSlip?{blue:[],yellow:[],green:[],orange:[],red:[],ring:[]}:{orange:[],red:[],green:[],ring:[],yellow:[]};
  for(let n=1;n<=state.studentCount;n++){
    const st=rec.statuses?.[n];
    if(!isSlip&&isStatusFullyResolved(rec,n))continue;
@@ -8315,10 +8430,19 @@ function summaryStatusGroups(rec){
 function renderSummary(rec){
  const groups=summaryStatusGroups(rec),labels=statusLabelsForCategory(rec.catId,rec);
  const isReturnSlip=isReturnSlipCategory(rec.catId);
- const lines=Object.entries(groups).filter(([,v])=>v.length).map(([k,v])=>{
+ const order=isReturnSlip?RETURN_SLIP_RESULT_ORDER:Object.keys(groups);
+ let lines=order.filter(k=>groups[k]?.length).map(k=>{
+   const v=groups[k];
    const label=isReturnSlip?`${labels[k]}－${v.length}人：`:`${labels[k]}：`;
    return `<div class="summary-line"><span class="dot ${k}"></span><span class="summary-status-label"><b>${esc(label)}</b></span><span class="summary-seat-list">${v.join('、')}</span></div>`;
  }).join('');
+ if(isReturnSlip){
+   const cfg=normalizedReturnSlipSummary(rec.returnSlipSummary);
+   if(cfg.combineFirstTwo){
+     const total=(groups.blue?.length||0)+(groups.yellow?.length||0);
+     lines+=`<div class="summary-line return-slip-combined-total"><span class="summary-status-label"><b>${esc(cfg.combineLabel)}－${total}人</b></span></div>`;
+   }
+ }
  $('dailySummary').innerHTML=`<div class="current-status-heading"><h4 style="margin:0">${esc(currentCat().name)}｜${rec.content?esc(rec.content)+'｜':''}${rec.date}</h4><span class="small">目前繳交情況</span></div>${lines||'<div class="small" style="margin-top:6px">目前沒有需要追蹤的狀態。</div>'}`;
  $('dailySummary').classList.remove('hidden');
 }
@@ -8375,7 +8499,7 @@ function isWholeClassOK(h){
  if(isReturnSlipCategory(h.catId)){
    for(let n=1;n<=state.studentCount;n++){
      const st=h.statuses?.[n]||'red';
-     if(!['blue','green','yellow'].includes(st))return false;
+     if(!['blue','yellow','green','orange'].includes(st)||(st==='orange'&&h.returnSlipOrangeIsLegacyLeave===true))return false;
    }
    return true;
  }
@@ -9009,7 +9133,13 @@ function saveHistoryRecordFromMain(){
    if(msg)alert(msg);
    return;
  }
- h.date=date;h.content=pr.content;h.progressType=pr.type;if(isReturnSlipCategory(h.catId))h.returnSlipLabels=readReturnSlipLabelEditor();h.statuses={};
+ h.date=date;h.content=pr.content;h.progressType=pr.type;
+ if(isReturnSlipCategory(h.catId)){
+   h.returnSlipLabels=readReturnSlipLabelEditor();
+   h.returnSlipSummary=readReturnSlipSummaryEditor();
+   h.returnSlipOrangeIsLegacyLeave=false;
+ }
+ h.statuses={};
  for(let n=1;n<=state.studentCount;n++){
    const st=historyEditDraft?.[n]||'red';h.statuses[n]=VALID_STATUS.has(st)?st:'red';
  }
