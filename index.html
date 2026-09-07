@@ -6750,9 +6750,76 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
  .return-slip-label-editor .input,.return-slip-label-editor #returnSlipYellowLabel{width:100%;flex:1}
 }
 </style>
+
+<style id="alpha149-confirmation-visual-unify">
+/* alpha.149｜兩種確認提示改為既有檔案／封存視覺；不改刪除與選擇按鈕功能。 */
+.history-delete-confirm,
+.record-choice-box{
+  font-family:"Noto Serif TC","Songti TC","PMingLiU",serif!important;
+  color:#3f3528!important;
+  background:linear-gradient(180deg,rgba(252,248,237,.99),rgba(246,239,222,.99))!important;
+  border:1px solid rgba(157,126,72,.42)!important;
+  border-left:4px solid #9a7a43!important;
+  border-radius:10px!important;
+  box-shadow:0 2px 8px rgba(67,49,27,.07)!important;
+}
+.history-delete-confirm{
+  padding:10px 12px!important;
+}
+.history-delete-confirm > span:first-child,
+.record-choice-box > div:first-child,
+.record-choice-box b{
+  font-family:"Noto Serif TC","Songti TC","PMingLiU",serif!important;
+  color:#3f3528!important;
+}
+.history-delete-confirm > span:first-child,
+.record-choice-box b{font-weight:800!important}
+.history-delete-actions .btn,
+.record-choice-box .actions .btn{
+  font-family:"Noto Serif TC","Songti TC","PMingLiU",serif!important;
+  font-weight:800!important;
+}
+.history-delete-actions .btn:not(.danger),
+.record-choice-box .actions .btn:not(.primary){
+  color:#4b3825!important;
+  background:#fbf6ea!important;
+  border-color:#cdbb95!important;
+  box-shadow:0 1px 3px rgba(70,48,26,.06)!important;
+}
+.history-delete-actions .btn.danger{
+  color:#8b3f36!important;
+  background:#fff8ef!important;
+  border-color:#b87968!important;
+  box-shadow:0 1px 3px rgba(139,63,54,.07)!important;
+}
+.record-choice-box .actions .btn.primary{
+  color:#f7f1df!important;
+  background:#173f35!important;
+  border-color:#173f35!important;
+  box-shadow:0 2px 5px rgba(23,63,53,.16)!important;
+}
+.history-delete-actions .btn:not(.danger):hover,
+.record-choice-box .actions .btn:not(.primary):hover{
+  background:#f5ead3!important;border-color:#b79c6d!important;
+}
+.history-delete-actions .btn.danger:hover{
+  background:#f8e9dc!important;border-color:#9d5d50!important;
+}
+.record-choice-box .actions .btn.primary:hover{
+  background:#0f332a!important;border-color:#0f332a!important;
+}
+.record-choice-box .small{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif!important;
+  color:#776a58!important;
+  font-weight:400!important;
+}
+@media(max-width:760px){
+ .history-delete-confirm,.record-choice-box{border-left-width:3px!important}
+}
+</style>
 </head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.148</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.149</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
@@ -7995,8 +8062,14 @@ function showSameRecordChoice(c,date,content,progressType,d,idx){
  summary.innerHTML='';
  const box=document.createElement('div');box.className='record-choice-box';
  const msg=document.createElement('div');
+ const existing=state.history[idx];
  const label=content?`「${content}」`:'（未填標題／進度）';
- msg.innerHTML=`<b>同一天已有相同標題／進度的紀錄 ${esc(label)}</b><div class="small" style="margin-top:3px">要覆蓋原紀錄，還是保留成另一筆？如果保留兩筆，較新的這筆會用來判斷前面紀錄是否加上 OK。</div>`;
+ const sameDate=existing?.date===date;
+ const scopeText=sameDate?'同一天已有相同標題／進度的紀錄':'已有相同標題／進度的紀錄';
+ const detail=isReturnSlipCategory(c)
+   ?'要覆蓋原紀錄，還是保留成另一筆回條？'
+   :'要覆蓋原紀錄，還是保留成另一筆？如果保留兩筆，較新的這筆會用來判斷前面紀錄是否加上 OK。';
+ msg.innerHTML=`<b>${scopeText} ${esc(label)}</b><div class="small" style="margin-top:3px">${detail}</div>`;
  const actions=document.createElement('div');actions.className='actions';
  const cancel=document.createElement('button');cancel.type='button';cancel.className='btn';cancel.textContent='取消';
  const keep=document.createElement('button');keep.type='button';keep.className='btn';keep.textContent='保留兩筆';
@@ -8023,7 +8096,9 @@ function updateHomework(){
 
  // 同一天、同一類別、標題／進度完全一致（包含兩筆都沒填）時，不再偷偷覆蓋。
  // 由使用者選擇「覆蓋原紀錄」或「保留兩筆」。
- const idx=state.history.findIndex(h=>h.catId===c.id&&h.date===date&&(h.content||'')===(content||''));
+ // alpha.149：同一類別只要「標題／進度」重名就先提醒，不再限定同一天。
+ // 這同時適用一般作業與回條，避免換日期後同名項目無提示地變成兩筆。
+ const idx=state.history.findIndex(h=>h.catId===c.id&&(h.content||'')===(content||''));
  if(idx>=0)return showSameRecordChoice(c,date,content,progressType,d,idx);
 
  // 同一天但標題／進度不同：直接保留成另一筆。
