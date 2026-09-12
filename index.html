@@ -8788,30 +8788,107 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 </style>
 
 
-<style id="alpha216-history-batch-delete">
-.history-head-actions{display:flex;align-items:center;gap:6px;margin-left:auto}
-#historyBatchDeleteBtn[aria-pressed="true"]{background:#eee0c5;border-color:#a98958;color:#654d2d}
-.history-batch-bar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:8px 0 10px;padding:7px 9px;border:1px solid rgba(139,105,61,.24);border-radius:10px;background:rgba(250,245,234,.78)}
+<style id="alpha218-history-batch-delete">
+/* alpha.218：只重做批次刪除視覺，功能邏輯沿用 alpha.217。 */
+.history-head-actions{
+  display:flex;align-items:center;gap:8px;margin-left:auto;
+}
+#historyBatchDeleteBtn{
+  min-height:34px!important;padding:6px 12px!important;border-radius:8px!important;
+  border:1px solid #c9ad7d!important;background:#fffaf0!important;color:#6b5232!important;
+  font-family:"Noto Serif TC","Songti TC","PMingLiU",serif!important;
+  font-size:12px!important;font-weight:700!important;letter-spacing:.04em!important;
+  box-shadow:none!important;
+}
+#historyBatchDeleteBtn[aria-pressed="true"]{
+  background:#f1e4ca!important;border-color:#ad8750!important;color:#604522!important;
+}
+.history-batch-bar{
+  display:flex;align-items:center;gap:7px;flex-wrap:nowrap;
+  margin:8px 0 10px;padding:8px 10px;
+  border:1px solid #d8c49e;border-left:3px solid #9a7746;border-radius:8px;
+  background:#fbf7ed;box-shadow:none;
+}
 .history-batch-bar.hidden{display:none!important}
-.history-batch-category{margin-right:auto;font-size:12px;color:#6d5a43;font-weight:700}
-.history-batch-check-wrap{display:flex;align-items:center;justify-content:center;gap:4px;margin:0 0 5px;font-size:11px;color:#6d5a43;cursor:pointer}
-.history-batch-check{width:16px;height:16px;accent-color:#9d7545;cursor:pointer}
-.history-table th.history-batch-selected{background:#f4ead6!important;box-shadow:inset 0 0 0 2px rgba(157,117,69,.38)}
-.history-batch-confirm{margin:8px 0 10px;padding:10px 12px;border:1px solid #c7a77b;border-radius:10px;background:#fff8e9;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.history-batch-confirm .history-delete-actions{margin-left:auto}
+.history-batch-category{
+  margin-right:auto;min-width:0;color:#6d5a43;
+  font-family:"Noto Serif TC","Songti TC","PMingLiU",serif!important;
+  font-size:11.5px;font-weight:700;letter-spacing:.02em;white-space:nowrap;
+}
+.history-batch-bar .btn{
+  min-height:31px!important;padding:5px 9px!important;border-radius:7px!important;
+  border:1px solid #d4c09a!important;background:#fffaf1!important;color:#5f4b34!important;
+  font-family:"Noto Serif TC","Songti TC","PMingLiU",serif!important;
+  font-size:11.5px!important;font-weight:700!important;letter-spacing:.02em!important;
+  box-shadow:none!important;white-space:nowrap;
+}
+#historyBatchConfirmBtn{
+  border-color:#d6a69a!important;background:#fff8f4!important;color:#a7443c!important;
+}
+#historyBatchConfirmBtn:disabled{opacity:.48}
+.history-batch-check-wrap{
+  width:max-content;margin:0 auto 4px;padding:2px 6px;
+  display:flex;align-items:center;justify-content:center;gap:5px;
+  color:#725b3c;font-family:"Noto Serif TC","Songti TC","PMingLiU",serif!important;
+  font-size:10.5px;font-weight:700;letter-spacing:.02em;cursor:pointer;
+}
+.history-batch-check{
+  width:14px;height:14px;margin:0;accent-color:#9b7847;cursor:pointer;
+}
+.history-table th.history-batch-selected{
+  background:#f3ead8!important;
+  box-shadow:inset 0 -2px 0 rgba(157,117,69,.38)!important;
+}
+.history-batch-confirm{
+  margin:8px 0 10px;padding:10px 12px;
+  border:1px solid #d1b98e;border-left:3px solid #a27b43;border-radius:8px;
+  background:#fffaf0;color:#5d4a34;
+  display:flex;align-items:center;gap:12px;flex-wrap:nowrap;
+  font-family:"Noto Serif TC","Songti TC","PMingLiU",serif!important;
+  font-size:12px;line-height:1.65;
+}
+.history-batch-confirm>span:first-child{flex:1;min-width:0}
+.history-batch-confirm .history-delete-actions{
+  margin-left:auto;display:flex;gap:6px;flex:0 0 auto;
+}
+.history-batch-confirm .btn{
+  min-height:31px!important;padding:5px 9px!important;border-radius:7px!important;
+  font-family:"Noto Serif TC","Songti TC","PMingLiU",serif!important;
+  font-size:11.5px!important;font-weight:700!important;box-shadow:none!important;
+}
+.history-batch-confirm .btn.danger{
+  border-color:#c99181!important;background:#fff7f2!important;color:#9f4138!important;
+}
 @media(max-width:700px){
- .history-head-actions{gap:4px}
- #historyBatchDeleteBtn,#historyCollapseBtn{padding:5px 7px!important;font-size:11px!important;white-space:nowrap}
- .history-batch-bar{gap:4px;padding:6px}
- .history-batch-category{width:100%;margin:0 0 2px;font-size:11px}
- .history-batch-bar .btn{padding:5px 6px!important;font-size:10.5px!important;white-space:nowrap}
- .history-batch-confirm{font-size:11px}
+ .history-head-actions{gap:5px}
+ #historyBatchDeleteBtn,#historyCollapseBtn{
+   min-height:30px!important;padding:4px 7px!important;font-size:10.5px!important;white-space:nowrap;
+ }
+ .history-batch-bar{
+   display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;
+   padding:7px;margin-top:7px;
+ }
+ .history-batch-category{
+   grid-column:1/-1;width:100%;margin:0 0 1px;
+   font-size:10.5px;white-space:normal;
+ }
+ .history-batch-bar .btn{
+   width:100%;min-width:0!important;padding:5px 3px!important;font-size:10px!important;
+ }
+ .history-batch-check-wrap{font-size:10px;padding:2px 4px}
+ .history-batch-confirm{
+   display:block;padding:9px 10px;font-size:11px;line-height:1.65;
+ }
+ .history-batch-confirm .history-delete-actions{
+   margin:8px 0 0;display:flex;justify-content:flex-end;
+ }
+ .history-batch-confirm .btn{font-size:10.5px!important}
 }
 </style>
 
 </head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.217</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.218</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
@@ -12302,7 +12379,7 @@ if(localStorage.getItem(CLOUD_AUTO_INIT_KEY)==='1'){
         });
       }
     } catch (err) {
-      console.warn('[alpha.217] 離線快取初始化失敗：', err);
+      console.warn('[alpha.218] 離線快取初始化失敗：', err);
     }
   };
 
