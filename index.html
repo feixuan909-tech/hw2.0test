@@ -8684,9 +8684,36 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 }
 </style>
 
+
+<style id="alpha213-history-ok-actions">
+.history-ok-cancel-btn{
+  background:#fffaf0!important;
+  border-color:#cdbb98!important;
+  color:#6b5841!important;
+}
+.history-ok-cancel-btn:hover{
+  background:#f5ead6!important;
+  border-color:#b69c70!important;
+}
+@media(max-width:700px){
+  .history-record-controls{
+    gap:3px!important;
+    flex-wrap:nowrap!important;
+  }
+  .history-record-controls .btn,
+  .history-record-controls button{
+    padding:4px 5px!important;
+    font-size:10.5px!important;
+    min-width:0!important;
+    white-space:nowrap!important;
+  }
+  .history-ok-cancel-btn{padding-left:4px!important;padding-right:4px!important}
+}
+</style>
+
 </head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.212</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.213</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
@@ -10888,6 +10915,12 @@ function commitHistoryOkEdits(){
  renderStudentRecord();
  renderStudentGrid();
 }
+function cancelHistoryOkEdits(){
+ // alpha.213｜只放棄這一輪尚未按「確認」的補登變更；正式歷史資料完全不動。
+ historyOkPending.clear();
+ historyOkEditId='';
+ renderTable();
+}
 function toggleHistoryOkEdit(id){
  if(historyOkEditId===id){commitHistoryOkEdits();return}
  if(historyOkEditId&&historyOkPending.size)commitHistoryOkEdits();
@@ -11031,18 +11064,39 @@ function renderTable(){
    recordEdit.addEventListener('click',()=>historyEditId===h.id?cancelHistoryRecordEdit():startHistoryRecordEdit(h.id));
    controls.appendChild(recordEdit);
    if(!isReturnSlipCategory(h.catId)){
-     const okEdit=document.createElement('button');
-     okEdit.type='button';okEdit.className=`btn history-ok-edit-btn ${historyOkEditId===h.id?'active':''} ${historyOkEditId===h.id&&historyOkPending.size?'has-pending':''}`;
-     okEdit.style.cssText='padding:4px 7px;font-size:11px';
-     okEdit.textContent=historyOkEditId===h.id?'補登完成':'補登 OK';
-     okEdit.title=historyOkEditId===h.id?'批次選好座號後，按此儲存補登結果':'進入補登模式，可一次點選多個座號後再儲存';
-     okEdit.disabled=!!historyEditId;okEdit.addEventListener('click',()=>toggleHistoryOkEdit(h.id));
-     controls.appendChild(okEdit);
+     if(historyOkEditId===h.id){
+       const cancelOk=document.createElement('button');
+       cancelOk.type='button';cancelOk.className='btn history-ok-cancel-btn';
+       cancelOk.style.cssText='padding:4px 6px;font-size:11px';
+       cancelOk.textContent='取消';
+       cancelOk.title='放棄這一輪尚未確認的補登變更，不修改原本歷史紀錄';
+       cancelOk.disabled=!!historyEditId;
+       cancelOk.addEventListener('click',cancelHistoryOkEdits);
+       controls.appendChild(cancelOk);
+
+       const confirmOk=document.createElement('button');
+       confirmOk.type='button';confirmOk.className=`btn history-ok-edit-btn active ${historyOkPending.size?'has-pending':''}`;
+       confirmOk.style.cssText='padding:4px 7px;font-size:11px';
+       confirmOk.textContent='確認';
+       confirmOk.title='儲存這一輪補登變更';
+       confirmOk.disabled=!!historyEditId;
+       confirmOk.addEventListener('click',commitHistoryOkEdits);
+       controls.appendChild(confirmOk);
+     }else{
+       const okEdit=document.createElement('button');
+       okEdit.type='button';okEdit.className='btn history-ok-edit-btn';
+       okEdit.style.cssText='padding:4px 7px;font-size:11px';
+       okEdit.textContent='補登 OK';
+       okEdit.title='進入補登模式，可一次點選多個座號後再確認';
+       okEdit.disabled=!!historyEditId;
+       okEdit.addEventListener('click',()=>toggleHistoryOkEdit(h.id));
+       controls.appendChild(okEdit);
+     }
    }
    const del=document.createElement('button');
    del.type='button';del.className='btn danger history-delete-btn';
    del.style.cssText='padding:4px 7px;font-size:11px';
-   del.textContent='刪除此筆';
+   del.textContent='刪除';
    del.addEventListener('click',()=>showHistoryDeleteConfirm(h));
    controls.appendChild(del);
    if(c.kind==='independent'&&selectedIndependentSummaryId===h.id){const note=document.createElement('div');note.className='history-viewing-note';note.textContent='目前查看';th.append(progressDiv,dateDiv,note,controls)}else th.append(progressDiv,dateDiv,controls);
@@ -12040,7 +12094,7 @@ if(localStorage.getItem(CLOUD_AUTO_INIT_KEY)==='1'){
         });
       }
     } catch (err) {
-      console.warn('[alpha.212] 離線快取初始化失敗：', err);
+      console.warn('[alpha.213] 離線快取初始化失敗：', err);
     }
   };
 
