@@ -8787,9 +8787,31 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 }
 </style>
 
+
+<style id="alpha216-history-batch-delete">
+.history-head-actions{display:flex;align-items:center;gap:6px;margin-left:auto}
+#historyBatchDeleteBtn[aria-pressed="true"]{background:#eee0c5;border-color:#a98958;color:#654d2d}
+.history-batch-bar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:8px 0 10px;padding:7px 9px;border:1px solid rgba(139,105,61,.24);border-radius:10px;background:rgba(250,245,234,.78)}
+.history-batch-bar.hidden{display:none!important}
+.history-batch-category{margin-right:auto;font-size:12px;color:#6d5a43;font-weight:700}
+.history-batch-check-wrap{display:flex;align-items:center;justify-content:center;gap:4px;margin:0 0 5px;font-size:11px;color:#6d5a43;cursor:pointer}
+.history-batch-check{width:16px;height:16px;accent-color:#9d7545;cursor:pointer}
+.history-table th.history-batch-selected{background:#f4ead6!important;box-shadow:inset 0 0 0 2px rgba(157,117,69,.38)}
+.history-batch-confirm{margin:8px 0 10px;padding:10px 12px;border:1px solid #c7a77b;border-radius:10px;background:#fff8e9;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.history-batch-confirm .history-delete-actions{margin-left:auto}
+@media(max-width:700px){
+ .history-head-actions{gap:4px}
+ #historyBatchDeleteBtn,#historyCollapseBtn{padding:5px 7px!important;font-size:11px!important;white-space:nowrap}
+ .history-batch-bar{gap:4px;padding:6px}
+ .history-batch-category{width:100%;margin:0 0 2px;font-size:11px}
+ .history-batch-bar .btn{padding:5px 6px!important;font-size:10.5px!important;white-space:nowrap}
+ .history-batch-confirm{font-size:11px}
+}
+</style>
+
 </head>
 <body>
-<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.215</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
+<header class="topbar"><div class="brand-wrap" aria-label="檔案集散地"><svg class="archive-logo" viewBox="0 0 64 64" role="img" aria-label="信封與檔案 Logo"><defs><linearGradient id="envBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A66A18"/><stop offset="0.55" stop-color="#7B4A13"/><stop offset="1" stop-color="#5B3510"/></linearGradient><linearGradient id="envDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3F12"/><stop offset="1" stop-color="#40260E"/></linearGradient><linearGradient id="paperWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#EAD7AC"/></linearGradient></defs><path d="M12 25L32 10l20 15v27H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M14.5 25.5L32 13l17.5 12.5L32 39z" fill="url(#envDark)" stroke="#B88638" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 14h24v22H19z" rx="1.6" fill="#D2A14B" stroke="#B77A23" stroke-width="1.8"/><path d="M22 11h20v22H22z" rx="1.6" fill="#E2B65E" stroke="#B77A23" stroke-width="1.6"/><path d="M24 16h16v18H24z" rx="1.4" fill="url(#paperWarm)" stroke="#D0AE70" stroke-width="1.5"/><path d="M20 20h23v18H20z" rx="1.8" fill="#F6E8C8" stroke="#D0AE70" stroke-width="1.5"/><path d="M24 17h9v4h-9z" rx="1" fill="#2E6B4E"/><path d="M23 27h16M23 31.5h13" stroke="#B9A77E" stroke-width="1.7" stroke-linecap="round"/><path d="M12 27l20 15 20-15v25H12z" fill="url(#envBrown)" stroke="#C8A96A" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 52l18-16c1.2-1 2.8-1 4 0l18 16" fill="none" stroke="#C8A96A" stroke-width="2.2" stroke-linejoin="round"/><path d="M49 44v10M44 49h10" stroke="#E4C878" stroke-width="2.5" stroke-linecap="round"/></svg><div class="archive-brand-copy"><div class="archive-brand-title">檔案集散地<span class="archive-test-badge">測試隔離</span></div><div class="archive-brand-subtitle">THE ARCHIVE EXCHANGE <span class="archive-core-version">v1.1-alpha.217</span></div></div></div><svg class="archive-stamp" viewBox="0 0 260 190" aria-hidden="true">
   <defs>
     <path id="stampTopArc" d="M 31 96 A 66 66 0 0 1 163 96"/>
     <path id="stampBottomArc" d="M 163 96 A 66 66 0 0 1 31 96"/>
@@ -9006,7 +9028,7 @@ html.mobile-ux .cat-item.active{background:#17382E;border-color:#C8A96A;color:#F
 </div>
   <div id="dailySummary" class="summary hidden"></div>
 </section>
-<section class="card section" id="historySection"><div class="history-section-head"><div class="section-title" style="margin-bottom:0">歷史紀錄</div><button id="historyCollapseBtn" class="btn homework-entry-collapse-btn" type="button" aria-expanded="true">收起 ▲</button></div><div id="historyBody"><div class="small" style="margin:8px 0">按「編輯紀錄」會把該筆資料載入上方一般登記區，可用原本三種進度輸入方式與座號狀態按鈕修改；一般作業可用「補登 OK」批次處理；回條則直接編輯成最後結果。左右滑動時座號欄固定。</div><div class="history-table-wrap"><table class="history-table"><thead id="tableHead"></thead><tbody id="tableBody"></tbody></table></div></div></section>
+<section class="card section" id="historySection"><div class="history-section-head"><div class="section-title" style="margin-bottom:0">歷史紀錄</div><div class="history-head-actions"><button id="historyBatchDeleteBtn" class="btn" type="button" aria-pressed="false">批次刪除</button><button id="historyCollapseBtn" class="btn homework-entry-collapse-btn" type="button" aria-expanded="true">收起 ▲</button></div></div><div id="historyBody"><div class="small" style="margin:8px 0">按「編輯紀錄」會把該筆資料載入上方一般登記區，可用原本三種進度輸入方式與座號狀態按鈕修改；一般作業可用「補登 OK」批次處理；回條則直接編輯成最後結果。左右滑動時座號欄固定。</div><div id="historyBatchBar" class="history-batch-bar hidden" role="group" aria-label="歷史紀錄批次刪除"><span id="historyBatchCategory" class="history-batch-category"></span><button id="historyBatchSelectAllBtn" class="btn" type="button">全選</button><button id="historyBatchClearBtn" class="btn" type="button">清除選取</button><button id="historyBatchCancelBtn" class="btn" type="button">取消</button><button id="historyBatchConfirmBtn" class="btn danger" type="button">刪除（0）</button></div><div class="history-table-wrap"><table class="history-table"><thead id="tableHead"></thead><tbody id="tableBody"></tbody></table></div></div></section>
 </main></div>
 <script>
 "use strict";
@@ -11114,8 +11136,88 @@ function returnSlipHistoryIcon(st,h=null,seat=null){
  }
  return `<span class="return-slip-history-mark" title="${esc(labels[st]||'')}"><span class="dot ${st}"></span></span>`;
 }
+
+let historyBatchDeleteMode=false;
+let historyBatchSelected=new Set();
+
+function historyBatchCurrentIds(){
+ const c=currentCat();
+ return state.history.filter(h=>h.catId===c.id).map(h=>String(h.id));
+}
+function updateHistoryBatchBar(){
+ const bar=$('historyBatchBar'),btn=$('historyBatchDeleteBtn'),del=$('historyBatchConfirmBtn'),label=$('historyBatchCategory');
+ if(!bar||!btn||!del)return;
+ bar.classList.toggle('hidden',!historyBatchDeleteMode);
+ btn.setAttribute('aria-pressed',historyBatchDeleteMode?'true':'false');
+ btn.textContent=historyBatchDeleteMode?'批次刪除中':'批次刪除';
+ del.textContent=`刪除（${historyBatchSelected.size}）`;
+ del.disabled=historyBatchSelected.size===0;
+ if(label)label.textContent=`${currentCat()?.name||''}｜已選 ${historyBatchSelected.size} 筆`;
+}
+function enterHistoryBatchDelete(){
+ if(historyEditId||historyOkEditId){
+   alert('請先完成或取消目前的歷史編輯／補登，再進入批次刪除。');
+   return;
+ }
+ historyBatchDeleteMode=true;
+ historyBatchSelected.clear();
+ const old=$('historyBatchDeleteConfirm');if(old)old.remove();
+ renderTable();updateHistoryBatchBar();
+}
+function cancelHistoryBatchDelete(){
+ historyBatchDeleteMode=false;
+ historyBatchSelected.clear();
+ const old=$('historyBatchDeleteConfirm');if(old)old.remove();
+ renderTable();updateHistoryBatchBar();
+}
+function toggleHistoryBatchRecord(id,checked){
+ id=String(id||'');
+ if(!SAFE_ID.test(id)||!historyBatchCurrentIds().includes(id))return;
+ checked?historyBatchSelected.add(id):historyBatchSelected.delete(id);
+ renderTable();updateHistoryBatchBar();
+}
+function selectAllHistoryBatch(){
+ historyBatchSelected=new Set(historyBatchCurrentIds());
+ renderTable();updateHistoryBatchBar();
+}
+function clearHistoryBatchSelection(){
+ historyBatchSelected.clear();
+ renderTable();updateHistoryBatchBar();
+}
+function showHistoryBatchDeleteConfirm(){
+ const valid=historyBatchCurrentIds().filter(id=>historyBatchSelected.has(id));
+ if(!valid.length)return;
+ const existing=$('historyBatchDeleteConfirm');if(existing)existing.remove();
+ const box=document.createElement('div');box.id='historyBatchDeleteConfirm';box.className='history-batch-confirm';
+ const msg=document.createElement('span');
+ msg.textContent=`確定刪除已選取的 ${valid.length} 筆「${currentCat()?.name||''}」歷史紀錄嗎？刪除後會同步影響總覽、學生個人紀錄與相關統計。`;
+ const actions=document.createElement('span');actions.className='history-delete-actions';
+ const cancel=document.createElement('button');cancel.type='button';cancel.className='btn';cancel.textContent='取消';
+ cancel.addEventListener('click',()=>box.remove());
+ const ok=document.createElement('button');ok.type='button';ok.className='btn danger';ok.textContent=`確認刪除 ${valid.length} 筆`;
+ ok.addEventListener('click',()=>deleteHistoryBatch(valid));
+ actions.append(cancel,ok);box.append(msg,actions);
+ const wrap=document.querySelector('.history-table-wrap');
+ if(wrap)wrap.parentNode.insertBefore(box,wrap);
+ box.scrollIntoView({block:'nearest',behavior:'smooth'});
+}
+function deleteHistoryBatch(ids){
+ const currentIds=new Set(historyBatchCurrentIds());
+ const targets=new Set((Array.isArray(ids)?ids:[]).map(String).filter(id=>SAFE_ID.test(id)&&currentIds.has(id)));
+ if(!targets.size)return;
+ const catId=currentCat()?.id;
+ state.history=state.history.filter(h=>!targets.has(String(h.id)));
+ if(selectedIndependentSummaryId&&targets.has(String(selectedIndependentSummaryId)))selectedIndependentSummaryId='';
+ historyBatchSelected.clear();historyBatchDeleteMode=false;
+ if(catId)recomputeContinuousResolutions(catId);
+ save();
+ const box=$('historyBatchDeleteConfirm');if(box)box.remove();
+ renderAll();updateHistoryBatchBar();
+}
+
 function renderTable(){
  const c=currentCat(),cols=state.history.filter(h=>h.catId===c.id).sort(compareHistory);
+ if(historyBatchDeleteMode){const allowed=new Set(cols.map(h=>String(h.id)));historyBatchSelected=new Set([...historyBatchSelected].filter(id=>allowed.has(id)));}
  const headRow=document.createElement('tr');
  const corner=document.createElement('th');corner.className='diag-head';
  const prog=document.createElement('span');prog.className='diag-progress';prog.textContent='進度';
@@ -11130,7 +11232,18 @@ function renderTable(){
    }
    const progressDiv=document.createElement('div');progressDiv.className='history-progress-box';progressDiv.innerHTML=progressHTML(h);
    const dateDiv=document.createElement('div');dateDiv.textContent=h.date;
-   const controls=document.createElement('div');controls.className='history-record-controls';controls.style.cssText='display:flex;gap:4px;justify-content:center;flex-wrap:wrap;margin-top:5px';
+   if(historyBatchDeleteMode){
+     const pick=document.createElement('label');pick.className='history-batch-check-wrap';
+     const cb=document.createElement('input');cb.type='checkbox';cb.className='history-batch-check';cb.checked=historyBatchSelected.has(String(h.id));
+     cb.setAttribute('aria-label',`選取 ${c.name} ${h.date} ${h.content||''}`);
+     cb.addEventListener('click',ev=>ev.stopPropagation());
+     cb.addEventListener('change',ev=>{ev.stopPropagation();toggleHistoryBatchRecord(h.id,cb.checked)});
+     const txt=document.createElement('span');txt.textContent='選取';
+     pick.addEventListener('click',ev=>ev.stopPropagation());
+     pick.append(cb,txt);th.appendChild(pick);
+     if(cb.checked)th.classList.add('history-batch-selected');
+   }
+   const controls=document.createElement('div');controls.className='history-record-controls';controls.style.cssText=`display:${historyBatchDeleteMode?'none':'flex'};gap:4px;justify-content:center;flex-wrap:wrap;margin-top:5px`;
    const recordEdit=document.createElement('button');
    recordEdit.type='button';recordEdit.className=`btn history-record-edit-btn ${historyEditId===h.id?'active':''}`;
    recordEdit.style.cssText='padding:4px 7px;font-size:11px';
@@ -11176,7 +11289,7 @@ function renderTable(){
    del.addEventListener('click',()=>showHistoryDeleteConfirm(h));
    controls.appendChild(del);
    if(c.kind==='independent'&&selectedIndependentSummaryId===h.id){const note=document.createElement('div');note.className='history-viewing-note';note.textContent='目前查看';th.append(progressDiv,dateDiv,note,controls)}else th.append(progressDiv,dateDiv,controls);
-   if(c.kind==='independent')th.addEventListener('click',ev=>{if(ev.target.closest('button'))return;selectIndependentSummaryRecord(h.id)});
+   if(c.kind==='independent')th.addEventListener('click',ev=>{if(historyBatchDeleteMode||ev.target.closest('button,input,label'))return;selectIndependentSummaryRecord(h.id)});
    headRow.appendChild(th);
  });
  $('tableHead').replaceChildren(headRow);
@@ -11202,6 +11315,7 @@ function renderTable(){
      if(SAFE_ID.test(id)&&Number.isInteger(seat))toggleManualHistoryOK(id,seat);
    });
  });
+ updateHistoryBatchBar();
 }
 function showHistoryDeleteConfirm(h){
  const existing=$('historyDeleteConfirm');
@@ -11420,6 +11534,12 @@ function setHistoryCollapsed(collapsed,persist=false){
 try{historyCollapsed=localStorage.getItem(HISTORY_UI_KEY)==='1'}catch{historyCollapsed=false}
 setHistoryCollapsed(historyCollapsed,false);
 $('historyCollapseBtn').addEventListener('click',()=>setHistoryCollapsed(!historyCollapsed,true));
+$('historyBatchDeleteBtn').addEventListener('click',()=>historyBatchDeleteMode?cancelHistoryBatchDelete():enterHistoryBatchDelete());
+$('historyBatchSelectAllBtn').addEventListener('click',selectAllHistoryBatch);
+$('historyBatchClearBtn').addEventListener('click',clearHistoryBatchSelection);
+$('historyBatchCancelBtn').addEventListener('click',cancelHistoryBatchDelete);
+$('historyBatchConfirmBtn').addEventListener('click',showHistoryBatchDeleteConfirm);
+
 let homeworkEntryCollapsed=false;
 function setHomeworkEntryCollapsed(collapsed,persist=false){
  homeworkEntryCollapsed=!!collapsed;
@@ -11484,6 +11604,12 @@ $('clearHomeworkBtn').addEventListener('click',clearCurrentDraft);
 $('markAllPassBtn').addEventListener('click',markAllPass);
 $('updateHomeworkBtn').addEventListener('click',updateHomework);
 $('applyCountBtn').addEventListener('click',applyStudentCount);$('studentCount').addEventListener('keydown',e=>{if(e.key==='Enter')applyStudentCount()});
+function localDateStamp(d=new Date()){
+ const y=d.getFullYear();
+ const m=String(d.getMonth()+1).padStart(2,'0');
+ const day=String(d.getDate()).padStart(2,'0');
+ return `${y}${m}${day}`;
+}
 async function exportData(){
  const btn=$('exportBtn');
  const original=btn.textContent;
@@ -11494,7 +11620,7 @@ async function exportData(){
    // Export a validated snapshot, not raw/untrusted browser data.
    const safe=sanitizeState(state);
    const payload=JSON.stringify(safe,null,2);
-   const stamp=new Date().toISOString().slice(0,10).replace(/-/g,'');
+   const stamp=localDateStamp();
    const filename=`作業點名簿＋_備份_${stamp}.json`;
 
    // Preferred path on Chromium/Edge: this opens a real "save as" dialog
@@ -12176,7 +12302,7 @@ if(localStorage.getItem(CLOUD_AUTO_INIT_KEY)==='1'){
         });
       }
     } catch (err) {
-      console.warn('[alpha.215] 離線快取初始化失敗：', err);
+      console.warn('[alpha.217] 離線快取初始化失敗：', err);
     }
   };
 
